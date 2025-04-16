@@ -1,113 +1,109 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EchoShop - الصفحة الرئيسية</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EchoShop</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7fb;
       margin: 0;
       padding: 0;
-      direction: rtl;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
     }
+
     header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      padding: 20px 40px;
+      background: transparent;
     }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
+
+    .logo {
+      font-size: 28px;
       font-weight: bold;
+      color: #b3ff00;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      padding: 2rem;
-      text-align: center;
-    }
-    button {
-      background-color: #ff6f00;
-      color: white;
-      padding: 1rem 2rem;
+
+    .lang-btn {
+      background-color: #2563eb;
       border: none;
-      border-radius: 6px;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 1rem;
-      margin-top: 1rem;
     }
-    button:hover {
-      background-color: #fb8c00;
-    }
-    .features {
+
+    .main-section {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .feature {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 250px;
-    }
-    footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #dbe3ef;
-      margin-top: 3rem;
-      color: #1e1e1e;
+      height: calc(100vh - 100px);
+      padding: 0 20px;
+    }
+
+    .main-section h1 {
+      font-size: 60px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .main-section p {
+      font-size: 20px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .shop-btn {
+      padding: 15px 35px;
+      background: #b3ff00;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(179, 255, 0, 0.4);
+    }
+
+    .shopping-bag {
+      width: 260px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .main-section h1 {
+        font-size: 40px;
+      }
+      .shopping-bag {
+        width: 200px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>EchoShop</h1>
-    <nav>
-      <a href="login.html">تسجيل الدخول</a>
-      <a href="signup.html">إنشاء حساب</a>
-      <a href="products.html">المنتجات</a>
-      <a href="about.html">من نحن</a>
-      <a href="contact.html">تواصل معنا</a>
-      <a href="privacy.html">سياسة الخصوصية</a>
-      <a href="#">🌐 اللغة</a>
-    </nav>
+    <div class="logo">Echo</div>
+    <button class="lang-btn" onclick="switchLang()">English</button>
   </header>
 
-  <div class="container">
-    <h2 style="color: #0d47a1;">منصتك الموثوقة للتسوق الرقمي</h2>
-    <button onclick="location.href='products.html'">ابدأ التسوق الآن</button>
+  <section class="main-section">
+    <h1>Shop the latest</h1>
+    <p>Browse our collection of newest arrivals.</p>
+    <button class="shop-btn" onclick="location.href='products.html'">Shop Now</button>
+    <img class="shopping-bag" src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Shopping Bag">
+  </section>
 
-    <h3 style="margin-top: 3rem; color:#0d47a1;">مميزات منصتنا</h3>
-    <div class="features">
-      <div class="feature">
-        <h3>سهولة الاستخدام</h3>
-        <p>واجهة بسيطة وسريعة التصفح لجميع المستخدمين.</p>
-      </div>
-      <div class="feature">
-        <h3>دعم فني متواصل</h3>
-        <p>فريقنا جاهز دائمًا لمساعدتك على مدار الساعة.</p>
-      </div>
-      <div class="feature">
-        <h3>خيارات دفع متعددة</h3>
-        <p>نقدم حلول دفع مرنة وآمنة تناسب الجميع.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    جميع الحقوق محفوظة © EchoShop 2025
-  </footer>
+  <script>
+    function switchLang() {
+      alert("Language switching coming soon!");
+    }
+  </script>
 </body>
 </html>

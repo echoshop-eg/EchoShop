@@ -1,109 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EchoShop</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: transparent;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #b3ff00;
-    }
-
-    .lang-btn {
-      background-color: #2563eb;
-      border: none;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .main-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: calc(100vh - 100px);
-      padding: 0 20px;
-    }
-
-    .main-section h1 {
-      font-size: 60px;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-
-    .main-section p {
-      font-size: 20px;
-      color: #ddd;
-      margin-bottom: 30px;
-    }
-
-    .shop-btn {
-      padding: 15px 35px;
-      background: #b3ff00;
-      border: none;
-      color: #000;
-      font-weight: bold;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(179, 255, 0, 0.4);
-    }
-
-    .shopping-bag {
-      width: 260px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .main-section h1 {
-        font-size: 40px;
-      }
-      .shopping-bag {
-        width: 200px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">Echo</div>
-    <button class="lang-btn" onclick="switchLang()">English</button>
-  </header>
-
-  <section class="main-section">
-    <h1>Shop the latest</h1>
-    <p>Browse our collection of newest arrivals.</p>
-    <button class="shop-btn" onclick="location.href='products.html'">Shop Now</button>
-    <img class="shopping-bag" src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Shopping Bag">
-  </section>
-
-  <script>
-    function switchLang() {
-      alert("Language switching coming soon!");
-    }
-  </script>
+  <div class="hero">
+    <div class="content">
+      <h1>Shop the latest</h1>
+      <p>Browse our collection of newest arrivals.</p>
+      <a href="products.html" class="shop-btn">Shop Now</a>
+    </div>
+    <button class="lang-btn">English</button>
+  </div>
 </body>
 </html>

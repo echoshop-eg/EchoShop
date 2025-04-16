@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EchoShop</title>
+  <title>EchoShop - الصفحة الرئيسية</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,8 +16,20 @@
     header {
       background-color: #1e3a8a;
       color: white;
-      padding: 2rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     .container {
       padding: 2rem;
@@ -30,7 +43,7 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
-      margin: 10px;
+      margin-top: 1rem;
     }
     .features {
       display: flex;
@@ -56,14 +69,23 @@
 </head>
 <body>
   <header>
-    <h1>مرحبًا بك في EchoShop</h1>
-    <p>منصتك الموثوقة للتسوق الرقمي</p>
-    <button onclick="location.href='products.html'">تصفح المنتجات</button>
-    <button onclick="location.href='dashboard.html'">لوحة تحكم التاجر</button>
+    <h1>EchoShop</h1>
+    <nav>
+      <a href="login.html">تسجيل الدخول</a>
+      <a href="signup.html">إنشاء حساب</a>
+      <a href="products.html">المنتجات</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="#">🌐 اللغة</a>
+    </nav>
   </header>
 
   <div class="container">
-    <h2>مميزات منصتنا</h2>
+    <h2>منصتك الموثوقة للتسوق الرقمي</h2>
+    <button onclick="location.href='products.html'">ابدأ التسوق الآن</button>
+
+    <h3 style="margin-top: 3rem;">مميزات منصتنا</h3>
     <div class="features">
       <div class="feature">
         <h3>سهولة الاستخدام</h3>

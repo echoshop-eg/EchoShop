@@ -1,140 +1,212 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a;
-  color: #ffffff;
-  direction: rtl;
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم - EchoShop</title>
+  <link rel="stylesheet" href="dashboard-style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
+    }
 
-.sidebar {
-  width: 200px;
-  background-color: #1e293b;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 20px;
-}
+    header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-.sidebar h2 {
-  color: #a3e635;
-  margin-bottom: 30px;
-  text-align: center;
-}
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
 
-.sidebar ul li {
-  margin-bottom: 15px;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
 
-.sidebar ul li a {
-  text-decoration: none;
-  color: #f1f5f9;
-  transition: 0.2s;
-}
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
 
-.sidebar ul li a:hover {
-  color: #38bdf8;
-}
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
 
-.main {
-  margin-right: 220px;
-  padding: 30px;
-}
+    .dashboard {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
 
-.balance-box {
-  background-color: #22c55e;
-  padding: 15px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 30px;
-}
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-.stats {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-}
+    .card {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
 
-.stat-box {
-  background-color: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;
-  text-align: center;
-  font-size: 16px;
-}
+    .card h2 {
+      margin: 0;
+      color: #a3e635;
+      font-size: 2rem;
+    }
 
-.section-title {
-  margin: 40px 0 15px;
-  font-size: 22px;
-  color: #fbbf24;
-}
+    .card p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #e0f2fe;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-th, td {
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid #334155;
-}
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
 
-th {
-  background-color: #0f172a;
-  color: #f8fafc;
-}
+    th {
+      background-color: #0f172a;
+      color: #60a5fa;
+    }
 
-.status {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 14px;
-  display: inline-block;
-}
+    tr:hover {
+      background-color: #334155;
+    }
 
-.status.processing {
-  background-color: #0ea5e9;
-  color: white;
-}
+    h1 {
+      text-align: center;
+      color: #3b82f6;
+      margin-bottom: 30px;
+    }
 
-.status.shipped {
-  background-color: #8b5cf6;
-  color: white;
-}
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="dashboard.html">لوحة التحكم</a>
+        <a href="orders.html">الطلبات</a>
+        <a href="settings.html">الإعدادات</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="about.html">من نحن</a>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="register.html">تسجيل تاجر</a>
+        <a href="add-product.html">إضافة منتج</a>
+        <a href="login.html">تسجيل الدخول</a>
+        <a href="signup.html">إنشاء حساب</a>
+      </nav>
+    </div>
+  </header>
 
-.status.delivered {
-  background-color: #22c55e;
-  color: white;
-}
+  <div class="dashboard">
+    <h1>لوحة التحكم</h1>
 
-.status.canceled {
-  background-color: #ef4444;
-  color: white;
-}
+    <div class="stats">
+      <div class="card">
+        <h2>120</h2>
+        <p>عدد الطلبات</p>
+      </div>
+      <div class="card">
+        <h2>85</h2>
+        <p>عدد المنتجات</p>
+      </div>
+      <div class="card">
+        <h2>45</h2>
+        <p>عدد العملاء</p>
+      </div>
+      <div class="card">
+        <h2>5000 ج</h2>
+        <p>أرباح اليوم</p>
+      </div>
+    </div>
 
-.status.returned {
-  background-color: #f97316;
-  color: white;
-}
-
-.status.completed {
-  background-color: #16a34a;
-  color: white;
-}
-
-.status.pending {
-  background-color: #facc15;
-  color: #000;
-}
+    <h2 style="text-align: center; color: #38bdf8;">أحدث الطلبات</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>رقم الطلب</th>
+          <th>العميل</th>
+          <th>المنتج</th>
+          <th>السعر</th>
+          <th>الحالة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1001</td>
+          <td>أحمد علي</td>
+          <td>سماعة بلوتوث</td>
+          <td>250 ج</td>
+          <td>قيد التوصيل</td>
+        </tr>
+        <tr>
+          <td>#1002</td>
+          <td>ليلى سمير</td>
+          <td>كابل USB</td>
+          <td>75 ج</td>
+          <td>تم التوصيل</td>
+        </tr>
+        <tr>
+          <td>#1003</td>
+          <td>كريم نادر</td>
+          <td>باور بانك</td>
+          <td>400 ج</td>
+          <td>بانتظار الشحن</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

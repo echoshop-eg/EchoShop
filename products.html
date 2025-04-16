@@ -2,14 +2,66 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>المنتجات</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>منتجاتي - EchoShop</title>
+  <link rel="stylesheet" href="dashboard-style.css">
 </head>
 <body>
-  <h1>قائمة المنتجات</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a> |
-    <a href="cart.html">السلة</a>
-  </nav>
+  <div class="sidebar">
+    <h2>EchoShop</h2>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="products.html">منتجاتي</a></li>
+      <li><a href="#">الطلبات</a></li>
+      <li><a href="#">المدفوعات</a></li>
+      <li><a href="#">الإشعارات</a></li>
+      <li><a href="#">الإعدادات</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h1 class="section-title">منتجاتي</h1>
+    <button onclick="location.href='add-product.html'" style="margin-bottom: 20px; padding: 10px 20px; background-color: #3b82f6; border: none; border-radius: 6px; color: white; font-size: 1rem;">➕ إضافة منتج جديد</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>اسم المنتج</th>
+          <th>الفئة</th>
+          <th>السعر</th>
+          <th>الكمية</th>
+          <th>الحالة</th>
+          <th>مراجعة الأدمن</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>هاتف ذكي</td>
+          <td>إلكترونيات</td>
+          <td>EGP 4,500</td>
+          <td>15</td>
+          <td><span class="status delivered">نشط</span></td>
+          <td><span class="status completed">موافق عليه</span></td>
+          <td>
+            <button style="background:#0ea5e9; color:white; border:none; padding:5px 10px; border-radius:5px;">تعديل</button>
+            <button style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:5px;">حذف</button>
+          </td>
+        </tr>
+        <tr>
+          <td>حقيبة مدرسية</td>
+          <td>أدوات مدرسية</td>
+          <td>EGP 180</td>
+          <td>50</td>
+          <td><span class="status canceled">غير نشط</span></td>
+          <td><span class="status pending">في الانتظار</span></td>
+          <td>
+            <button style="background:#0ea5e9; color:white; border:none; padding:5px 10px; border-radius:5px;">تعديل</button>
+            <button style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:5px;">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

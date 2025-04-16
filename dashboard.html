@@ -1,108 +1,58 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>لوحة تحكم التاجر - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <title>لوحة تحكم التاجر | EchoShop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #1e3a8a;
+    }
+    .card {
+      background-color: white;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>EchoShop</h2>
-    <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Orders</a></li>
-      <li><a href="#">My Products</a></li>
-      <li><a href="#">Payments</a></li>
-      <li><a href="#">Notifications</a></li>
-      <li><a href="#">Settings</a></li>
-    </ul>
-  </div>
-
-  <div class="main">
-    <div class="balance-box">رصيدك الحالي: <span>EGP 2,950.00</span></div>
-
-    <div class="stats">
-      <div class="stat-box">إجمالي الطلبات<br><strong>10</strong></div>
-      <div class="stat-box">طلبات قيد الشحن<br><strong>2</strong></div>
-      <div class="stat-box">تم التوصيل<br><strong>7</strong></div>
+  <header>
+    <h1>لوحة تحكم التاجر</h1>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>إحصائيات</h2>
+      <p>إجمالي المبيعات: ٣٠،٠٠٠ ج.م</p>
+      <p>الطلبات النشطة: ٥</p>
     </div>
-
-    <h2 class="section-title">الطلبات</h2>
-    <table class="orders-table">
-      <thead>
-        <tr>
-          <th>رقم الطلب</th>
-          <th>العميل</th>
-          <th>المنتج</th>
-          <th>القيمة</th>
-          <th>الحالة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#1001</td>
-          <td>Alice Smith</td>
-          <td>Smartphone</td>
-          <td>EGP 1,200.00</td>
-          <td><span class="status processing">جاري المعالجة</span></td>
-        </tr>
-        <tr>
-          <td>#1002</td>
-          <td>John Doe</td>
-          <td>Running Shoes</td>
-          <td>EGP 250.00</td>
-          <td><span class="status shipped">لم الشحن</span></td>
-        </tr>
-        <tr>
-          <td>#1003</td>
-          <td>Bob Johnson</td>
-          <td>Wrist Watch</td>
-          <td>EGP 120.00</td>
-          <td><span class="status delivered">تم التوصيل</span></td>
-        </tr>
-        <tr>
-          <td>#1004</td>
-          <td>Emily White</td>
-          <td>Backpack</td>
-          <td>EGP 250.00</td>
-          <td><span class="status canceled">ملغي</span></td>
-        </tr>
-        <tr>
-          <td>#1005</td>
-          <td>David Brown</td>
-          <td>Tablet</td>
-          <td>EGP Tablet</td>
-          <td><span class="status returned">تم الإرجاع</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 class="section-title">المدفوعات</h2>
-    <table class="payments-table">
-      <thead>
-        <tr>
-          <th>التاريخ</th>
-          <th>القيمة</th>
-          <th>عدد الطلبات</th>
-          <th>الحالة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2024-04-10</td>
-          <td>EGP 1,750.00</td>
-          <td>5</td>
-          <td><span class="status completed">تمت</span></td>
-        </tr>
-        <tr>
-          <td>2024-04-03</td>
-          <td>EGP 1,200.00</td>
-          <td>3</td>
-          <td><span class="status pending">قيد الانتظار</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card">
+      <h2>منتجاتك</h2>
+      <p>عدد المنتجات المفعّلة: ٨</p>
+      <p>بانتظار المراجعة: ٢</p>
+    </div>
   </div>
 </body>
 </html>

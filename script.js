@@ -1,3 +1,1 @@
-function startShopping() {
-  alert("Shopping started!");
-}
+console.log('EchoShop script loaded');

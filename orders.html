@@ -2,23 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EchoShop</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoShop - Orders</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #020617;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+    }
+    nav a {
+      margin-left: 1rem;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .container {
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #1e293b;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background-color: #0f172a;
+    }
+    .status {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .processing { background-color: #0ea5e9; color: white; }
+    .shipped { background-color: #8b5cf6; color: white; }
+    .delivered { background-color: #22c55e; color: white; }
+    .canceled { background-color: #ef4444; color: white; }
+    .returned { background-color: #f97316; color: white; }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background-color: #0f172a;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Echo</h1>
-    <button class="lang-btn">English</button>
+    <div class="logo">EchoShop</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html">Login</a>
+    </nav>
   </header>
 
-  <main class="hero">
-    <div class="text-box">
-      <h2>Shop the latest</h2>
-      <p>Browse our collection of newest arrivals.</p>
-      <a href="products.html" class="shop-btn">Shop Now</a>
-    </div>
-    <div class="bag-graphic"></div>
-  </main>
+  <div class="container">
+    <h1>Order History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1001</td>
+          <td>Alice Smith</td>
+          <td>Smartphone</td>
+          <td>EGP 1,200.00</td>
+          <td><span class="status processing">Processing</span></td>
+          <td>2025-04-14</td>
+        </tr>
+        <tr>
+          <td>#1002</td>
+          <td>John Doe</td>
+          <td>Running Shoes</td>
+          <td>EGP 250.00</td>
+          <td><span class="status shipped">Shipped</span></td>
+          <td>2025-04-12</td>
+        </tr>
+        <tr>
+          <td>#1003</td>
+          <td>Bob Johnson</td>
+          <td>Wrist Watch</td>
+          <td>EGP 120.00</td>
+          <td><span class="status delivered">Delivered</span></td>
+          <td>2025-04-10</td>
+        </tr>
+        <tr>
+          <td>#1004</td>
+          <td>Emily White</td>
+          <td>Backpack</td>
+          <td>EGP 250.00</td>
+          <td><span class="status canceled">Canceled</span></td>
+          <td>2025-04-08</td>
+        </tr>
+        <tr>
+          <td>#1005</td>
+          <td>David Brown</td>
+          <td>Tablet</td>
+          <td>EGP 999.00</td>
+          <td><span class="status returned">Returned</span></td>
+          <td>2025-04-06</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    &copy; 2025 EchoShop. All rights reserved.
+  </footer>
 </body>
 </html>

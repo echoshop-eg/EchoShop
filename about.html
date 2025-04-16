@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -13,6 +12,27 @@
       margin: 0;
       padding: 0;
       direction: rtl;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #020617;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+    }
+    nav a {
+      margin-right: 1rem;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
     .container {
       max-width: 800px;
@@ -30,14 +50,44 @@
       line-height: 1.8;
       margin-bottom: 20px;
     }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background-color: #0f172a;
+    }
   </style>
 </head>
 <body>
+
+  <header>
+    <div class="logo">EchoShop</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="products.html">المنتجات</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="orders.html">الطلبات</a>
+      <a href="settings.html">الإعدادات</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="about.html">من نحن</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="register.html">تسجيل تاجر</a>
+      <a href="add-product.html">إضافة منتج</a>
+      <a href="login.html">تسجيل الدخول</a>
+      <a href="signup.html">إنشاء حساب</a>
+    </nav>
+  </header>
+
   <div class="container">
     <h1>من نحن</h1>
     <p>EchoShop هي منصة تجارة إلكترونية مبتكرة تهدف إلى ربط البائعين بالمشترين بطريقة سهلة وآمنة. نعمل على تمكين الجميع من عرض منتجاتهم وبيعها بكل بساطة، مع تقديم تجربة مستخدم مميزة وواجهة عربية وإنجليزية حديثة.</p>
     <p>نحن نؤمن بقوة التجارة الرقمية في تحسين حياة الناس. لذلك، نقدم أدوات متطورة للبائعين مثل لوحة تحكم ذكية، نظام تتبع الطلبات، وتحليلات الأداء. وللمشترين، نوفر سهولة في التصفح، خيارات دفع متعددة، وتجربة تسوق ممتعة.</p>
     <p>هدفنا هو أن نصبح المنصة الرائدة في التجارة الإلكترونية في العالم العربي، من خلال بناء ثقة قوية مع المستخدمين وتقديم خدمة عملاء استثنائية.</p>
   </div>
+
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
+
 </body>
 </html>

@@ -1,78 +1,24 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>طلباتي - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EchoShop</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sidebar">
-    <h2>EchoShop</h2>
-    <ul>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="products.html">منتجاتي</a></li>
-      <li><a href="orders.html">طلباتي</a></li>
-      <li><a href="#">المدفوعات</a></li>
-      <li><a href="#">الإشعارات</a></li>
-      <li><a href="#">الإعدادات</a></li>
-    </ul>
-  </div>
+  <header>
+    <h1>Echo</h1>
+    <button class="lang-btn">English</button>
+  </header>
 
-  <div class="main">
-    <h1 class="section-title">الطلبات</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>رقم الطلب</th>
-          <th>المنتج</th>
-          <th>العميل</th>
-          <th>العنوان</th>
-          <th>تاريخ الطلب</th>
-          <th>الدفع</th>
-          <th>الحالة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#202401</td>
-          <td>هاتف ذكي</td>
-          <td>أحمد علي</td>
-          <td>القاهرة، مدينة نصر</td>
-          <td>2025-04-17</td>
-          <td>عند الاستلام</td>
-          <td><span class="status processing">جاري المعالجة</span></td>
-        </tr>
-        <tr>
-          <td>#202402</td>
-          <td>سماعات بلوتوث</td>
-          <td>سارة محمد</td>
-          <td>الإسكندرية، سموحة</td>
-          <td>2025-04-16</td>
-          <td>أونلاين</td>
-          <td><span class="status shipped">تم الشحن</span></td>
-        </tr>
-        <tr>
-          <td>#202403</td>
-          <td>شنطة مدرسية</td>
-          <td>علي يوسف</td>
-          <td>طنطا، شارع الجيش</td>
-          <td>2025-04-14</td>
-          <td>عند الاستلام</td>
-          <td><span class="status delivered">تم التوصيل</span></td>
-        </tr>
-        <tr>
-          <td>#202404</td>
-          <td>ساعة يد</td>
-          <td>منى خالد</td>
-          <td>الجيزة، الهرم</td>
-          <td>2025-04-12</td>
-          <td>أونلاين</td>
-          <td><span class="status canceled">ملغي</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <main class="hero">
+    <div class="text-box">
+      <h2>Shop the latest</h2>
+      <p>Browse our collection of newest arrivals.</p>
+      <a href="products.html" class="shop-btn">Shop Now</a>
+    </div>
+    <div class="bag-graphic"></div>
+  </main>
 </body>
 </html>

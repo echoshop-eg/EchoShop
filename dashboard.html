@@ -1,124 +1,232 @@
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vendor Dashboard - EchoShop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Dashboard | EchoShop</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0f172a;
-      color: #fff;
+      color: #f1f5f9;
     }
+
     .sidebar {
-      width: 200px;
-      height: 100vh;
+      width: 250px;
       background-color: #1e293b;
+      height: 100vh;
+      padding: 1.5rem;
       position: fixed;
-      padding: 20px;
     }
+
     .sidebar h2 {
-      color: #8b5cf6;
-      margin-bottom: 30px;
+      color: #a3e635;
+      margin-bottom: 2rem;
     }
+
     .sidebar ul {
       list-style: none;
       padding: 0;
     }
+
     .sidebar ul li {
-      margin: 15px 0;
+      margin-bottom: 1rem;
+      cursor: pointer;
     }
-    .sidebar ul li a {
-      color: #cbd5e1;
-      text-decoration: none;
+
+    .sidebar ul li:hover {
+      color: #a3e635;
     }
+
     .main {
-      margin-left: 220px;
-      padding: 20px;
+      margin-left: 270px;
+      padding: 2rem;
     }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-group {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
     .card {
       background-color: #1e293b;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 100%;
+      text-align: center;
     }
+
     .card h3 {
-      margin: 0 0 10px;
+      margin-bottom: 0.5rem;
     }
-    .orders, .payments {
-      display: flex;
-      gap: 20px;
-    }
-    .table {
-      background-color: #334155;
-      border-radius: 8px;
-      padding: 10px;
-      flex: 1;
-    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      color: #fff;
+      margin-top: 1rem;
     }
-    th, td {
+
+    table th, table td {
+      padding: 0.75rem;
       text-align: left;
-      padding: 8px;
-      border-bottom: 1px solid #475569;
+      border-bottom: 1px solid #334155;
     }
-    .status {
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 12px;
+
+    .badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: white;
     }
-    .Processing { background-color: #1e40af; }
-    .Shipped { background-color: #0ea5e9; }
-    .Delivered { background-color: #10b981; }
-    .Canceled { background-color: #ef4444; }
-    .Returned { background-color: #f59e0b; }
-    .Completed { background-color: #22c55e; }
-    .Pending { background-color: #facc15; }
+
+    .processing { background-color: #0ea5e9; }
+    .shipped { background-color: #6366f1; }
+    .delivered { background-color: #22c55e; }
+    .canceled { background-color: #ef4444; }
+    .returned { background-color: #f97316; }
+
+    .section-title {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .balance-box {
+      background-color: #22c55e;
+      padding: 1rem;
+      color: #1e293b;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-left: auto;
+    }
+
+    a {
+      color: #60a5fa;
+    }
   </style>
 </head>
 <body>
+
   <div class="sidebar">
     <h2>EchoShop</h2>
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Orders</a></li>
-      <li><a href="#">My Products</a></li>
-      <li><a href="#">Payments</a></li>
-      <li><a href="#">Notifications</a></li>
-      <li><a href="#">Settings</a></li>
+      <li>Dashboard</li>
+      <li>Orders</li>
+      <li>My Products</li>
+      <li>Payments</li>
+      <li>Notifications</li>
+      <li>Settings</li>
     </ul>
   </div>
+
   <div class="main">
-    <div class="card">
-      <h3>Vendor Dashboard</h3>
-      <p>Overview of your activities</p>
+    <div class="dashboard-header">
+      <h1>Vendor Dashboard</h1>
+      <div class="balance-box">💰 EGP 2,950.00</div>
     </div>
-    <div class="orders">
-      <div class="table">
-        <h4>Orders</h4>
-        <table>
-          <tr><th>ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th></tr>
-          <tr><td>#1001</td><td>Alice</td><td>Phone</td><td>EGP 1200</td><td><span class="status Processing">Processing</span></td></tr>
-          <tr><td>#1002</td><td>John</td><td>Shoes</td><td>EGP 250</td><td><span class="status Shipped">Shipped</span></td></tr>
-          <tr><td>#1003</td><td>Bob</td><td>Watch</td><td>EGP 120</td><td><span class="status Delivered">Delivered</span></td></tr>
-          <tr><td>#1004</td><td>Emily</td><td>Backpack</td><td>EGP 250</td><td><span class="status Canceled">Canceled</span></td></tr>
-          <tr><td>#1005</td><td>David</td><td>Tablet</td><td>EGP Tablet</td><td><span class="status Returned">Returned</span></td></tr>
-        </table>
+
+    <div class="card-group">
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>10</p>
       </div>
-      <div class="table">
-        <h4>Payments</h4>
-        <table>
-          <tr><th>Date</th><th>Amount</th><th>Status</th></tr>
-          <tr><td>2024-04-10</td><td>EGP 1750</td><td><span class="status Completed">Completed</span></td></tr>
-          <tr><td>2024-04-03</td><td>EGP 1200</td><td><span class="status Pending">Pending</span></td></tr>
-        </table>
+      <div class="card">
+        <h3>Orders in Transit</h3>
+        <p>2</p>
+      </div>
+      <div class="card">
+        <h3>Delivered</h3>
+        <p>7</p>
       </div>
     </div>
+
+    <h2 class="section-title">Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1001</td>
+          <td>Alice Smith</td>
+          <td>Smartphone</td>
+          <td>EGP 1,200.00</td>
+          <td><span class="badge processing">Processing</span></td>
+        </tr>
+        <tr>
+          <td>#1002</td>
+          <td>John Doe</td>
+          <td>Running Shoes</td>
+          <td>EGP 250.00</td>
+          <td><span class="badge shipped">Shipped</span></td>
+        </tr>
+        <tr>
+          <td>#1003</td>
+          <td>Bob Johnson</td>
+          <td>Wrist Watch</td>
+          <td>EGP 120.00</td>
+          <td><span class="badge delivered">Delivered</span></td>
+        </tr>
+        <tr>
+          <td>#1004</td>
+          <td>Emily White</td>
+          <td>Backpack</td>
+          <td>EGP 250.00</td>
+          <td><span class="badge canceled">Canceled</span></td>
+        </tr>
+        <tr>
+          <td>#1005</td>
+          <td>David Brown</td>
+          <td>Tablet</td>
+          <td>EGP Tablet</td>
+          <td><span class="badge returned">Returned</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-title">Payments</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Orders</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-04-10</td>
+          <td>EGP 1,750.00</td>
+          <td>5</td>
+          <td><span class="badge delivered">Completed</span></td>
+        </tr>
+        <tr>
+          <td>2024-04-03</td>
+          <td>EGP 1,200.00</td>
+          <td>3</td>
+          <td><span class="badge processing">Pending</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><a href="#">Download PDF</a></p>
   </div>
+
 </body>
 </html>
-    

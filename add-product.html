@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,6 +6,39 @@
   <title>إضافة منتج جديد - EchoShop</title>
   <link rel="stylesheet" href="dashboard-style.css">
   <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #020617;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
     form {
       background-color: #1e293b;
       padding: 30px;
@@ -39,15 +71,33 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">EchoShop</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="products.html">المنتجات</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="orders.html">الطلبات</a>
+      <a href="settings.html">الإعدادات</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="about.html">من نحن</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="register.html">تسجيل تاجر</a>
+      <a href="add-product.html">إضافة منتج</a>
+      <a href="login.html">تسجيل الدخول</a>
+      <a href="signup.html">إنشاء حساب</a>
+    </nav>
+  </header>
+
   <div class="sidebar">
     <h2>EchoShop</h2>
     <ul>
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="products.html">منتجاتي</a></li>
-      <li><a href="#">الطلبات</a></li>
-      <li><a href="#">المدفوعات</a></li>
-      <li><a href="#">الإشعارات</a></li>
-      <li><a href="#">الإعدادات</a></li>
+      <li><a href="orders.html">الطلبات</a></li>
+      <li><a href="payments.html">المدفوعات</a></li>
+      <li><a href="notifications.html">الإشعارات</a></li>
+      <li><a href="settings.html">الإعدادات</a></li>
     </ul>
   </div>
 

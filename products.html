@@ -1,28 +1,69 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="en" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>منتجاتي - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <title>المنتجات | EchoShop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #1e3a8a;
+      color: white;
+    }
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        padding-left: 10px;
+        font-weight: bold;
+        color: #1e3a8a;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>EchoShop</h2>
-    <ul>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="products.html">منتجاتي</a></li>
-      <li><a href="#">الطلبات</a></li>
-      <li><a href="#">المدفوعات</a></li>
-      <li><a href="#">الإشعارات</a></li>
-      <li><a href="#">الإعدادات</a></li>
-    </ul>
-  </div>
-
-  <div class="main">
-    <h1 class="section-title">منتجاتي</h1>
-    <button onclick="location.href='add-product.html'" style="margin-bottom: 20px; padding: 10px 20px; background-color: #3b82f6; border: none; border-radius: 6px; color: white; font-size: 1rem;">➕ إضافة منتج جديد</button>
-
+  <header>
+    <h1>قائمة المنتجات</h1>
+  </header>
+  <div class="container">
     <table>
       <thead>
         <tr>
@@ -31,34 +72,22 @@
           <th>السعر</th>
           <th>الكمية</th>
           <th>الحالة</th>
-          <th>مراجعة الأدمن</th>
-          <th>الإجراءات</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>هاتف ذكي</td>
-          <td>إلكترونيات</td>
-          <td>EGP 4,500</td>
-          <td>15</td>
-          <td><span class="status delivered">نشط</span></td>
-          <td><span class="status completed">موافق عليه</span></td>
-          <td>
-            <button style="background:#0ea5e9; color:white; border:none; padding:5px 10px; border-radius:5px;">تعديل</button>
-            <button style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:5px;">حذف</button>
-          </td>
+          <td data-label="اسم المنتج">سماعة بلوتوث</td>
+          <td data-label="الفئة">إلكترونيات</td>
+          <td data-label="السعر">250 ج.م</td>
+          <td data-label="الكمية">10</td>
+          <td data-label="الحالة">نشط</td>
         </tr>
         <tr>
-          <td>حقيبة مدرسية</td>
-          <td>أدوات مدرسية</td>
-          <td>EGP 180</td>
-          <td>50</td>
-          <td><span class="status canceled">غير نشط</span></td>
-          <td><span class="status pending">في الانتظار</span></td>
-          <td>
-            <button style="background:#0ea5e9; color:white; border:none; padding:5px 10px; border-radius:5px;">تعديل</button>
-            <button style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:5px;">حذف</button>
-          </td>
+          <td data-label="اسم المنتج">تيشيرت رجالي</td>
+          <td data-label="الفئة">ملابس</td>
+          <td data-label="السعر">150 ج.م</td>
+          <td data-label="الكمية">25</td>
+          <td data-label="الحالة">نشط</td>
         </tr>
       </tbody>
     </table>

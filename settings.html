@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إعدادات الحساب - EchoShop</title>
+  <link rel="stylesheet" href="dashboard-style.css">
+  <style>
+    form {
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #f8fafc;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input[type="submit"] {
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>EchoShop</h2>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="products.html">منتجاتي</a></li>
+      <li><a href="orders.html">طلباتي</a></li>
+      <li><a href="#">المدفوعات</a></li>
+      <li><a href="#">الإشعارات</a></li>
+      <li><a href="settings.html">الإعدادات</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h1 class="section-title">إعدادات الحساب</h1>
+    <form>
+      <label for="name">الاسم الكامل</label>
+      <input type="text" id="name" name="name" placeholder="ماجد منير">
+
+      <label for="email">البريد الإلكتروني</label>
+      <input type="email" id="email" name="email" placeholder="email@example.com">
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" name="phone" placeholder="0123456789">
+
+      <label for="password">كلمة المرور (اختياري)</label>
+      <input type="password" id="password" name="password" placeholder="********">
+
+      <label for="language">اللغة المفضلة</label>
+      <select id="language" name="language">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+
+      <label for="notifications">الإشعارات</label>
+      <select id="notifications" name="notifications">
+        <option value="on">تشغيل</option>
+        <option value="off">إيقاف</option>
+      </select>
+
+      <input type="submit" value="💾 حفظ التغييرات">
+    </form>
+  </div>
+</body>
+</html>

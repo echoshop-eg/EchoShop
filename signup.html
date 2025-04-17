@@ -1,98 +1,186 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تسجيل حساب جديد - EchoShop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #0f172a;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
     }
-    .signup-box {
-      background-color: #1e293b;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      width: 100%;
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
+      color: white;
+    }
+
+    header {
+      background-color: #0f172a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a, nav button {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover, nav button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .signup-container {
       max-width: 450px;
+      margin: 80px auto;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
-    h2 {
+
+    .signup-container h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       color: #3b82f6;
     }
+
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
     }
-    input {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin-bottom: 20px;
-      border: none;
       border-radius: 6px;
+      border: none;
       font-size: 1rem;
     }
-    button {
+
+    input[type="submit"] {
       width: 100%;
       padding: 12px;
-      background-color: #3b82f6;
-      color: white;
+      background-color: #a3e635;
+      color: black;
+      font-weight: bold;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-    button:hover {
-      background-color: #2563eb;
+
+    input[type="submit"]:hover {
+      background-color: #bef264;
     }
-    .links {
-      text-align: center;
+
+    .footer-link {
       margin-top: 15px;
-    }
-    .links a {
-      color: #38bdf8;
-      text-decoration: none;
+      text-align: center;
       font-size: 0.9rem;
     }
-    .links a:hover {
+
+    .footer-link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="signup-box">
-    <h2>تسجيل حساب جديد</h2>
-    <form>
-      <label for="fullname">الاسم الكامل</label>
-      <input type="text" id="fullname" name="fullname" placeholder="ماجد منير" required>
 
-      <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="email@example.com" required>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="contact.html">Help</a>
+        <button onclick="toggleLang()" id="langBtn">Arabic</button>
+      </nav>
+    </div>
+  </header>
 
-      <label for="phone">رقم الهاتف</label>
-      <input type="tel" id="phone" name="phone" placeholder="0123456789" required>
+  <div class="signup-container">
+    <h1>Create Account</h1>
+    <form action="#" method="post">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
 
-      <label for="password">كلمة المرور</label>
-      <input type="password" id="password" name="password" placeholder="********" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
 
-      <label for="confirm-password">تأكيد كلمة المرور</label>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="********" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
 
-      <button type="submit">📋 إنشاء الحساب</button>
+      <input type="submit" value="Sign Up" />
     </form>
-    <div class="links">
-      <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+    <div class="footer-link">
+      Already have an account? <a href="login.html">Login here</a>
     </div>
   </div>
+
+  <script>
+    function toggleLang() {
+      const langBtn = document.getElementById('langBtn');
+      if (langBtn.textContent === 'Arabic') {
+        langBtn.textContent = 'English';
+        alert('سيتم التحويل إلى اللغة العربية قريبًا!');
+      } else {
+        langBtn.textContent = 'Arabic';
+        alert('Will switch back to English soon!');
+      }
+    }
+  </script>
 </body>
 </html>

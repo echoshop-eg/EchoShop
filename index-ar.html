@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoShop - الرئيسية</title>
+  <title>الصفحة الرئيسية - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
@@ -78,7 +74,7 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
 
@@ -112,7 +108,7 @@
     .section-title {
       font-size: 2rem;
       margin-bottom: 1rem;
-      text-align: right;
+      text-align: center;
     }
 
     .products-grid {
@@ -148,19 +144,42 @@
       color: #94a3b8;
     }
 
+    .help-section {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .help-section a {
+      color: #60a5fa;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .banners {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .banners img {
+      max-width: 90%;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
       }
 
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .hero-img {
         margin-top: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
       }
     }
   </style>
@@ -174,50 +193,54 @@
         <a href="login-ar.html">تسجيل الدخول</a>
         <a href="signup-ar.html">إنشاء حساب</a>
         <a href="contact.html">مساعدة</a>
-        <button onclick="switchToEnglish()">English</button>
+        <a href="index.html">English</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-text">
-      <h1>تسوّق أحدث المنتجات</h1>
-      <p>تصفّح مجموعتنا الجديدة المختارة بعناية.</p>
-      <button class="shop-btn" onclick="location.href='products-ar.html'">ابدأ التسوّق</button>
+      <h1>تسوق أحدث المنتجات</h1>
+      <p>تصفح أحدث العروض والمنتجات الجديدة على EchoShop.</p>
+      <button class="shop-btn" onclick="location.href='products.html'">ابدأ التسوق</button>
     </div>
     <div class="hero-img"></div>
   </section>
 
+  <section class="banners">
+    <img src="https://via.placeholder.com/900x250?text=بانر+رئيسي" alt="بانر رئيسي">
+    <img src="https://via.placeholder.com/800x150?text=عرض+ترويجي" alt="عرض ترويجي">
+  </section>
+
   <section class="sections">
-    <div class="section-title">أفضل العروض</div>
+    <div class="section-title">صفقات مميزة</div>
     <div class="products-grid">
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="Smartphone">
+        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="هاتف ذكي">
         <h4>هواتف ذكية</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2886/2886123.png" alt="Shoes">
+        <img src="https://cdn-icons-png.flaticon.com/512/2886/2886123.png" alt="أحذية">
         <h4>أحذية</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Headphones">
+        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="سماعات">
         <h4>سماعات</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="Tools">
-        <h4>أدوات منزلية</h4>
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="معدات منزلية">
+        <h4>معدات منزلية</h4>
       </div>
     </div>
   </section>
 
+  <section class="help-section">
+    <p>هل تحتاج إلى المساعدة؟ <a href="contact.html">تواصل معنا من هنا</a>.</p>
+  </section>
+
   <footer>
-    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+    &copy; 2025 EchoShop - جميع الحقوق محفوظة.
   </footer>
 
-  <script>
-    function switchToEnglish() {
-      window.location.href = "index.html";
-    }
-  </script>
 </body>
 </html>

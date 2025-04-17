@@ -1,125 +1,75 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الطلبات - EchoShop</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
       color: white;
     }
-
     header {
-      background-color: #020617;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
+      background-color: #1e293b;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
       flex-wrap: wrap;
     }
-
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #a3e635;
       text-decoration: none;
     }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
     nav a {
       background-color: #2563eb;
       color: white;
-      padding: 8px 16px;
+      padding: 0.5rem 1rem;
       border-radius: 20px;
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: background-color 0.3s;
+      margin-left: 0.5rem;
     }
-
-    nav a:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 60px auto;
-      background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
+    h2 {
       text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
+      margin: 2rem 0 1rem;
     }
-
+    .table-container {
+      overflow-x: auto;
+      padding: 1rem 2rem;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #0f172a;
+      background-color: #1e293b;
       border-radius: 10px;
       overflow: hidden;
     }
-
     th, td {
-      padding: 14px;
+      padding: 1rem;
       text-align: center;
       border-bottom: 1px solid #334155;
     }
-
     th {
-      background-color: #1e293b;
-      color: #60a5fa;
+      background-color: #2563eb;
     }
-
     tr:hover {
-      background-color: #334155;
+      background-color: #1d4ed8;
     }
-
-    .status-pending {
-      color: #facc15;
+    footer {
+      background-color: #0f172a;
+      text-align: center;
+      padding: 1rem;
+      color: #64748b;
+      margin-top: 2rem;
     }
-
-    .status-shipped {
-      color: #34d399;
-    }
-
-    .status-delivered {
-      color: #4ade80;
-    }
-
-    .status-cancelled {
-      color: #f87171;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      table {
-        font-size: 0.85rem;
+        justify-content: center;
+        margin-top: 1rem;
       }
     }
   </style>
@@ -127,67 +77,60 @@
 <body>
 
   <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="dashboard.html">لوحة التحكم</a>
-        <a href="products.html">منتجاتي</a>
-        <a href="add-product.html">إضافة منتج</a>
-        <a href="settings.html">الإعدادات</a>
-        <a href="contact.html">مساعدة</a>
-      </nav>
-    </div>
+    <a href="index.html" class="logo">EchoShop</a>
+    <nav>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="products.html">المنتجات</a>
+      <a href="settings.html">الإعدادات</a>
+    </nav>
   </header>
 
-  <main>
-    <h1>الطلبات</h1>
+  <h2>قائمة الطلبات</h2>
+
+  <div class="table-container">
     <table>
       <thead>
         <tr>
           <th>رقم الطلب</th>
+          <th>اسم المنتج</th>
           <th>العميل</th>
-          <th>المنتج</th>
-          <th>الكمية</th>
-          <th>السعر الكلي</th>
+          <th>التاريخ</th>
           <th>الحالة</th>
+          <th>السعر</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>#1001</td>
-          <td>أحمد محمد</td>
-          <td>سماعة بلوتوث</td>
-          <td>1</td>
-          <td>250 ج</td>
-          <td class="status-shipped">تم الشحن</td>
+          <td>1001</td>
+          <td>هاتف ذكي</td>
+          <td>أحمد جمال</td>
+          <td>2025-04-15</td>
+          <td>تم الشحن</td>
+          <td>5999 ج.م</td>
         </tr>
         <tr>
-          <td>#1002</td>
-          <td>ليلى علي</td>
-          <td>باور بانك</td>
-          <td>2</td>
-          <td>800 ج</td>
-          <td class="status-pending">قيد الانتظار</td>
+          <td>1002</td>
+          <td>سماعات</td>
+          <td>سارة علي</td>
+          <td>2025-04-14</td>
+          <td>قيد المعالجة</td>
+          <td>999 ج.م</td>
         </tr>
         <tr>
-          <td>#1003</td>
-          <td>كريم سمير</td>
+          <td>1003</td>
           <td>ساعة ذكية</td>
-          <td>1</td>
-          <td>1750 ج</td>
-          <td class="status-delivered">تم التوصيل</td>
-        </tr>
-        <tr>
-          <td>#1004</td>
-          <td>منى عادل</td>
-          <td>كابل USB</td>
-          <td>3</td>
-          <td>225 ج</td>
-          <td class="status-cancelled">تم الإلغاء</td>
+          <td>محمود حسن</td>
+          <td>2025-04-13</td>
+          <td>تم التسليم</td>
+          <td>1750 ج.م</td>
         </tr>
       </tbody>
     </table>
-  </main>
+  </div>
+
+  <footer>
+    &copy; 2025 EchoShop - جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>

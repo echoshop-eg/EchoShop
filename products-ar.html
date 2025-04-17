@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EchoShop - المنتجات</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
+    }
+
+    header {
+      background-color: #0f172a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a, nav button {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover, nav button:hover {
+      background-color: #1d4ed8;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2rem;
+      color: #60a5fa;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1rem 2rem;
+    }
+
+    .product-card {
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product-card .price {
+      color: #a3e635;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      background-color: #0f172a;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index-ar.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="login-ar.html">تسجيل الدخول</a>
+        <a href="signup-ar.html">إنشاء حساب</a>
+        <a href="contact.html">مساعدة</a>
+        <button onclick="window.location.href='products.html'">English</button>
+      </nav>
+    </div>
+  </header>
+
+  <h2>المنتجات المتوفرة</h2>
+
+  <section class="products">
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920031.png" alt="Smartphone" />
+      <h3>هاتف ذكي</h3>
+      <p class="price">5999 ج</p>
+      <p>هاتف ذكي بجودة عالية ومواصفات متطورة.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3794/3794434.png" alt="Headphones" />
+      <h3>سماعات</h3>
+      <p class="price">999 ج</p>
+      <p>سماعات مانعة للضوضاء ببطارية طويلة الأمد.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/10617/10617159.png" alt="Smartwatch" />
+      <h3>ساعة ذكية</h3>
+      <p class="price">1750 ج</p>
+      <p>تصميم أنيق ومزايا تتبع صحية كاملة.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
+
+</body>
+</html>

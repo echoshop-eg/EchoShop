@@ -30,14 +30,32 @@
     .btn-approve { background: #22c55e; color: black; }
     .btn-reject { background: #ef4444; color: white; }
     .btn-edit { background: #facc15; color: black; }
+    .btn-delete { background: #dc2626; color: white; }
     footer { text-align: center; padding: 2rem; background: #0f172a; color: #64748b; }
   </style>
   <script>
+    // حماية الصفحة بكلمة سر مؤقتة
     const pass = prompt("Enter admin password:");
     if (pass !== "echoadmin2025") {
       alert("Access denied");
       window.location.href = "index.html";
     }
+
+    // Session timeout بعد 5 دقائق
+    let timeout;
+    function resetTimer() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        alert("❗ Session expired due to inactivity.");
+        window.location.href = "index.html";
+      }, 300000); // 5 دقائق = 300000 ميلي ثانية
+    }
+
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    document.onclick = resetTimer;
+    document.onscroll = resetTimer;
   </script>
 </head>
 <body>
@@ -77,27 +95,83 @@
 
 <section id="sellers" class="section-box">
   <h2>👤 Manage Sellers</h2>
-  <p>Approve or manage seller accounts. Set commission individually.</p>
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Status</th><th>Commission %</th><th>Products</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Seller 1</td>
+        <td>Pending</td>
+        <td>10%</td>
+        <td>8</td>
+        <td>
+          <button class="btn btn-approve">Approve</button>
+          <button class="btn btn-delete">Block</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="ads" class="section-box">
   <h2>📢 Ad Management</h2>
-  <p>See current ads, set time limit, and approve paid promotions.</p>
+  <table>
+    <thead>
+      <tr><th>Banner</th><th>Advertiser</th><th>Start Date</th><th>Duration</th><th>Status</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="https://via.placeholder.com/100x50" /></td>
+        <td>Company A</td>
+        <td>2025-04-01</td>
+        <td>7 Days</td>
+        <td>Active</td>
+        <td>
+          <button class="btn btn-edit">Edit</button>
+          <button class="btn btn-delete">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="support" class="section-box">
   <h2>📬 Support & Complaints</h2>
-  <p>View and respond to user or seller messages.</p>
+  <table>
+    <thead>
+      <tr><th>User</th><th>Message</th><th>Status</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>User123</td>
+        <td>Product not delivered</td>
+        <td>Unread</td>
+        <td><button class="btn btn-approve">Reply</button></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="reports" class="section-box">
   <h2>📊 Reports & Earnings</h2>
-  <p>Track daily/monthly revenue and performance insights.</p>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Total Sales</th><th>Profit</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2025-04-15</td>
+        <td>$800</td>
+        <td>$120</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="settings" class="section-box">
   <h2>⚙️ Site Design Settings</h2>
-  <p>Change site theme, colors, button styles, and homepage layout.</p>
+  <p>Feature to customize site appearance (colors, buttons, layout) will go here.</p>
 </section>
 
 <footer>&copy; 2025 EchoShop Admin Dashboard</footer>

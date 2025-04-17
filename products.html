@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,32 +13,57 @@
     }
 
     header {
-      background-color: #1e3a8a;
-      padding: 1.5rem 2rem;
+      background-color: #0f172a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
     }
 
-    header h1 {
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
       color: #a3e635;
-      margin: 0;
+      text-decoration: none;
     }
 
-    .nav-buttons button {
-      margin-left: 10px;
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a, nav button {
       background-color: #2563eb;
       color: white;
-      border: none;
-      border-radius: 20px;
       padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: none;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover, nav button:hover {
+      background-color: #1d4ed8;
     }
 
     h2 {
       text-align: center;
       margin: 2rem 0;
       font-size: 2rem;
+      color: #60a5fa;
     }
 
     .products {
@@ -81,17 +106,27 @@
       background-color: #0f172a;
       color: #94a3b8;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>EchoShop</h1>
-    <div class="nav-buttons">
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='login.html'">Login</button>
-      <button onclick="location.href='signup.html'">Signup</button>
-      <button onclick="switchLang()">Arabic</button>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+        <a href="contact.html">Help</a>
+        <button onclick="switchLang()" id="langBtn">Arabic</button>
+      </nav>
     </div>
   </header>
 
@@ -124,7 +159,7 @@
 
   <script>
     function switchLang() {
-      window.location.href = 'products-ar.html';
+      alert('سيتم تحويلك إلى النسخة العربية قريبًا!');
     }
   </script>
 </body>

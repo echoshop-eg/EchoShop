@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تواصل معنا - EchoShop</title>
+  <link rel="stylesheet" href="dashboard-style.css">
   <style>
     body {
       margin: 0;
@@ -11,138 +12,101 @@
       background: linear-gradient(to bottom right, #0f172a, #1e293b);
       color: white;
     }
-
     header {
-      background-color: #020617;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 1rem 2rem;
+      background-color: #020617;
       flex-wrap: wrap;
     }
-
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #a3e635;
-      text-decoration: none;
     }
-
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
     }
-
-    nav a, nav button {
+    nav a {
       background-color: #2563eb;
       color: white;
-      padding: 8px 16px;
+      padding: 0.5rem 1rem;
       border-radius: 20px;
       text-decoration: none;
       font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
     }
-
-    nav a:hover, nav button:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 600px;
+    .container {
+      max-width: 700px;
       margin: 60px auto;
       background-color: #1e293b;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
-
     h1 {
       text-align: center;
       color: #3b82f6;
       margin-bottom: 30px;
     }
-
     label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: bold;
     }
-
     input, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
       border-radius: 6px;
       border: none;
-      font-size: 1rem;
     }
-
     button {
-      background-color: #a3e635;
-      color: black;
-      font-weight: bold;
+      background-color: #3b82f6;
+      color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 6px;
       cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #bef264;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="header-container">
-      <a href="index-ar.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="products-ar.html">المنتجات</a>
-        <a href="login-ar.html">تسجيل الدخول</a>
-        <a href="signup-ar.html">إنشاء حساب</a>
-        <button onclick="window.location.href='contact.html'">English</button>
-      </nav>
-    </div>
+    <div class="logo">EchoShop</div>
+    <nav>
+      <a href="index-ar.html">الرئيسية</a>
+      <a href="products-ar.html">المنتجات</a>
+      <a href="dashboard-ar.html">لوحة التحكم</a>
+      <a href="orders-ar.html">الطلبات</a>
+      <a href="settings-ar.html">الإعدادات</a>
+      <a href="contact-ar.html">تواصل معنا</a>
+      <a href="about-ar.html">من نحن</a>
+      <a href="privacy-ar.html">سياسة الخصوصية</a>
+      <a href="register.html">تسجيل تاجر</a>
+      <a href="add-product-ar.html">إضافة منتج</a>
+      <a href="login-ar.html">تسجيل الدخول</a>
+      <a href="signup-ar.html">إنشاء حساب</a>
+      <a href="contact.html" style="background:#22c55e; border-radius:20px; padding:5px 12px; text-decoration:none; color:black;">English</a>
+    </nav>
   </header>
 
-  <main>
+  <div class="container">
     <h1>تواصل معنا</h1>
     <form>
       <label for="name">الاسم</label>
-      <input type="text" id="name" name="name" placeholder="اكتب اسمك" required />
+      <input type="text" id="name" name="name" placeholder="اكتب اسمك" required>
 
       <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="example@email.com" required />
+      <input type="email" id="email" name="email" placeholder="example@email.com" required>
 
-      <label for="message">رسالتك</label>
-      <textarea id="message" name="message" rows="5" placeholder="أدخل رسالتك هنا..." required></textarea>
+      <label for="message">الرسالة</label>
+      <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
 
-      <button type="submit">📨 إرسال</button>
+      <button type="submit">إرسال الرسالة</button>
     </form>
-  </main>
-
+  </div>
 </body>
 </html>

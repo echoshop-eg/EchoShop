@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard - EchoShop</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #0f172a; color: white; }
+    header { background: #1e293b; padding: 1rem; text-align: center; font-size: 1.5rem; color: #a3e635; }
+    nav { background: #1e3a8a; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    nav a { background: #2563eb; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 20px; }
+    nav a:hover { background: #1d4ed8; }
+    section { max-width: 1000px; margin: 2rem auto; background: #1e293b; padding: 2rem; border-radius: 10px; }
+    h2 { color: #60a5fa; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 12px; text-align: center; border: 1px solid #334155; }
+    th { background: #1e40af; color: #a3e635; }
+    .btn { padding: 6px 12px; border-radius: 20px; border: none; cursor: pointer; }
+    .btn-edit { background: #facc15; color: black; }
+    .btn-delete { background: #ef4444; color: white; }
+    footer { text-align: center; padding: 2rem; background: #0f172a; color: #64748b; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>Seller Dashboard - EchoShop</header>
+  <nav>
+    <a href="#my-products">My Products</a>
+    <a href="#orders">Orders</a>
+    <a href="#add-product">Add Product</a>
+    <a href="../index.html">Home</a>
+  </nav>
+
+  <section id="my-products">
+    <h2>📦 My Products</h2>
+    <table>
+      <thead>
+        <tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" width="40"></td>
+          <td>Smartphone</td>
+          <td>Electronics</td>
+          <td>4500 EGP</td>
+          <td>Active</td>
+          <td><button class="btn btn-edit">Edit</button> <button class="btn btn-delete">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="orders">
+    <h2>📑 Orders</h2>
+    <table>
+      <thead>
+        <tr><th>Order ID</th><th>Product</th><th>Customer</th><th>Quantity</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1023</td>
+          <td>Smartphone</td>
+          <td>User123</td>
+          <td>1</td>
+          <td>Shipped</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="add-product">
+    <h2>➕ Add New Product</h2>
+    <form>
+      <label>Name: <input type="text" name="name" required></label><br><br>
+      <label>Category: <input type="text" name="category" required></label><br><br>
+      <label>Price (EGP): <input type="number" name="price" required></label><br><br>
+      <label>Upload Image: <input type="file" name="image"></label><br><br>
+      <button type="submit" class="btn btn-edit">Add Product</button>
+    </form>
+  </section>
+
+  <footer>&copy; 2025 EchoShop Seller Panel</footer>
+</body>
+</html>

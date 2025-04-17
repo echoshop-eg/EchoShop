@@ -87,7 +87,7 @@
       margin-bottom: 2rem;
     }
 
-    .shop-btn {
+    .hero .shop-btn {
       background-color: #a3e635;
       color: black;
       font-weight: bold;
@@ -152,12 +152,14 @@
         flex-direction: column;
         text-align: center;
       }
-      .hero-img {
-        margin-top: 2rem;
-      }
+
       nav {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .hero-img {
+        margin-top: 2rem;
       }
     }
   </style>
@@ -169,8 +171,9 @@
       <a href="index.html" class="logo">EchoShop</a>
       <nav>
         <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
         <a href="contact.html">Help</a>
-        <button onclick="toggleLang()" id="langBtn">Arabic</button>
+        <a href="index-ar.html">Arabic</a>
       </nav>
     </div>
   </header>
@@ -210,17 +213,5 @@
     &copy; 2025 EchoShop. All rights reserved.
   </footer>
 
-  <script>
-    function toggleLang() {
-      const langBtn = document.getElementById('langBtn');
-      if (langBtn.textContent === 'Arabic') {
-        langBtn.textContent = 'English';
-        alert('سيتم التحويل إلى اللغة العربية قريبًا!');
-      } else {
-        langBtn.textContent = 'Arabic';
-        alert('Will switch back to English soon!');
-      }
-    }
-  </script>
 </body>
 </html>

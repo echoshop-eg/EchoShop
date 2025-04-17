@@ -6,7 +6,11 @@
   <title>EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
@@ -61,9 +65,17 @@
       align-items: center;
       justify-content: space-between;
     }
-    .hero-text { max-width: 500px; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero-text {
+      max-width: 500px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
     .hero .shop-btn {
       background-color: #a3e635;
       color: black;
@@ -80,8 +92,13 @@
       height: 300px;
       background: url('https://cdn-icons-png.flaticon.com/512/891/891419.png') no-repeat center/contain;
     }
-    .sections { padding: 2rem; }
-    .section-title { font-size: 2rem; margin-bottom: 1rem; }
+    .sections {
+      padding: 2rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -103,58 +120,6 @@
       font-size: 1rem;
       margin-bottom: 0.5rem;
     }
-    .custom-section, .banner, .features, .testimonials, .slider {
-      margin: 2rem;
-      padding: 2rem;
-      border-radius: 12px;
-      background-color: #1e293b;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    .custom-section img, .banner img, .slider img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-    .glow-btn {
-      background-color: #a3e635;
-      border: none;
-      padding: 12px 24px;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      color: black;
-      box-shadow: 0 0 10px #a3e635;
-      transition: all 0.3s ease;
-    }
-    .glow-btn:hover {
-      background-color: #bef264;
-      box-shadow: 0 0 25px #a3e635, 0 0 10px #ffffff;
-    }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    .feature {
-      background-color: #1e3a8a;
-      border-radius: 10px;
-      padding: 1rem;
-      width: 250px;
-      margin: 1rem;
-    }
-    .feature h3 { color: #a3e635; margin-bottom: 10px; }
-    .testimonials .quote {
-      margin: 1rem 0;
-      font-style: italic;
-      background: #334155;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .slider img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-    }
     footer {
       text-align: center;
       background-color: #0f172a;
@@ -162,10 +127,29 @@
       margin-top: 3rem;
       color: #94a3b8;
     }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text, .hero-img {
+        width: 100%;
+        max-width: 100%;
+      }
+      nav {
+        justify-content: center;
+      }
+      nav a, nav button {
+        padding: 10px 14px;
+        font-size: 1rem;
+      }
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
-
   <header>
     <div class="header-container">
       <a href="index.html" class="logo">EchoShop</a>
@@ -209,48 +193,8 @@
     </div>
   </section>
 
-  <section class="banner">
-    <h2>🔥 Summer Sale is ON!</h2>
-    <p>Enjoy up to 50% off on selected items!</p>
-    <img src="https://via.placeholder.com/800x250" alt="Sale Banner">
-  </section>
-
-  <section class="custom-section">
-    <h2>Try This Feature</h2>
-    <p>You can change this section any time!</p>
-    <button class="glow-btn">Click Me</button>
-  </section>
-
-  <section class="slider">
-    <h2>Gallery</h2>
-    <img src="https://via.placeholder.com/800x300" alt="Slider Image 1">
-  </section>
-
-  <section class="features">
-    <div class="feature">
-      <h3>Fast Delivery</h3>
-      <p>We ensure rapid delivery to your doorstep.</p>
-    </div>
-    <div class="feature">
-      <h3>Support 24/7</h3>
-      <p>Contact our support anytime, anywhere.</p>
-    </div>
-    <div class="feature">
-      <h3>Secure Payment</h3>
-      <p>All your transactions are protected.</p>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="quote">"Best online store I've ever used!" – Sarah M.</div>
-    <div class="quote">"Amazing service and quality products." – John D.</div>
-    <div class="quote">"Fast delivery and great prices!" – Lina A.</div>
-  </section>
-
   <footer>
     &copy; 2025 EchoShop. All rights reserved.
   </footer>
-
 </body>
 </html>

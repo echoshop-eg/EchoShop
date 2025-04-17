@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم - EchoShop</title>
+  <link rel="stylesheet" href="dashboard-style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
+    }
+
+    header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #3b82f6;
+      margin-bottom: 30px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .stat-box {
+      background-color: #0f172a;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #334155;
+    }
+
+    .stat-box h2 {
+      font-size: 2rem;
+      margin: 0;
+      color: #a3e635;
+    }
+
+    .stat-box p {
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index-ar.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="products-ar.html">منتجاتي</a>
+        <a href="add-product.html">إضافة منتج</a>
+        <a href="orders-ar.html">الطلبات</a>
+        <a href="settings-ar.html">الإعدادات</a>
+        <button onclick="window.location.href='dashboard.html'">English</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>لوحة تحكم التاجر</h1>
+    <div class="stats">
+      <div class="stat-box">
+        <h2>18</h2>
+        <p>عدد المنتجات</p>
+      </div>
+      <div class="stat-box">
+        <h2>32</h2>
+        <p>طلبات جديدة</p>
+      </div>
+      <div class="stat-box">
+        <h2>6</h2>
+        <p>طلبات قيد التنفيذ</p>
+      </div>
+      <div class="stat-box">
+        <h2>1200 ج</h2>
+        <p>إجمالي الأرباح</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

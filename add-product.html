@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>إضافة منتج جديد - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
   <style>
     body {
       margin: 0;
@@ -12,47 +11,77 @@
       background: linear-gradient(to bottom right, #0f172a, #1e293b);
       color: white;
     }
+
     header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: #020617;
+      padding: 0 20px;
       flex-wrap: wrap;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #a3e635;
+      text-decoration: none;
     }
+
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+      gap: 10px;
+      margin-top: 10px;
     }
+
     nav a {
       background-color: #2563eb;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 8px 16px;
       border-radius: 20px;
       text-decoration: none;
       font-size: 0.9rem;
+      transition: background-color 0.3s;
     }
-    form {
+
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 60px auto;
       background-color: #1e293b;
       padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
-    label {
+
+    h1 {
+      text-align: center;
+      color: #3b82f6;
+      margin-bottom: 30px;
+    }
+
+    form label {
       display: block;
       margin-bottom: 8px;
       color: #f8fafc;
       font-weight: bold;
     }
-    input, textarea {
+
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -60,49 +89,42 @@
       border-radius: 6px;
       font-size: 1rem;
     }
-    input[type="submit"] {
+
+    form input[type="submit"] {
       background-color: #3b82f6;
       color: white;
       cursor: pointer;
     }
-    input[type="submit"]:hover {
+
+    form input[type="submit"]:hover {
       background-color: #2563eb;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">EchoShop</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="products.html">المنتجات</a>
-      <a href="dashboard.html">لوحة التحكم</a>
-      <a href="orders.html">الطلبات</a>
-      <a href="settings.html">الإعدادات</a>
-      <a href="contact.html">تواصل معنا</a>
-      <a href="about.html">من نحن</a>
-      <a href="privacy.html">سياسة الخصوصية</a>
-      <a href="register.html">تسجيل تاجر</a>
-      <a href="add-product.html">إضافة منتج</a>
-      <a href="login.html">تسجيل الدخول</a>
-      <a href="signup.html">إنشاء حساب</a>
-    </nav>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="dashboard.html">لوحة التحكم</a>
+        <a href="products.html">منتجاتي</a>
+        <a href="orders.html">الطلبات</a>
+        <a href="settings.html">الإعدادات</a>
+        <a href="contact.html">مساعدة</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="sidebar">
-    <h2>EchoShop</h2>
-    <ul>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="products.html">منتجاتي</a></li>
-      <li><a href="orders.html">الطلبات</a></li>
-      <li><a href="payments.html">المدفوعات</a></li>
-      <li><a href="notifications.html">الإشعارات</a></li>
-      <li><a href="settings.html">الإعدادات</a></li>
-    </ul>
-  </div>
-
-  <div class="main">
-    <h1 class="section-title">إضافة منتج جديد</h1>
+  <main>
+    <h1>إضافة منتج جديد</h1>
     <form>
       <label for="name">اسم المنتج</label>
       <input type="text" id="name" name="name" placeholder="ادخل اسم المنتج" required>
@@ -127,6 +149,7 @@
 
       <input type="submit" value="📦 إضافة المنتج">
     </form>
-  </div>
+  </main>
+
 </body>
 </html>

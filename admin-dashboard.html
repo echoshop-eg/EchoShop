@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #1e3a8a;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      background-color: #2563eb;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+    }
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-box {
+      background-color: #1e293b;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .section-box h2 {
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+    .section-box p {
+      color: #cbd5e1;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+    }
+  </style>
+  <script>
+    const pass = prompt("Enter admin password:");
+    if (pass !== "echoadmin2025") {
+      alert("Access denied");
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+
+  <header>EchoShop Admin Panel</header>
+
+  <nav>
+    <a href="#">Design Settings</a>
+    <a href="#">Manage Users</a>
+    <a href="#">Manage Sellers</a>
+    <a href="#">Manage Products</a>
+    <a href="#">Ads & Promotions</a>
+    <a href="#">Complaints & Support</a>
+    <a href="#">Reports & Earnings</a>
+  </nav>
+
+  <section>
+    <div class="section-box">
+      <h2>🔧 Design Control</h2>
+      <p>Change colors, sections, button styles, and site layout.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🧑‍💼 Seller Management</h2>
+      <p>Approve/reject sellers, adjust commission rates, monitor seller performance.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🛍️ Product Control</h2>
+      <p>Approve products, review categories, set status (active/pending/declined).</p>
+    </div>
+
+    <div class="section-box">
+      <h2>💬 Support & Complaints</h2>
+      <p>View all messages from users and sellers. Respond or assign to support staff.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>📢 Ads & Promotions</h2>
+      <p>Manage advertisement banners, set durations, check payments.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>📊 Reports & Profits</h2>
+      <p>View earnings per seller, total profits, monthly reports, and charts.</p>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 EchoShop Admin Panel</footer>
+
+</body>
+</html>

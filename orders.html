@@ -1,150 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoShop - Orders</title>
+  <title>الطلبات - EchoShop</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom right, #0f172a, #1e293b);
-      color: #fff;
+      color: white;
     }
+
     header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: #020617;
+      padding: 0 20px;
+      flex-wrap: wrap;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #a3e635;
+      text-decoration: none;
     }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
     nav a {
-      margin-left: 1rem;
       background-color: #2563eb;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 8px 16px;
       border-radius: 20px;
       text-decoration: none;
       font-size: 0.9rem;
+      transition: background-color 0.3s;
     }
-    .container {
-      padding: 2rem;
+
+    nav a:hover {
+      background-color: #1d4ed8;
     }
+
+    main {
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+
     h1 {
       text-align: center;
-      margin-bottom: 2rem;
+      color: #3b82f6;
+      margin-bottom: 30px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #1e293b;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background-color: #0f172a;
       border-radius: 10px;
       overflow: hidden;
     }
+
     th, td {
-      padding: 1rem;
-      text-align: left;
+      padding: 14px;
+      text-align: center;
       border-bottom: 1px solid #334155;
     }
+
     th {
-      background-color: #0f172a;
+      background-color: #1e293b;
+      color: #60a5fa;
     }
-    .status {
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 0.9rem;
+
+    tr:hover {
+      background-color: #334155;
     }
-    .processing { background-color: #0ea5e9; color: white; }
-    .shipped { background-color: #8b5cf6; color: white; }
-    .delivered { background-color: #22c55e; color: white; }
-    .canceled { background-color: #ef4444; color: white; }
-    .returned { background-color: #f97316; color: white; }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      background-color: #0f172a;
+
+    .status-pending {
+      color: #facc15;
+    }
+
+    .status-shipped {
+      color: #34d399;
+    }
+
+    .status-delivered {
+      color: #4ade80;
+    }
+
+    .status-cancelled {
+      color: #f87171;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">EchoShop</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="login.html">Login</a>
-    </nav>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="dashboard.html">لوحة التحكم</a>
+        <a href="products.html">منتجاتي</a>
+        <a href="add-product.html">إضافة منتج</a>
+        <a href="settings.html">الإعدادات</a>
+        <a href="contact.html">مساعدة</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <h1>Order History</h1>
+  <main>
+    <h1>الطلبات</h1>
     <table>
       <thead>
         <tr>
-          <th>Order ID</th>
-          <th>Customer</th>
-          <th>Product</th>
-          <th>Amount</th>
-          <th>Status</th>
-          <th>Date</th>
+          <th>رقم الطلب</th>
+          <th>العميل</th>
+          <th>المنتج</th>
+          <th>الكمية</th>
+          <th>السعر الكلي</th>
+          <th>الحالة</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>#1001</td>
-          <td>Alice Smith</td>
-          <td>Smartphone</td>
-          <td>EGP 1,200.00</td>
-          <td><span class="status processing">Processing</span></td>
-          <td>2025-04-14</td>
+          <td>أحمد محمد</td>
+          <td>سماعة بلوتوث</td>
+          <td>1</td>
+          <td>250 ج</td>
+          <td class="status-shipped">تم الشحن</td>
         </tr>
         <tr>
           <td>#1002</td>
-          <td>John Doe</td>
-          <td>Running Shoes</td>
-          <td>EGP 250.00</td>
-          <td><span class="status shipped">Shipped</span></td>
-          <td>2025-04-12</td>
+          <td>ليلى علي</td>
+          <td>باور بانك</td>
+          <td>2</td>
+          <td>800 ج</td>
+          <td class="status-pending">قيد الانتظار</td>
         </tr>
         <tr>
           <td>#1003</td>
-          <td>Bob Johnson</td>
-          <td>Wrist Watch</td>
-          <td>EGP 120.00</td>
-          <td><span class="status delivered">Delivered</span></td>
-          <td>2025-04-10</td>
+          <td>كريم سمير</td>
+          <td>ساعة ذكية</td>
+          <td>1</td>
+          <td>1750 ج</td>
+          <td class="status-delivered">تم التوصيل</td>
         </tr>
         <tr>
           <td>#1004</td>
-          <td>Emily White</td>
-          <td>Backpack</td>
-          <td>EGP 250.00</td>
-          <td><span class="status canceled">Canceled</span></td>
-          <td>2025-04-08</td>
-        </tr>
-        <tr>
-          <td>#1005</td>
-          <td>David Brown</td>
-          <td>Tablet</td>
-          <td>EGP 999.00</td>
-          <td><span class="status returned">Returned</span></td>
-          <td>2025-04-06</td>
+          <td>منى عادل</td>
+          <td>كابل USB</td>
+          <td>3</td>
+          <td>225 ج</td>
+          <td class="status-cancelled">تم الإلغاء</td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </main>
 
-  <footer>
-    &copy; 2025 EchoShop. All rights reserved.
-  </footer>
 </body>
 </html>

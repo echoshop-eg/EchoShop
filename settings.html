@@ -1,85 +1,179 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إعدادات الحساب - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الإعدادات - EchoShop</title>
   <style>
-    form {
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
+    }
+
+    header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 60px auto;
       background-color: #1e293b;
       padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
+
+    h1 {
+      text-align: center;
+      color: #3b82f6;
+      margin-bottom: 30px;
+    }
+
     label {
       display: block;
       margin-bottom: 8px;
-      color: #f8fafc;
       font-weight: bold;
     }
-    input, select {
+
+    input {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
-      border: none;
       border-radius: 6px;
+      border: none;
       font-size: 1rem;
     }
-    input[type="submit"] {
-      background-color: #3b82f6;
-      color: white;
+
+    .btn-save {
+      background-color: #a3e635;
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-    input[type="submit"]:hover {
-      background-color: #2563eb;
+
+    .btn-save:hover {
+      background-color: #bef264;
+    }
+
+    .danger-zone {
+      margin-top: 40px;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    .danger-zone h3 {
+      color: #f87171;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-delete:hover {
+      background-color: #dc2626;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>EchoShop</h2>
-    <ul>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="products.html">منتجاتي</a></li>
-      <li><a href="orders.html">طلباتي</a></li>
-      <li><a href="#">المدفوعات</a></li>
-      <li><a href="#">الإشعارات</a></li>
-      <li><a href="settings.html">الإعدادات</a></li>
-    </ul>
-  </div>
 
-  <div class="main">
-    <h1 class="section-title">إعدادات الحساب</h1>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="dashboard.html">لوحة التحكم</a>
+        <a href="products.html">منتجاتي</a>
+        <a href="orders.html">الطلبات</a>
+        <a href="add-product.html">إضافة منتج</a>
+        <a href="contact.html">مساعدة</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>إعدادات الحساب</h1>
     <form>
-      <label for="name">الاسم الكامل</label>
-      <input type="text" id="name" name="name" placeholder="ماجد منير">
+      <label for="username">اسم المستخدم</label>
+      <input type="text" id="username" name="username" placeholder="مثلاً: أحمد تاجر">
 
       <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="email@example.com">
+      <input type="email" id="email" name="email" placeholder="example@email.com">
 
-      <label for="phone">رقم الهاتف</label>
-      <input type="tel" id="phone" name="phone" placeholder="0123456789">
-
-      <label for="password">كلمة المرور (اختياري)</label>
+      <label for="password">كلمة المرور الجديدة</label>
       <input type="password" id="password" name="password" placeholder="********">
 
-      <label for="language">اللغة المفضلة</label>
-      <select id="language" name="language">
-        <option value="ar">العربية</option>
-        <option value="en">English</option>
-      </select>
-
-      <label for="notifications">الإشعارات</label>
-      <select id="notifications" name="notifications">
-        <option value="on">تشغيل</option>
-        <option value="off">إيقاف</option>
-      </select>
-
-      <input type="submit" value="💾 حفظ التغييرات">
+      <button type="submit" class="btn-save">💾 حفظ التغييرات</button>
     </form>
-  </div>
+
+    <div class="danger-zone">
+      <h3>❗ منطقة حساسة</h3>
+      <p>احذف حسابك نهائيًا من EchoShop.</p>
+      <button class="btn-delete">🗑️ حذف الحساب</button>
+    </div>
+  </main>
+
 </body>
 </html>

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EchoShop - Products</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #0f172a, #1e293b);
       color: white;
     }
-
     header {
       background-color: #0f172a;
       padding: 15px 0;
@@ -19,7 +22,6 @@
       top: 0;
       z-index: 999;
     }
-
     .header-container {
       max-width: 1200px;
       margin: auto;
@@ -29,88 +31,76 @@
       padding: 0 20px;
       flex-wrap: wrap;
     }
-
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #a3e635;
       text-decoration: none;
     }
-
     nav {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
-    nav a, nav button {
+    nav a {
       background-color: #2563eb;
       color: white;
       padding: 8px 16px;
       border-radius: 20px;
       text-decoration: none;
       font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
       transition: background-color 0.3s;
     }
-
-    nav a:hover, nav button:hover {
+    nav a:hover {
       background-color: #1d4ed8;
     }
-
     h2 {
       text-align: center;
-      margin: 2rem 0;
+      margin: 2rem 0 1rem;
       font-size: 2rem;
-      color: #60a5fa;
     }
-
-    .products {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
       padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-
     .product-card {
       background-color: #1e293b;
       border-radius: 12px;
-      padding: 1.5rem;
-      width: 280px;
+      padding: 1rem;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
     .product-card img {
       width: 80px;
       height: 80px;
       margin-bottom: 1rem;
     }
-
     .product-card h3 {
       margin: 0.5rem 0;
     }
-
     .product-card .price {
       color: #a3e635;
       font-size: 1.2rem;
       font-weight: bold;
     }
-
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       margin-top: 3rem;
       background-color: #0f172a;
       color: #94a3b8;
     }
-
     @media (max-width: 768px) {
       nav {
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+      }
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        padding: 1rem;
       }
     }
   </style>
@@ -123,16 +113,15 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="login.html">Login</a>
-        <a href="signup.html">Signup</a>
-        <a href="contact.html">Help</a>
-        <button onclick="switchLang()" id="langBtn">Arabic</button>
+        <a href="signup.html">Sign Up</a>
+        <a href="products-ar.html">Arabic</a>
       </nav>
     </div>
   </header>
 
   <h2>Our Products</h2>
 
-  <section class="products">
+  <section class="products-grid">
     <div class="product-card">
       <img src="https://cdn-icons-png.flaticon.com/512/2920/2920031.png" alt="Smartphone" />
       <h3>Smartphone</h3>
@@ -154,13 +143,8 @@
   </section>
 
   <footer>
-    © 2025 EchoShop. All rights reserved.
+    &copy; 2025 EchoShop. All rights reserved.
   </footer>
 
-  <script>
-    function switchLang() {
-      alert('سيتم تحويلك إلى النسخة العربية قريبًا!');
-    }
-  </script>
 </body>
 </html>

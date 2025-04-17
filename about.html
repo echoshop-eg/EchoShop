@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <title>من نحن - EchoShop</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
       color: white;
     }
     header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: #020617;
       flex-wrap: wrap;
     }
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #a3e635;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+      text-decoration: none;
     }
     nav a {
       background-color: #2563eb;
@@ -37,51 +31,57 @@
       padding: 0.5rem 1rem;
       border-radius: 20px;
       text-decoration: none;
-      font-size: 0.9rem;
+      margin-left: 0.5rem;
     }
-    .container {
+    main {
       max-width: 800px;
-      margin: 60px auto;
+      margin: 2rem auto;
       background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      line-height: 1.8;
     }
-    h1 {
+    h2 {
       text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
+      margin-bottom: 1.5rem;
+      color: #60a5fa;
     }
     p {
-      line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    footer {
+      background-color: #0f172a;
+      text-align: center;
+      padding: 1rem;
+      color: #94a3b8;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">EchoShop</div>
+    <a href="index.html" class="logo">EchoShop</a>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="orders.html">Orders</a>
-      <a href="settings.html">Settings</a>
-      <a href="contact.html">Contact</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="register.html">Become a Seller</a>
-      <a href="add-product.html">Add Product</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Sign Up</a>
-      <a href="about-ar.html" style="background:#22c55e; border-radius:20px; padding:5px 12px; text-decoration:none; color:black;">العربية</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="products.html">المنتجات</a>
+      <a href="orders.html">الطلبات</a>
     </nav>
   </header>
 
-  <div class="container">
-    <h1>About EchoShop</h1>
-    <p>EchoShop is an innovative e-commerce platform that aims to connect sellers with buyers in a simple and secure way. We empower everyone to showcase and sell their products with ease, offering a modern experience in both Arabic and English interfaces.</p>
-    <p>We believe in the power of digital commerce to improve people’s lives. That’s why we provide advanced tools for sellers such as smart dashboards, order tracking systems, and performance analytics. For buyers, we offer easy browsing, multiple payment options, and an enjoyable shopping experience.</p>
-    <p>Our goal is to become the leading e-commerce platform in the Arab world by building strong user trust and delivering exceptional customer service.</p>
-  </div>
+  <main>
+    <h2>من نحن</h2>
+    <p>EchoShop هي منصة تجارة إلكترونية مبتكرة تهدف إلى ربط البائعين بالمشترين بطريقة سهلة وآمنة.</p>
+    <p>نعمل على تمكين الجميع من عرض منتجاتهم وبيعها بكل بساطة، مع تقديم تجربة مستخدم مميزة وواجهة عربية وإنجليزية حديثة.</p>
+    <p>نحن نؤمن بقوة التجارة الرقمية في تحسين حياة الناس. لذلك، نقدم أدوات متطورة للبائعين مثل لوحة تحكم ذكية، نظام تتبع الطلبات، وتحليلات الأداء.</p>
+    <p>هدفنا هو أن نصبح المنصة الرائدة في التجارة الإلكترونية في العالم العربي، من خلال بناء ثقة قوية مع المستخدمين وتقديم خدمة عملاء استثنائية.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 EchoShop - جميع الحقوق محفوظة
+  </footer>
+
 </body>
 </html>

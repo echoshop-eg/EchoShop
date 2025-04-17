@@ -1,74 +1,148 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تواصل معنا - EchoShop</title>
   <style>
     body {
-      background-color: #0f172a;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      direction: rtl;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: white;
     }
-    .container {
-      max-width: 700px;
+
+    header {
+      background-color: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+
+    main {
+      max-width: 600px;
       margin: 60px auto;
       background-color: #1e293b;
       padding: 30px;
       border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
+
     h1 {
       text-align: center;
       color: #3b82f6;
       margin-bottom: 30px;
     }
+
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
     }
+
     input, textarea {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin-bottom: 20px;
-      border: none;
       border-radius: 6px;
+      border: none;
       font-size: 1rem;
     }
+
     button {
-      width: 100%;
-      padding: 12px;
-      background-color: #3b82f6;
-      color: white;
+      background-color: #a3e635;
+      color: black;
+      font-weight: bold;
       border: none;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
     }
+
     button:hover {
-      background-color: #2563eb;
+      background-color: #bef264;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="login.html">تسجيل الدخول</a>
+        <a href="signup.html">إنشاء حساب</a>
+        <a href="about.html">من نحن</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
     <h1>تواصل معنا</h1>
     <form>
-      <label for="name">الاسم الكامل</label>
-      <input type="text" id="name" name="name" placeholder="ادخل اسمك" required>
+      <label for="name">الاسم</label>
+      <input type="text" id="name" name="name" placeholder="ادخل اسمك" required />
 
       <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="email@example.com" required>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required />
 
-      <label for="message">رسالتك</label>
+      <label for="message">الرسالة</label>
       <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
 
-      <button type="submit">📨 إرسال</button>
+      <button type="submit">📨 إرسال الرسالة</button>
     </form>
-  </div>
+  </main>
+
 </body>
 </html>

@@ -19,6 +19,19 @@
       font-size: 1.5rem;
       color: #a3e635;
       font-weight: bold;
+      position: relative;
+    }
+    .logout-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
     nav {
       background-color: #1e3a8a;
@@ -83,11 +96,18 @@
       alert("Access denied");
       window.location.href = "index.html";
     }
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
   </script>
 </head>
 <body>
 
-  <header>EchoShop Admin Panel</header>
+  <header>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    EchoShop Admin Panel
+  </header>
 
   <nav>
     <a href="#">Design Settings</a>

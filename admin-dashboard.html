@@ -4,24 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - EchoShop</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background-color: #0f172a; color: white; display: flex; min-height: 100vh; }
-    aside { width: 240px; background-color: #1e293b; padding: 20px; }
-    aside h2 { color: #a3e635; margin-bottom: 1rem; }
-    aside a { display: block; padding: 10px; margin-bottom: 10px; background-color: #2563eb; border-radius: 6px; color: white; text-decoration: none; }
-    aside a:hover { background-color: #1d4ed8; }
-    main { flex: 1; padding: 20px; }
-    section { margin-bottom: 30px; background-color: #1e293b; padding: 20px; border-radius: 10px; }
-    h1, h2 { color: #60a5fa; }
-    canvas { background: #fff; border-radius: 8px; margin-top: 1rem; }
-    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-    th, td { padding: 10px; border: 1px solid #334155; text-align: center; }
-    th { background-color: #1e40af; color: #a3e635; }
-    .btn { padding: 6px 12px; border-radius: 5px; border: none; cursor: pointer; }
-    .btn-approve { background-color: #22c55e; color: black; }
-    .btn-reject { background-color: #ef4444; color: white; }
-    .btn-edit { background-color: #facc15; color: black; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #1e3a8a;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      background-color: #2563eb;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+    }
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-box {
+      background-color: #1e293b;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .section-box h2 {
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+    .section-box p {
+      color: #cbd5e1;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+    }
   </style>
   <script>
     const pass = prompt("Enter admin password:");
@@ -29,105 +70,56 @@
       alert("Access denied");
       window.location.href = "index.html";
     }
-
-    let timer;
-    function resetTimer() {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        alert("Session expired due to inactivity.");
-        window.location.href = "index.html";
-      }, 300000);
-    }
-    window.onload = resetTimer;
-    document.onmousemove = resetTimer;
-    document.onkeypress = resetTimer;
   </script>
 </head>
 <body>
-  <aside>
-    <h2>Admin Menu</h2>
-    <a href="#visitors">Visitors</a>
-    <a href="#ads">Ads</a>
-    <a href="#upload">Review Uploads</a>
-    <a href="#messages">Inbox</a>
-    <a href="#reports">Reports</a>
-    <a href="#password">Change Password</a>
-  </aside>
-  <main>
-    <h1>Welcome, Admin</h1>
 
-    <section id="visitors">
-      <h2>👁️ Visitors & Logins</h2>
-      <p>Total Visitors Today: <strong>215</strong></p>
-      <p>New Signups: <strong>38</strong></p>
-    </section>
+  <header>EchoShop Admin Panel</header>
 
-    <section id="ads">
+  <nav>
+    <a href="#">Design Settings</a>
+    <a href="#">Manage Users</a>
+    <a href="#">Manage Sellers</a>
+    <a href="#">Manage Products</a>
+    <a href="#">Ads & Promotions</a>
+    <a href="#">Complaints & Support</a>
+    <a href="#">Reports & Earnings</a>
+    <a href="theme-settings.html">Theme & Banners</a>
+  </nav>
+
+  <section>
+    <div class="section-box">
+      <h2>🔧 Design Control</h2>
+      <p>Change colors, sections, button styles, and site layout.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🧑‍💼 Seller Management</h2>
+      <p>Approve/reject sellers, adjust commission rates, monitor seller performance.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🛙️ Product Control</h2>
+      <p>Approve products, review categories, set status (active/pending/declined).</p>
+    </div>
+
+    <div class="section-box">
+      <h2>💬 Support & Complaints</h2>
+      <p>View all messages from users and sellers. Respond or assign to support staff.</p>
+    </div>
+
+    <div class="section-box">
       <h2>📢 Ads & Promotions</h2>
-      <table>
-        <thead>
-          <tr><th>Ad</th><th>Advertiser</th><th>Start</th><th>Days</th><th>Status</th><th>Actions</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Banner #1</td>
-            <td>Seller A</td>
-            <td>2025-04-17</td>
-            <td>7</td>
-            <td>Paid</td>
-            <td>
-              <button class="btn btn-edit">Edit</button>
-              <button class="btn btn-reject">Remove</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <p>Manage advertisement banners, set durations, check payments.</p>
+    </div>
 
-    <section id="upload">
-      <h2>📤 Product Image Submissions</h2>
-      <p>New uploads waiting for review:</p>
-      <ul>
-        <li>seller1-upload1.jpg <button class="btn btn-approve">Approve</button> <button class="btn btn-reject">Reject</button></li>
-        <li>seller2-upload2.jpg <button class="btn btn-approve">Approve</button> <button class="btn btn-reject">Reject</button></li>
-      </ul>
-    </section>
+    <div class="section-box">
+      <h2>📊 Reports & Profits</h2>
+      <p>View earnings per seller, total profits, monthly reports, and charts.</p>
+    </div>
+  </section>
 
-    <section id="messages">
-      <h2>📬 Inbox - Support Messages</h2>
-      <ul>
-        <li><strong>User1:</strong> I haven’t received my order yet. <button class="btn btn-edit">Reply</button></li>
-        <li><strong>SellerX:</strong> Please approve my new product. <button class="btn btn-edit">Reply</button></li>
-      </ul>
-    </section>
+  <footer>&copy; 2025 EchoShop Admin Panel</footer>
 
-    <section id="reports">
-      <h2>📊 Sales Reports</h2>
-      <canvas id="salesChart" width="400" height="200"></canvas>
-    </section>
-
-    <section id="password">
-      <h2>🔐 Change Admin Password</h2>
-      <label for="newpass">New Password:</label>
-      <input type="password" id="newpass" />
-      <button class="btn btn-edit" onclick="alert('Password changed (simulated)!')">Save</button>
-    </section>
-  </main>
-
-  <script>
-    const ctx = document.getElementById('salesChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'EGP Sales',
-          data: [1200, 900, 1500, 700, 1800, 2300, 1100],
-          backgroundColor: '#3b82f6'
-        }]
-      },
-      options: { responsive: true }
-    });
-  </script>
 </body>
 </html>

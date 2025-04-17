@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - EchoShop</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Roboto', sans-serif; margin: 0; background: #0f172a; color: white; }
@@ -19,36 +20,23 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
     .section-box h2 { color: #60a5fa; margin-bottom: 1rem; }
-    .section-box table {
-      width: 100%; border-collapse: collapse; margin-top: 1rem;
-    }
-    .section-box th, .section-box td {
-      padding: 10px; border: 1px solid #334155; text-align: center;
-    }
-    .section-box th { background: #1e40af; color: #a3e635; }
-    .btn { padding: 6px 12px; border: none; border-radius: 20px; cursor: pointer; }
-    .btn-approve { background: #22c55e; color: black; }
-    .btn-reject { background: #ef4444; color: white; }
-    .btn-edit { background: #facc15; color: black; }
-    .btn-delete { background: #dc2626; color: white; }
+    canvas { background: white; border-radius: 8px; padding: 1rem; }
     footer { text-align: center; padding: 2rem; background: #0f172a; color: #64748b; }
   </style>
   <script>
-    // حماية الصفحة بكلمة سر مؤقتة
     const pass = prompt("Enter admin password:");
     if (pass !== "echoadmin2025") {
       alert("Access denied");
       window.location.href = "index.html";
     }
 
-    // Session timeout بعد 5 دقائق
     let timeout;
     function resetTimer() {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         alert("❗ Session expired due to inactivity.");
         window.location.href = "index.html";
-      }, 300000); // 5 دقائق = 300000 ميلي ثانية
+      }, 300000);
     }
 
     window.onload = resetTimer;
@@ -63,118 +51,62 @@
 <header>EchoShop Admin Panel</header>
 
 <nav>
-  <a href="#products">Products</a>
-  <a href="#sellers">Sellers</a>
-  <a href="#ads">Ads</a>
-  <a href="#support">Support</a>
   <a href="#reports">Reports</a>
-  <a href="#settings">Site Settings</a>
 </nav>
-
-<section id="products" class="section-box">
-  <h2>🛒 Manage Products</h2>
-  <table>
-    <thead>
-      <tr><th>Image</th><th>Name</th><th>Seller</th><th>Price</th><th>Status</th><th>Actions</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" width="40" /></td>
-        <td>Smartphone</td>
-        <td>Seller 1</td>
-        <td>$199</td>
-        <td>Pending</td>
-        <td>
-          <button class="btn btn-approve">Approve</button>
-          <button class="btn btn-reject">Reject</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="sellers" class="section-box">
-  <h2>👤 Manage Sellers</h2>
-  <table>
-    <thead>
-      <tr><th>Name</th><th>Status</th><th>Commission %</th><th>Products</th><th>Actions</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Seller 1</td>
-        <td>Pending</td>
-        <td>10%</td>
-        <td>8</td>
-        <td>
-          <button class="btn btn-approve">Approve</button>
-          <button class="btn btn-delete">Block</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="ads" class="section-box">
-  <h2>📢 Ad Management</h2>
-  <table>
-    <thead>
-      <tr><th>Banner</th><th>Advertiser</th><th>Start Date</th><th>Duration</th><th>Status</th><th>Actions</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><img src="https://via.placeholder.com/100x50" /></td>
-        <td>Company A</td>
-        <td>2025-04-01</td>
-        <td>7 Days</td>
-        <td>Active</td>
-        <td>
-          <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-delete">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="support" class="section-box">
-  <h2>📬 Support & Complaints</h2>
-  <table>
-    <thead>
-      <tr><th>User</th><th>Message</th><th>Status</th><th>Actions</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>User123</td>
-        <td>Product not delivered</td>
-        <td>Unread</td>
-        <td><button class="btn btn-approve">Reply</button></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
 
 <section id="reports" class="section-box">
   <h2>📊 Reports & Earnings</h2>
-  <table>
-    <thead>
-      <tr><th>Date</th><th>Total Sales</th><th>Profit</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>2025-04-15</td>
-        <td>$800</td>
-        <td>$120</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="settings" class="section-box">
-  <h2>⚙️ Site Design Settings</h2>
-  <p>Feature to customize site appearance (colors, buttons, layout) will go here.</p>
+  <p>Visualize your earnings data:</p>
+  <canvas id="dailyChart" width="600" height="300"></canvas>
+  <canvas id="monthlyChart" width="600" height="300" style="margin-top: 2rem;"></canvas>
 </section>
 
 <footer>&copy; 2025 EchoShop Admin Dashboard</footer>
+
+<script>
+  const ctx1 = document.getElementById('dailyChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Daily Earnings (EGP)',
+        data: [120, 150, 180, 90, 200, 240, 160],
+        backgroundColor: '#a3e635'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      }
+    }
+  });
+
+  const ctx2 = document.getElementById('monthlyChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [{
+        label: 'Monthly Profit (EGP)',
+        data: [3000, 3500, 4000, 4500, 4200],
+        borderColor: '#3b82f6',
+        borderWidth: 2,
+        fill: false,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: 'black' }
+        }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>

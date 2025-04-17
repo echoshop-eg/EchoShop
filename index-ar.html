@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EchoShop - الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
+      color: white;
+    }
+
+    header {
+      background-color: #0f172a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a, nav button {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover, nav button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .hero {
+      text-align: right;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .shop-btn {
+      background-color: #a3e635;
+      color: black;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #a3e635;
+    }
+
+    .hero-img {
+      width: 300px;
+      height: 300px;
+      background: url('https://cdn-icons-png.flaticon.com/512/891/891419.png') no-repeat center/contain;
+    }
+
+    .sections {
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .product-card {
+      background-color: #1e293b;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #0f172a;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-img {
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index-ar.html" class="logo">EchoShop</a>
+      <nav>
+        <a href="login-ar.html">تسجيل الدخول</a>
+        <a href="signup-ar.html">إنشاء حساب</a>
+        <a href="contact.html">مساعدة</a>
+        <button onclick="switchToEnglish()">English</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>تسوّق أحدث المنتجات</h1>
+      <p>تصفّح مجموعتنا الجديدة المختارة بعناية.</p>
+      <button class="shop-btn" onclick="location.href='products-ar.html'">ابدأ التسوّق</button>
+    </div>
+    <div class="hero-img"></div>
+  </section>
+
+  <section class="sections">
+    <div class="section-title">أفضل العروض</div>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="Smartphone">
+        <h4>هواتف ذكية</h4>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2886/2886123.png" alt="Shoes">
+        <h4>أحذية</h4>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Headphones">
+        <h4>سماعات</h4>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="Tools">
+        <h4>أدوات منزلية</h4>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
+
+  <script>
+    function switchToEnglish() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

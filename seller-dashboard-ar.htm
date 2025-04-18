@@ -1,33 +1,161 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لوحة تحكم التاجر - EchoShop</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; }
-    header { background: #1e293b; padding: 1rem; text-align: center; font-size: 1.5rem; color: #a3e635; }
-    nav { background: #1e3a8a; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    nav a { background: #2563eb; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 20px; }
-    nav a:hover { background: #1d4ed8; }
-    section { max-width: 1000px; margin: 2rem auto; background: #1e293b; padding: 2rem; border-radius: 10px; }
-    h2 { color: #60a5fa; margin-bottom: 1rem; }
-    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-    th, td { padding: 12px; text-align: center; border: 1px solid #334155; }
-    th { background: #1e40af; color: #a3e635; }
-    .btn { padding: 6px 12px; border-radius: 20px; border: none; cursor: pointer; }
-    .btn-edit { background: #facc15; color: black; }
-    .btn-delete { background: #ef4444; color: white; }
-    footer { text-align: center; padding: 2rem; background: #0f172a; color: #64748b; margin-top: 2rem; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+    header {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      position: relative;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      font-weight: bold;
+    }
+    .logout-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
+      text-decoration: none;
+    }
+    nav {
+      background: #1e3a8a;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #1d4ed8;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #334155;
+    }
+    th {
+      background: #1e40af;
+      color: #a3e635;
+    }
+    .btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-edit {
+      background: #facc15;
+      color: black;
+    }
+    .btn-delete {
+      background: #ef4444;
+      color: white;
+    }
+    form label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+    form input {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #334155;
+      color: white;
+    }
+    form input::placeholder {
+      color: #cbd5e1;
+    }
+    form button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
+    }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </head>
 <body>
-  <header>لوحة تحكم التاجر - EchoShop</header>
+
+  <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    لوحة تحكم التاجر - EchoShop
+  </header>
+
   <nav>
     <a href="#my-products">منتجاتي</a>
     <a href="#orders">الطلبات</a>
     <a href="#add-product">إضافة منتج</a>
     <a href="../index-ar.html">الصفحة الرئيسية</a>
-  </nav>  <section id="my-products">
+  </nav>
+
+  <section id="my-products">
     <h2>📦 منتجاتي</h2>
     <table>
       <thead>
@@ -44,7 +172,9 @@
         </tr>
       </tbody>
     </table>
-  </section>  <section id="orders">
+  </section>
+
+  <section id="orders">
     <h2>📑 الطلبات</h2>
     <table>
       <thead>
@@ -60,15 +190,33 @@
         </tr>
       </tbody>
     </table>
-  </section>  <section id="add-product">
+  </section>
+
+  <section id="add-product">
     <h2>➕ إضافة منتج جديد</h2>
     <form>
-      <label>الاسم: <input type="text" name="name" required></label><br><br>
-      <label>الفئة: <input type="text" name="category" required></label><br><br>
-      <label>السعر (جنيه): <input type="number" name="price" required></label><br><br>
-      <label>رفع صورة: <input type="file" name="image"></label><br><br>
+      <label for="name">اسم المنتج</label>
+      <input type="text" id="name" name="name" placeholder="أدخل اسم المنتج" required>
+
+      <label for="category">الفئة</label>
+      <input type="text" id="category" name="category" placeholder="أدخل الفئة" required>
+
+      <label for="price">السعر (جنيه)</label>
+      <input type="number" id="price" name="price" placeholder="أدخل السعر" required>
+
+      <label for="image-upload">تحميل صورة من الجهاز</label>
+      <input type="file" id="image-upload" name="image">
+
+      <label for="image-url">أو أدخل رابط الصورة</label>
+      <input type="url" id="image-url" name="image-url" placeholder="https://example.com/image.jpg">
+
       <button type="submit" class="btn btn-edit">إضافة المنتج</button>
     </form>
-  </section>  <footer>&copy; 2025 لوحة تحكم التاجر - EchoShop</footer>
+  </section>
+
+  <footer>
+    &copy; 2025 لوحة تحكم التاجر - EchoShop
+  </footer>
+
 </body>
 </html>

@@ -2,194 +2,136 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الطلبات - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
-      color: white;
-    }
-
-    header {
-      background-color: #020617;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    nav a, nav button {
-      background-color: #2563eb;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover, nav button:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 60px auto;
-      background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
+      font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
+      color: white;
+      margin: 0;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      position: relative;
+    }
+    .logout-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+      color: #3b82f6;
+    }
+    table {
+      width: 90%;
+      margin: 2rem auto;
+      border-collapse: collapse;
+      background-color: #1e293b;
       border-radius: 10px;
       overflow: hidden;
     }
-
     th, td {
-      padding: 14px;
+      padding: 1rem;
       text-align: center;
       border-bottom: 1px solid #334155;
     }
-
     th {
-      background-color: #1e293b;
-      color: #60a5fa;
+      background-color: #2563eb;
     }
-
     tr:hover {
       background-color: #334155;
     }
-
-    .status-pending {
-      color: #facc15;
-    }
-
-    .status-shipped {
-      color: #34d399;
-    }
-
-    .status-delivered {
-      color: #4ade80;
-    }
-
-    .status-cancelled {
-      color: #f87171;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      table {
-        font-size: 0.85rem;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <div class="header-container">
-      <a href="index-ar.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="dashboard-ar.html">لوحة التحكم</a>
-        <a href="products-ar.html">منتجاتي</a>
-        <a href="add-product-ar.html">إضافة منتج</a>
-        <a href="settings-ar.html">الإعدادات</a>
-        <button onclick="window.location.href='orders.html'">English</button>
-      </nav>
-    </div>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    الطلبات - EchoShop
   </header>
 
-  <main>
-    <h1>قائمة الطلبات</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>رقم الطلب</th>
-          <th>العميل</th>
-          <th>المنتج</th>
-          <th>الكمية</th>
-          <th>السعر الكلي</th>
-          <th>الحالة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#1001</td>
-          <td>أحمد محمد</td>
-          <td>سماعة بلوتوث</td>
-          <td>1</td>
-          <td>250 ج</td>
-          <td class="status-shipped">تم الشحن</td>
-        </tr>
-        <tr>
-          <td>#1002</td>
-          <td>ليلى علي</td>
-          <td>باور بانك</td>
-          <td>2</td>
-          <td>800 ج</td>
-          <td class="status-pending">قيد الانتظار</td>
-        </tr>
-        <tr>
-          <td>#1003</td>
-          <td>كريم سمير</td>
-          <td>ساعة ذكية</td>
-          <td>1</td>
-          <td>1750 ج</td>
-          <td class="status-delivered">تم التوصيل</td>
-        </tr>
-        <tr>
-          <td>#1004</td>
-          <td>منى عادل</td>
-          <td>كابل USB</td>
-          <td>3</td>
-          <td>225 ج</td>
-          <td class="status-cancelled">تم الإلغاء</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
 
+  <h2>قائمة الطلبات</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>رقم الطلب</th>
+        <th>اسم العميل</th>
+        <th>المنتج</th>
+        <th>الكمية</th>
+        <th>السعر الإجمالي</th>
+        <th>الحالة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>#1001</td>
+        <td>محمد أحمد</td>
+        <td>موبايل ذكي</td>
+        <td>1</td>
+        <td>5999 جنيه</td>
+        <td>تم التوصيل</td>
+      </tr>
+      <tr>
+        <td>#1002</td>
+        <td>سارة علي</td>
+        <td>ساعة ذكية</td>
+        <td>2</td>
+        <td>3500 جنيه</td>
+        <td>قيد الشحن</td>
+      </tr>
+      <tr>
+        <td>#1003</td>
+        <td>أحمد حسن</td>
+        <td>سماعات بلوتوث</td>
+        <td>1</td>
+        <td>999 جنيه</td>
+        <td>تم الإلغاء</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
 </body>
 </html>

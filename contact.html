@@ -1,118 +1,122 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معنا - EchoShop</title>
+  <title>Contact Us - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
       background-color: #1e293b;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
+      text-align: center;
       font-size: 1.5rem;
-      font-weight: bold;
       color: #a3e635;
-      text-decoration: none;
+      position: relative;
     }
-    nav a {
-      background-color: #2563eb;
+    .logout-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-left: 0.5rem;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    main {
-      max-width: 600px;
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 700px;
       margin: 2rem auto;
       background-color: #1e293b;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
     h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
       color: #60a5fa;
+      margin-bottom: 1.5rem;
     }
     label {
       display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
+      margin: 1rem 0 0.5rem;
     }
     input, textarea {
       width: 100%;
       padding: 0.7rem;
-      margin-bottom: 1rem;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 6px;
     }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #2563eb;
-      border: none;
-      border-radius: 8px;
+    .submit-btn {
+      background-color: #3b82f6;
       color: white;
-      font-size: 1rem;
       font-weight: bold;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      margin-top: 2rem;
     }
-    button:hover {
-      background-color: #1d4ed8;
+    .submit-btn:hover {
+      background-color: #2563eb;
     }
     footer {
-      background-color: #0f172a;
       text-align: center;
-      padding: 1rem;
-      color: #94a3b8;
-      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">لوحة التحكم</a>
-      <a href="orders.html">الطلبات</a>
-      <a href="products.html">المنتجات</a>
-    </nav>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    Contact Us - EchoShop
   </header>
 
-  <main>
-    <h2>تواصل معنا</h2>
+  <a class="back-btn" href="admin-dashboard.html">🔙 Back to Dashboard</a>
+
+  <div class="container">
+    <h2>Send us a message</h2>
     <form>
-      <label for="name">الاسم</label>
-      <input type="text" id="name" placeholder="ادخل اسمك" required>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="Enter your full name" required>
 
-      <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" placeholder="you@example.com" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="example@email.com" required>
 
-      <label for="message">رسالتك</label>
-      <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
 
-      <button type="submit">إرسال</button>
+      <button type="submit" class="submit-btn">📨 Send Message</button>
     </form>
-  </main>
+  </div>
 
   <footer>
-    &copy; 2025 EchoShop - جميع الحقوق محفوظة
+    &copy; 2025 EchoShop. All rights reserved.
   </footer>
-
 </body>
 </html>

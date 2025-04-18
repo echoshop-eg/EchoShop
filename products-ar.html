@@ -3,80 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>المنتجات - EchoShop</title>
+  <title>منتجاتي - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
-      background-color: #0f172a;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
       color: #a3e635;
-      text-decoration: none;
+      position: relative;
     }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    nav a {
-      background-color: #2563eb;
+    .logout-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
       color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: background-color 0.3s;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    nav a:hover {
-      background-color: #1d4ed8;
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
     }
     h2 {
       text-align: center;
-      margin: 2rem 0 1rem;
-      font-size: 2rem;
+      margin-top: 2rem;
+      color: #3b82f6;
     }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 1rem 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 2rem;
     }
     .product-card {
       background-color: #1e293b;
-      border-radius: 12px;
       padding: 1rem;
+      border-radius: 10px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .product-card img {
       width: 80px;
       height: 80px;
+      object-fit: contain;
       margin-bottom: 1rem;
     }
     .product-card h3 {
@@ -90,61 +79,52 @@
     footer {
       text-align: center;
       padding: 2rem;
-      margin-top: 3rem;
       background-color: #0f172a;
-      color: #94a3b8;
-    }
-    @media (max-width: 768px) {
-      nav {
-        justify-content: center;
-      }
-      .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        padding: 1rem;
-      }
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+  </script>
 </head>
 <body>
 
   <header>
-    <div class="header-container">
-      <a href="index-ar.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="index-ar.html">الرئيسية</a>
-        <a href="login-ar.html">تسجيل الدخول</a>
-        <a href="signup-ar.html">إنشاء حساب</a>
-        <a href="products.html">English</a>
-      </nav>
-    </div>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    منتجاتي - EchoShop
   </header>
 
-  <h2>المنتجات المتاحة</h2>
+  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
 
-  <section class="products-grid">
+  <h2>المنتجات الحالية</h2>
+
+  <section class="products">
     <div class="product-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920031.png" alt="هاتف ذكي" />
-      <h3>هاتف ذكي</h3>
-      <p class="price">٥٬٩٩٩ ج.م</p>
-      <p>هاتف عالي الجودة بمميزات متقدمة.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920031.png" alt="موبايل">
+      <h3>موبايل ذكي</h3>
+      <p class="price">5999 جنيه</p>
+      <p>أداء عالي وكاميرا رائعة.</p>
     </div>
     <div class="product-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3794/3794434.png" alt="سماعات" />
-      <h3>سماعات</h3>
-      <p class="price">٩٩٩ ج.م</p>
-      <p>سماعات عازلة للضوضاء بعمر بطارية طويل.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/3794/3794434.png" alt="سماعات">
+      <h3>سماعات بلوتوث</h3>
+      <p class="price">999 جنيه</p>
+      <p>عزل ضوضاء وبطارية تدوم طويلاً.</p>
     </div>
     <div class="product-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/10617/10617159.png" alt="ساعة ذكية" />
+      <img src="https://cdn-icons-png.flaticon.com/512/10617/10617159.png" alt="ساعة ذكية">
       <h3>ساعة ذكية</h3>
-      <p class="price">١٬٧٥٠ ج.م</p>
-      <p>تصميم أنيق ومميزات لتتبع اللياقة.</p>
+      <p class="price">1750 جنيه</p>
+      <p>مظهر أنيق ومتابعة صحية شاملة.</p>
     </div>
   </section>
 
   <footer>
     &copy; 2025 EchoShop. جميع الحقوق محفوظة.
   </footer>
-
 </body>
 </html>

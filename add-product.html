@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إضافة منتج جديد - EchoShop</title>
+  <title>Add New Product - EchoShop</title>
   <style>
     body {
       margin: 0;
@@ -11,7 +11,6 @@
       background: linear-gradient(to bottom right, #0f172a, #1e293b);
       color: white;
     }
-
     header {
       background-color: #020617;
       padding: 15px 0;
@@ -19,7 +18,6 @@
       top: 0;
       z-index: 999;
     }
-
     .header-container {
       max-width: 1200px;
       margin: auto;
@@ -29,21 +27,18 @@
       padding: 0 20px;
       flex-wrap: wrap;
     }
-
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #a3e635;
       text-decoration: none;
     }
-
     nav {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 10px;
     }
-
     nav a {
       background-color: #2563eb;
       color: white;
@@ -53,11 +48,16 @@
       font-size: 0.9rem;
       transition: background-color 0.3s;
     }
-
     nav a:hover {
       background-color: #1d4ed8;
     }
-
+    .back-btn {
+      background-color: #22c55e !important;
+      color: black !important;
+    }
+    .logout-btn {
+      background-color: #ef4444 !important;
+    }
     main {
       max-width: 700px;
       margin: 60px auto;
@@ -66,20 +66,17 @@
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
-
     h1 {
       text-align: center;
       color: #3b82f6;
       margin-bottom: 30px;
     }
-
     form label {
       display: block;
       margin-bottom: 8px;
       color: #f8fafc;
       font-weight: bold;
     }
-
     form input,
     form textarea {
       width: 100%;
@@ -89,17 +86,14 @@
       border-radius: 6px;
       font-size: 1rem;
     }
-
     form input[type="submit"] {
       background-color: #3b82f6;
       color: white;
       cursor: pointer;
     }
-
     form input[type="submit"]:hover {
       background-color: #2563eb;
     }
-
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -107,49 +101,58 @@
       }
     }
   </style>
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </head>
 <body>
-
   <header>
     <div class="header-container">
       <a href="index.html" class="logo">EchoShop</a>
       <nav>
-        <a href="dashboard.html">لوحة التحكم</a>
-        <a href="products.html">منتجاتي</a>
-        <a href="orders.html">الطلبات</a>
-        <a href="settings.html">الإعدادات</a>
-        <a href="contact.html">مساعدة</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">My Products</a>
+        <a href="orders.html">Orders</a>
+        <a href="settings.html">Settings</a>
+        <a href="contact.html">Help</a>
+        <a href="#" class="back-btn" onclick="goBack()">Back</a>
+        <a href="#" class="logout-btn" onclick="logout()">Logout</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <h1>إضافة منتج جديد</h1>
+    <h1>Add New Product</h1>
     <form>
-      <label for="name">اسم المنتج</label>
-      <input type="text" id="name" name="name" placeholder="ادخل اسم المنتج" required>
+      <label for="name">Product Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter product name" required>
 
-      <label for="category">الفئة</label>
-      <input type="text" id="category" name="category" placeholder="مثلاً: إلكترونيات، ملابس..." required>
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" placeholder="e.g., Electronics, Clothing..." required>
 
-      <label for="price">السعر (بالجنيه)</label>
+      <label for="price">Price (EGP)</label>
       <input type="number" id="price" name="price" placeholder="4500" required>
 
-      <label for="quantity">الكمية المتوفرة</label>
-      <input type="number" id="quantity" name="quantity" placeholder="عدد القطع" required>
+      <label for="quantity">Available Quantity</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Number of items" required>
 
-      <label for="description">وصف المنتج</label>
-      <textarea id="description" name="description" rows="4" placeholder="أدخل وصفاً مختصراً للمنتج..."></textarea>
+      <label for="description">Product Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Enter a brief description..."></textarea>
 
-      <label for="imageUrl">رابط صورة المنتج</label>
+      <label for="imageUrl">Product Image URL</label>
       <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
 
-      <label for="imageUpload">أو اختر صورة من جهازك</label>
+      <label for="imageUpload">Or upload an image from your device</label>
       <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
 
-      <input type="submit" value="📦 إضافة المنتج">
+      <input type="submit" value="📦 Add Product">
     </form>
   </main>
-
 </body>
 </html>

@@ -2,182 +2,126 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>إعدادات الحساب - EchoShop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإعدادات - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
-      color: white;
     }
-
     header {
-      background-color: #020617;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    nav a, nav button {
-      background-color: #2563eb;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover, nav button:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 600px;
-      margin: 60px auto;
       background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
+      padding: 1rem 2rem;
       text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
+      font-size: 1.5rem;
+      color: #a3e635;
+      position: relative;
     }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    .btn-save {
-      background-color: #a3e635;
-      color: black;
-      font-weight: bold;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      width: 100%;
-    }
-
-    .btn-save:hover {
-      background-color: #bef264;
-    }
-
-    .danger-zone {
-      margin-top: 40px;
-      border-top: 1px solid #334155;
-      padding-top: 20px;
-    }
-
-    .danger-zone h3 {
-      color: #f87171;
-    }
-
-    .btn-delete {
+    .logout-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
       background-color: #ef4444;
       color: white;
       border: none;
-      padding: 12px;
+      padding: 6px 12px;
       border-radius: 8px;
-      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 10px;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+    input {
       width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
     }
-
-    .btn-delete:hover {
-      background-color: #dc2626;
+    .submit-btn {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 2rem;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .submit-btn:hover {
+      background-color: #2563eb;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <div class="header-container">
-      <a href="index-ar.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="dashboard-ar.html">لوحة التحكم</a>
-        <a href="products-ar.html">منتجاتي</a>
-        <a href="orders-ar.html">الطلبات</a>
-        <a href="add-product-ar.html">إضافة منتج</a>
-        <button onclick="window.location.href='settings.html'">English</button>
-      </nav>
-    </div>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    الإعدادات - EchoShop
   </header>
 
-  <main>
-    <h1>إعدادات الحساب</h1>
+  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
+
+  <div class="container">
+    <h2>تعديل البيانات الشخصية</h2>
+
     <form>
       <label for="username">اسم المستخدم</label>
-      <input type="text" id="username" name="username" placeholder="مثلاً: أحمد تاجر">
+      <input type="text" id="username" placeholder="أدخل اسمك">
 
       <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="example@email.com">
+      <input type="email" id="email" placeholder="example@email.com">
 
       <label for="password">كلمة المرور الجديدة</label>
-      <input type="password" id="password" name="password" placeholder="********">
+      <input type="password" id="password" placeholder="********">
 
-      <button type="submit" class="btn-save">💾 حفظ التغييرات</button>
+      <label for="notifications">
+        <input type="checkbox" id="notifications"> تفعيل التنبيهات والإشعارات
+      </label>
+
+      <button type="submit" class="submit-btn">💾 حفظ التغييرات</button>
     </form>
+  </div>
 
-    <div class="danger-zone">
-      <h3>❗ منطقة حساسة</h3>
-      <p>احذف حسابك نهائيًا من EchoShop.</p>
-      <button class="btn-delete">🗑️ حذف الحساب</button>
-    </div>
-  </main>
-
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
 </body>
 </html>

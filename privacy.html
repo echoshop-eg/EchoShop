@@ -4,85 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
       color: white;
+      margin: 0;
+      line-height: 1.8;
     }
     header {
       background-color: #1e293b;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
+      text-align: center;
       font-size: 1.5rem;
-      font-weight: bold;
       color: #a3e635;
-      text-decoration: none;
+      position: relative;
     }
-    nav a {
-      background-color: #2563eb;
+    .logout-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-left: 0.5rem;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    main {
-      max-width: 800px;
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
       margin: 2rem auto;
       background-color: #1e293b;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      line-height: 1.8;
     }
     h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
       color: #60a5fa;
+      margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
       color: #e2e8f0;
     }
     footer {
-      background-color: #0f172a;
       text-align: center;
-      padding: 1rem;
-      color: #94a3b8;
-      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="products.html">Products</a>
-      <a href="orders.html">Orders</a>
-    </nav>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    Privacy Policy - EchoShop
   </header>
 
-  <main>
+  <a class="back-btn" href="index.html">🔙 Back</a>
+
+  <div class="container">
     <h2>Privacy Policy</h2>
-    <p>At EchoShop, we respect your privacy and are committed to protecting your personal data.</p>
-    <p>We do not sell or share your information with third parties without your consent. Your data is only used to improve your experience on our platform.</p>
-    <p>We may collect basic information such as your name and email for communication and service improvement purposes.</p>
-    <p>By using our website, you agree to this privacy policy.</p>
-    <p>We reserve the right to update this policy at any time. Changes will be posted on this page.</p>
-  </main>
+    <p>At EchoShop, we take your privacy seriously. By using our website, you agree to the practices outlined in this policy.</p>
+    <p>We collect user information like name, email, and order history to improve your experience. Your data is never shared with third parties unless required by law.</p>
+    <p>You can modify or delete your account information at any time via your profile settings. If you have questions regarding privacy, feel free to contact us.</p>
+    <p>This policy may be updated occasionally. Please check back for any changes.</p>
+  </div>
 
   <footer>
-    &copy; 2025 EchoShop - All rights reserved
+    &copy; 2025 EchoShop. All rights reserved.
   </footer>
-
 </body>
 </html>

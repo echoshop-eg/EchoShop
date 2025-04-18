@@ -22,7 +22,7 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       position: relative;
     }
     .back-btn {
@@ -37,6 +37,11 @@
       text-decoration: none;
       font-size: 0.9rem;
     }
+    .logo {
+      display: block;
+      margin: 0 auto 1.2rem;
+      width: 120px;
+    }
     h2 {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -47,7 +52,7 @@
       margin-bottom: 0.5rem;
       font-weight: bold;
     }
-    input {
+    input, select {
       width: 100%;
       padding: 0.7rem;
       margin-bottom: 1rem;
@@ -71,38 +76,39 @@
     button:hover {
       background-color: #1d4ed8;
     }
-    .login-link {
-      margin-top: 1rem;
+    .login-link, .lang-toggle {
       text-align: center;
+      margin-top: 1rem;
     }
-    .login-link a {
+    .login-link a, .lang-toggle a {
       color: #38bdf8;
       text-decoration: none;
       font-size: 0.9rem;
     }
-    .login-link a:hover {
+    .login-link a:hover, .lang-toggle a:hover {
       text-decoration: underline;
     }
-    .lang-toggle {
+    .success-msg {
       text-align: center;
+      color: #22c55e;
       margin-top: 1rem;
-    }
-    .lang-toggle a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .lang-toggle a:hover {
-      text-decoration: underline;
+      display: none;
     }
   </style>
+  <script>
+    function showSuccessMessage() {
+      document.getElementById("successMsg").style.display = "block";
+    }
+  </script>
 </head>
 <body>
   <div class="signup-box">
     <a class="back-btn" href="index-ar.html">🔙 عودة</a>
 
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="EchoShop Logo" class="logo" />
+
     <h2>إنشاء حساب جديد</h2>
-    <form>
+    <form onsubmit="event.preventDefault(); showSuccessMessage();">
       <label for="name">الاسم الكامل</label>
       <input type="text" id="name" placeholder="محمد أحمد" required>
 
@@ -110,10 +116,22 @@
       <input type="email" id="email" placeholder="you@example.com" required>
 
       <label for="password">كلمة المرور</label>
-      <input type="password" id="password" placeholder="ادخل كلمة المرور" required>
+      <input type="password" id="password" placeholder="********" required>
+
+      <label for="confirm">تأكيد كلمة المرور</label>
+      <input type="password" id="confirm" placeholder="********" required>
+
+      <label for="role">نوع المستخدم</label>
+      <select id="role" required>
+        <option value="">-- اختر --</option>
+        <option value="client">عميل</option>
+        <option value="seller">تاجر</option>
+      </select>
 
       <button type="submit">إنشاء حساب</button>
     </form>
+
+    <p class="success-msg" id="successMsg">✅ تم إنشاء الحساب بنجاح!</p>
 
     <div class="login-link">
       <a href="login-ar.html">لديك حساب بالفعل؟ سجل الدخول</a>

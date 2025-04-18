@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الطلبات - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
       background-color: #1e293b;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
+      text-align: center;
       font-size: 1.5rem;
-      font-weight: bold;
       color: #a3e635;
-      text-decoration: none;
+      position: relative;
+      font-weight: bold;
     }
-    nav a {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
+    .logout-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
       border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
       text-decoration: none;
-      margin-left: 0.5rem;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     h2 {
       text-align: center;
-      margin: 2rem 0 1rem;
-    }
-    .table-container {
-      overflow-x: auto;
-      padding: 1rem 2rem;
+      margin-top: 2rem;
+      color: #3b82f6;
     }
     table {
-      width: 100%;
+      width: 90%;
+      margin: 2rem auto;
       border-collapse: collapse;
       background-color: #1e293b;
       border-radius: 10px;
@@ -57,80 +65,76 @@
       background-color: #2563eb;
     }
     tr:hover {
-      background-color: #1d4ed8;
+      background-color: #334155;
     }
     footer {
-      background-color: #0f172a;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
+      background-color: #0f172a;
       color: #64748b;
       margin-top: 2rem;
     }
-    @media (max-width: 600px) {
-      nav {
-        justify-content: center;
-        margin-top: 1rem;
-      }
-    }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">لوحة التحكم</a>
-      <a href="products.html">المنتجات</a>
-      <a href="settings.html">الإعدادات</a>
-    </nav>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    الطلبات - EchoShop
   </header>
 
   <h2>قائمة الطلبات</h2>
 
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>رقم الطلب</th>
-          <th>اسم المنتج</th>
-          <th>العميل</th>
-          <th>التاريخ</th>
-          <th>الحالة</th>
-          <th>السعر</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1001</td>
-          <td>هاتف ذكي</td>
-          <td>أحمد جمال</td>
-          <td>2025-04-15</td>
-          <td>تم الشحن</td>
-          <td>5999 ج.م</td>
-        </tr>
-        <tr>
-          <td>1002</td>
-          <td>سماعات</td>
-          <td>سارة علي</td>
-          <td>2025-04-14</td>
-          <td>قيد المعالجة</td>
-          <td>999 ج.م</td>
-        </tr>
-        <tr>
-          <td>1003</td>
-          <td>ساعة ذكية</td>
-          <td>محمود حسن</td>
-          <td>2025-04-13</td>
-          <td>تم التسليم</td>
-          <td>1750 ج.م</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>رقم الطلب</th>
+        <th>اسم العميل</th>
+        <th>المنتج</th>
+        <th>الكمية</th>
+        <th>السعر الإجمالي</th>
+        <th>الحالة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>#1001</td>
+        <td>محمد أحمد</td>
+        <td>موبايل ذكي</td>
+        <td>1</td>
+        <td>5999 جنيه</td>
+        <td>تم التوصيل</td>
+      </tr>
+      <tr>
+        <td>#1002</td>
+        <td>سارة علي</td>
+        <td>ساعة ذكية</td>
+        <td>2</td>
+        <td>3500 جنيه</td>
+        <td>قيد الشحن</td>
+      </tr>
+      <tr>
+        <td>#1003</td>
+        <td>أحمد حسن</td>
+        <td>سماعات بلوتوث</td>
+        <td>1</td>
+        <td>999 جنيه</td>
+        <td>تم الإلغاء</td>
+      </tr>
+    </tbody>
+  </table>
 
   <footer>
-    &copy; 2025 EchoShop - جميع الحقوق محفوظة
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
   </footer>
-
 </body>
 </html>

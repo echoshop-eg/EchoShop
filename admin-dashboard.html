@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,13 +88,13 @@
     }
   </style>
   <script>
-    const pass = prompt("Enter password:");
+    const pass = prompt("Enter admin password:");
     if (pass !== "1234") {
       alert("Access denied. Redirecting to homepage.");
       window.location.href = "index.html";
     }
     function logout() {
-      alert("You have been logged out.");
+      alert("Logged out successfully.");
       window.location.href = "index.html";
     }
     function goBack() {
@@ -105,9 +105,9 @@
 <body>
 
   <header>
-    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
+    <button class="back-btn" onclick="goBack()">Back</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
-    Admin Dashboard - EchoShop
+    EchoShop Admin Dashboard
   </header>
 
   <nav>
@@ -116,7 +116,7 @@
     <a href="orders.html">Orders</a>
     <a href="settings.html">Settings</a>
     <a href="add-product.html">Add Product</a>
-    <a href="contact.html">Support</a>
+    <a href="contact.html">Contact Us</a>
   </nav>
 
   <div class="section">
@@ -126,23 +126,23 @@
     </div>
     <div class="section-box">
       <h2>🧾 Product Management</h2>
-      <p>Review products and approve or reject them as needed.</p>
+      <p>Review and activate or reject listed products.</p>
     </div>
     <div class="section-box">
       <h2>🧑‍💼 Seller Management</h2>
-      <p>Review new sellers, set commission rates, manage accounts.</p>
+      <p>Review new seller requests, set commission rates, manage seller accounts.</p>
     </div>
     <div class="section-box">
       <h2>💬 Messages & Complaints</h2>
-      <p>Respond to inquiries from customers and sellers via support inbox.</p>
+      <p>Respond to inquiries from customers and sellers through the support inbox.</p>
     </div>
     <div class="section-box">
       <h2>📢 Ad Management</h2>
-      <p>Set ad durations, payment status, and manage them across the platform.</p>
+      <p>Set banner durations, track payment status, and manage promotions.</p>
     </div>
     <div class="section-box">
       <h2>📊 Reports & Earnings</h2>
-      <p>View profits and monthly stats per seller and overall.</p>
+      <p>View seller earnings, total platform profits, and monthly charts.</p>
     </div>
   </div>
 

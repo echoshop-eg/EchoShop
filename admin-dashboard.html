@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard - EchoShop</title>
+  <title>لوحة تحكم الأدمن - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
       background-color: #1e293b;
@@ -21,17 +21,27 @@
       font-weight: bold;
       position: relative;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      left: 20px;
       top: 50%;
       transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      right: 20px;
       background-color: #ef4444;
       color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
+    }
+    .back-btn {
+      left: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     nav {
       background-color: #1e3a8a;
@@ -47,11 +57,12 @@
       color: white;
       text-decoration: none;
       border-radius: 30px;
+      font-size: 0.9rem;
     }
     nav a:hover {
       background-color: #1d4ed8;
     }
-    section {
+    .section {
       padding: 2rem;
       max-width: 1200px;
       margin: auto;
@@ -64,24 +75,10 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
     .section-box h2 {
-      margin-bottom: 1rem;
       color: #60a5fa;
     }
     .section-box p {
       color: #cbd5e1;
-    }
-    .back-btn {
-      display: inline-block;
-      margin: 1rem 2rem;
-      background-color: #facc15;
-      color: #000;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
-    }
-    .back-btn:hover {
-      background-color: #eab308;
     }
     footer {
       text-align: center;
@@ -91,68 +88,65 @@
     }
   </style>
   <script>
-    const pass = prompt("Enter admin password:");
+    const pass = prompt("ادخل كلمة المرور:");
     if (pass !== "1234") {
-      alert("Access denied");
-      window.location.href = "index.html";
+      alert("تم الرفض. سيتم إعادتك للصفحة الرئيسية.");
+      window.location.href = "index-ar.html";
     }
     function logout() {
-      alert("You have been logged out.");
-      window.location.href = "index.html";
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+    function goBack() {
+      window.history.back();
     }
   </script>
 </head>
 <body>
-<header>
-    <a class="back-btn" href="#" onclick="goBack()">عودة</a>
-    EchoShop Admin Panel
-  <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+
+  <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    لوحة تحكم الأدمن - EchoShop
   </header>
- 
+
   <nav>
-    <a href="#">Design Settings</a>
-    <a href="#">Manage Users</a>
-    <a href="#">Manage Sellers</a>
-    <a href="#">Manage Products</a>
-    <a href="#">Ads & Promotions</a>
-    <a href="#">Complaints & Support</a>
-    <a href="#">Reports & Earnings</a>
-    <a href="theme-settings.html">Theme & Banners</a>
+    <a href="theme-settings-ar.html">الثيمات والبنرات</a>
+    <a href="products-ar.html">المنتجات</a>
+    <a href="orders-ar.html">الطلبات</a>
+    <a href="settings-ar.html">الإعدادات</a>
+    <a href="add-product-ar.html">إضافة منتج</a>
+    <a href="contact-ar.html">تواصل معنا</a>
   </nav>
 
-  <section>
+  <div class="section">
     <div class="section-box">
-      <h2>🔧 Design Control</h2>
-      <p>Change colors, sections, button styles, and site layout.</p>
+      <h2>🎨 التحكم في التصميم</h2>
+      <p>تعديل الألوان، والأزرار، وترتيب أقسام الموقع.</p>
     </div>
-
     <div class="section-box">
-      <h2>🧑‍💼 Seller Management</h2>
-      <p>Approve/reject sellers, adjust commission rates, monitor seller performance.</p>
+      <h2>🧾 إدارة المنتجات</h2>
+      <p>مراجعة المنتجات وتفعيلها أو رفضها حسب الحاجة.</p>
     </div>
-
     <div class="section-box">
-      <h2>🛙️ Product Control</h2>
-      <p>Approve products, review categories, set status (active/pending/declined).</p>
+      <h2>🧑‍💼 إدارة التجار</h2>
+      <p>مراجعة التجار الجدد، وتحديد نسبة العمولة، وإدارة الحسابات.</p>
     </div>
-
     <div class="section-box">
-      <h2>💬 Support & Complaints</h2>
-      <p>View all messages from users and sellers. Respond or assign to support staff.</p>
+      <h2>💬 الرسائل والشكاوى</h2>
+      <p>الرد على استفسارات العملاء والتجار من صندوق الدعم الفني.</p>
     </div>
-
     <div class="section-box">
-      <h2>📢 Ads & Promotions</h2>
-      <p>Manage advertisement banners, set durations, check payments.</p>
+      <h2>📢 إدارة الإعلانات</h2>
+      <p>تحديد مدة الإعلانات، حالة الدفع، وإدارتها داخل صفحات الموقع.</p>
     </div>
-
     <div class="section-box">
-      <h2>📊 Reports & Profits</h2>
-      <p>View earnings per seller, total profits, monthly reports, and charts.</p>
+      <h2>📊 التقارير والمكاسب</h2>
+      <p>عرض الأرباح والإحصائيات الشهرية لكل تاجر ولكل الموقع.</p>
     </div>
-  </section>
+  </div>
 
-  <footer>&copy; 2025 EchoShop Admin Panel</footer>
+  <footer>&copy; 2025 لوحة تحكم EchoShop</footer>
 
 </body>
 </html>

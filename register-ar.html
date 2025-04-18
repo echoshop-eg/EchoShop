@@ -18,6 +18,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
     .logo {
       font-size: 1.5rem;
@@ -25,13 +26,18 @@
       color: #a3e635;
       text-decoration: none;
     }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
     nav a {
       background-color: #2563eb;
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       text-decoration: none;
-      margin-right: 0.5rem;
+      font-size: 0.9rem;
     }
     .logout-btn, .back-btn {
       position: absolute;
@@ -46,12 +52,12 @@
       border: none;
     }
     .logout-btn {
-      right: 20px;
+      left: 20px;
       background-color: #ef4444;
       color: white;
     }
     .back-btn {
-      left: 20px;
+      right: 20px;
       background-color: #22c55e;
       color: black;
     }

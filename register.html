@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register as Seller - EchoShop</title>
   <style>
@@ -11,26 +11,29 @@
       background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
       color: white;
     }
+
     header {
       background-color: #1e293b;
       padding: 1rem 2rem;
-      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
+
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
       color: #a3e635;
       text-decoration: none;
     }
+
     nav {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     nav a {
       background-color: #2563eb;
       color: white;
@@ -39,28 +42,29 @@
       text-decoration: none;
       font-size: 0.9rem;
     }
-    .logout-btn, .back-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 5px 14px;
-      font-size: 0.85rem;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
-    .logout-btn {
-      left: 20px;
+
+    .logout-btn, .back-btn {
       background-color: #ef4444;
       color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.85rem;
     }
+
     .back-btn {
-      right: 20px;
       background-color: #22c55e;
       color: black;
     }
+
     main {
       max-width: 600px;
       margin: 2rem auto;
@@ -69,16 +73,19 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
+
     h2 {
       text-align: center;
       margin-bottom: 1.5rem;
       color: #60a5fa;
     }
+
     label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: bold;
     }
+
     input {
       width: 100%;
       padding: 0.7rem;
@@ -87,7 +94,8 @@
       border-radius: 8px;
       font-size: 1rem;
     }
-    button {
+
+    button[type="submit"] {
       width: 100%;
       padding: 0.8rem;
       background-color: #2563eb;
@@ -99,9 +107,11 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    button:hover {
+
+    button[type="submit"]:hover {
       background-color: #1d4ed8;
     }
+
     footer {
       background-color: #0f172a;
       text-align: center;
@@ -110,11 +120,13 @@
       margin-top: 3rem;
     }
   </style>
+
   <script>
     function logout() {
       alert("You have been logged out.");
       window.location.href = "index.html";
     }
+
     function goBack() {
       window.history.back();
     }
@@ -123,14 +135,16 @@
 <body>
 
   <header>
-    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
-    <button class="logout-btn" onclick="logout()">Logout</button>
     <a href="index.html" class="logo">EchoShop</a>
     <nav>
       <a href="dashboard.html">Dashboard</a>
       <a href="products.html">Products</a>
       <a href="orders.html">Orders</a>
     </nav>
+    <div class="header-actions">
+      <button class="back-btn" onclick="goBack()">🔙 Back</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
   </header>
 
   <main>

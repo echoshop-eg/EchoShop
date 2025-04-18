@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,25 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
+      position: relative;
+    }
+    .back-btn {
+      position: absolute;
+      top: -45px;
+      left: 0;
+      background-color: #22c55e;
+      color: black;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 1.2rem;
+      width: 120px;
     }
     h2 {
       text-align: center;
@@ -34,7 +52,7 @@
       margin-bottom: 0.5rem;
       font-weight: bold;
     }
-    input {
+    input, select {
       width: 100%;
       padding: 0.7rem;
       margin-bottom: 1rem;
@@ -57,24 +75,39 @@
     button:hover {
       background-color: #1d4ed8;
     }
-    .lang-toggle {
+    .login-link, .lang-toggle {
       text-align: center;
       margin-top: 1rem;
     }
-    .lang-toggle a {
+    .login-link a, .lang-toggle a {
       color: #38bdf8;
       text-decoration: none;
       font-size: 0.9rem;
     }
-    .lang-toggle a:hover {
+    .login-link a:hover, .lang-toggle a:hover {
       text-decoration: underline;
     }
+    .success-msg {
+      text-align: center;
+      color: #22c55e;
+      margin-top: 1rem;
+      display: none;
+    }
   </style>
+  <script>
+    function showSuccessMessage() {
+      document.getElementById("successMsg").style.display = "block";
+    }
+  </script>
 </head>
 <body>
   <div class="signup-box">
-    <h2>Create an Account</h2>
-    <form>
+    <a class="back-btn" href="index.html">🔙 Back</a>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="EchoShop Logo" class="logo" />
+
+    <h2>Create a New Account</h2>
+    <form onsubmit="event.preventDefault(); showSuccessMessage();">
       <label for="name">Full Name</label>
       <input type="text" id="name" placeholder="John Doe" required>
 
@@ -82,10 +115,26 @@
       <input type="email" id="email" placeholder="you@example.com" required>
 
       <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password" required>
+      <input type="password" id="password" placeholder="********" required>
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="********" required>
+
+      <label for="role">User Type</label>
+      <select id="role" required>
+        <option value="">-- Select --</option>
+        <option value="client">Client</option>
+        <option value="seller">Seller</option>
+      </select>
 
       <button type="submit">Sign Up</button>
     </form>
+
+    <p class="success-msg" id="successMsg">✅ Account created successfully!</p>
+
+    <div class="login-link">
+      <a href="login.html">Already have an account? Log in</a>
+    </div>
 
     <div class="lang-toggle">
       <a href="signup-ar.html">العربية</a>

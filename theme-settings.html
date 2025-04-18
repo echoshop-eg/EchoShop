@@ -106,6 +106,22 @@
       alert("You have been logged out.");
       window.location.href = "index.html";
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeOptions = document.querySelectorAll(".theme-option");
+      themeOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          const selectedColor = option.style.background;
+          document.body.style.background = selectedColor;
+          localStorage.setItem("theme", selectedColor);
+        });
+      });
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.style.background = savedTheme;
+      }
+    });
   </script>
 </head>
 <body>

@@ -19,28 +19,29 @@
       font-size: 1.5rem;
       color: #a3e635;
       position: relative;
+      font-weight: bold;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      right: 20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: #ef4444;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .back-btn {
-      display: inline-block;
-      margin: 1rem 2rem;
-      background-color: #facc15;
-      color: #000;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+      padding: 5px 14px;
+      font-size: 0.85rem;
       border-radius: 20px;
       font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     h2 {
       text-align: center;
@@ -89,16 +90,17 @@
       alert("تم تسجيل الخروج.");
       window.location.href = "index-ar.html";
     }
+    function goBack() {
+      window.history.back();
+    }
   </script>
 </head>
 <body>
-
   <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
     <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     منتجاتي - EchoShop
   </header>
-
-  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
 
   <h2>المنتجات الحالية</h2>
 

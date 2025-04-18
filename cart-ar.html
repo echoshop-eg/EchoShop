@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سلة الشراء - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
+      margin: 0;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      font-weight: bold;
+      position: relative;
+    }
+    .logout-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
+    }
+    nav {
+      background-color: #1e3a8a;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      background-color: #2563eb;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+    .content {
+      max-width: 600px;
+      margin: 60px auto;
+      text-align: center;
+    }
+    .content h1 {
+      color: #3b82f6;
+      margin-bottom: 1rem;
+    }
+    .content p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+  </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    EchoShop - سلة الشراء
+  </header>
+
+  <nav>
+    <a href="products-ar.html">عرض المنتجات</a>
+  </nav>
+
+  <div class="content">
+    <h1>سلة الشراء</h1>
+    <p>لا توجد منتجات حالياً.</p>
+  </div>
+</body>
+</html>

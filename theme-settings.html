@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme & Banner Settings - Admin Panel</title>
+  <title>Theme & Banner Settings - Admin Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,18 +20,29 @@
       font-size: 1.5rem;
       color: #a3e635;
       position: relative;
+      font-weight: bold;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      left: 20px;
       top: 50%;
       transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
       background-color: #ef4444;
       color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     .container {
       max-width: 1100px;
@@ -87,24 +98,29 @@
       display: block;
       margin-top: 0.5rem;
     }
-    .back-btn {
-      display: inline-block;
-      margin: 1rem 0;
-      background-color: #facc15;
-      color: #000;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
+    .nav-links {
+      margin: 1rem 0 2rem;
     }
-    .back-btn:hover {
-      background-color: #eab308;
+    .nav-links a {
+      display: inline-block;
+      margin: 0.2rem;
+      padding: 0.4rem 0.8rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      background: #1d4ed8;
     }
   </style>
   <script>
     function logout() {
       alert("You have been logged out.");
       window.location.href = "index.html";
+    }
+    function goBack() {
+      window.history.back();
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -127,19 +143,27 @@
 <body>
 
   <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
     <button class="logout-btn" onclick="logout()">Logout</button>
-    Theme & Banner Settings
+    Theme & Banner Settings - EchoShop
   </header>
 
   <div class="container">
-    <a class="back-btn" href="admin-dashboard.html">⏪ Back to Dashboard</a>
+
+    <div class="nav-links">
+      <a href="products.html">Products</a>
+      <a href="orders.html">Orders</a>
+      <a href="settings.html">Settings</a>
+      <a href="add-product.html">Add Product</a>
+      <a href="contact.html">Help</a>
+    </div>
 
     <section class="themes">
-      <h2>Choose Site Theme</h2>
+      <h2>Select Site Theme</h2>
       <div>
-        <div class="theme-option" style="background: #0f172a" title="Dark Mode"></div>
-        <div class="theme-option" style="background: #ffffff" title="Light Mode"></div>
-        <div class="theme-option" style="background: linear-gradient(to right, #14b8a6, #0ea5e9)" title="Blue Green"></div>
+        <div class="theme-option" style="background: #0f172a" title="Dark"></div>
+        <div class="theme-option" style="background: #ffffff" title="Light"></div>
+        <div class="theme-option" style="background: linear-gradient(to right, #14b8a6, #0ea5e9)" title="Blue-Green"></div>
         <div class="theme-option" style="background: #facc15" title="Yellow"></div>
         <div class="theme-option" style="background: #dc2626" title="Red"></div>
         <div class="theme-option" style="background: #9333ea" title="Purple"></div>
@@ -147,9 +171,9 @@
     </section>
 
     <section class="banners">
-      <h2>Main Banner Controls</h2>
+      <h2>Main Banner Control</h2>
       <div class="banner-section">
-        <label for="banner1">Banner 1 Image URL:</label>
+        <label for="banner1">Banner Image URL:</label>
         <input type="text" id="banner1" placeholder="https://example.com/banner1.jpg">
         <label for="banner1-width">Width (px):</label>
         <input type="number" id="banner1-width" placeholder="100%">
@@ -162,7 +186,7 @@
       </div>
     </section>
 
-    <button class="save-btn">Save Settings</button>
+    <button class="save-btn">💾 Save Settings</button>
   </div>
 </body>
 </html>

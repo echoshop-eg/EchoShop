@@ -1,112 +1,122 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تواصل معنا - EchoShop</title>
-  <link rel="stylesheet" href="dashboard-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #1e293b;
       padding: 1rem 2rem;
-      background-color: #020617;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
+      text-align: center;
+      font-size: 1.5rem;
       color: #a3e635;
+      position: relative;
     }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-    nav a {
-      background-color: #2563eb;
+    .logout-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
       color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
       padding: 0.5rem 1rem;
-      border-radius: 20px;
       text-decoration: none;
-      font-size: 0.9rem;
+      border-radius: 20px;
+      font-weight: bold;
     }
     .container {
       max-width: 700px;
-      margin: 60px auto;
+      margin: 2rem auto;
       background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
+      padding: 2rem;
+      border-radius: 10px;
     }
-    h1 {
-      text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 1.5rem;
     }
     label {
       display: block;
-      margin-bottom: 10px;
-      font-weight: bold;
+      margin: 1rem 0 0.5rem;
     }
     input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 6px;
+      padding: 0.7rem;
       border: none;
+      border-radius: 6px;
     }
-    button {
+    .submit-btn {
       background-color: #3b82f6;
       color: white;
-      padding: 10px 20px;
+      font-weight: bold;
       border: none;
-      border-radius: 6px;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
       cursor: pointer;
+      margin-top: 2rem;
+    }
+    .submit-btn:hover {
+      background-color: #2563eb;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+  </script>
 </head>
 <body>
   <header>
-    <div class="logo">EchoShop</div>
-    <nav>
-      <a href="index-ar.html">الرئيسية</a>
-      <a href="products-ar.html">المنتجات</a>
-      <a href="dashboard-ar.html">لوحة التحكم</a>
-      <a href="orders-ar.html">الطلبات</a>
-      <a href="settings-ar.html">الإعدادات</a>
-      <a href="contact-ar.html">تواصل معنا</a>
-      <a href="about-ar.html">من نحن</a>
-      <a href="privacy-ar.html">سياسة الخصوصية</a>
-      <a href="register.html">تسجيل تاجر</a>
-      <a href="add-product-ar.html">إضافة منتج</a>
-      <a href="login-ar.html">تسجيل الدخول</a>
-      <a href="signup-ar.html">إنشاء حساب</a>
-      <a href="contact.html" style="background:#22c55e; border-radius:20px; padding:5px 12px; text-decoration:none; color:black;">English</a>
-    </nav>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    تواصل معنا - EchoShop
   </header>
 
+  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
+
   <div class="container">
-    <h1>تواصل معنا</h1>
+    <h2>راسلنا مباشرة</h2>
     <form>
-      <label for="name">الاسم</label>
-      <input type="text" id="name" name="name" placeholder="اكتب اسمك" required>
+      <label for="fullname">الاسم الكامل</label>
+      <input type="text" id="fullname" placeholder="أدخل اسمك الكامل" required>
 
       <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+      <input type="email" id="email" placeholder="example@email.com" required>
 
       <label for="message">الرسالة</label>
-      <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+      <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
 
-      <button type="submit">إرسال الرسالة</button>
+      <button type="submit" class="submit-btn">📨 إرسال الرسالة</button>
     </form>
   </div>
+
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
 </body>
 </html>

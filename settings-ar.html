@@ -20,27 +20,27 @@
       color: #a3e635;
       position: relative;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      right: 20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: #ef4444;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .back-btn {
-      display: inline-block;
-      margin: 1rem 2rem;
-      background-color: #facc15;
-      color: #000;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+      padding: 6px 14px;
+      font-size: 0.85rem;
       border-radius: 20px;
       font-weight: bold;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .logout-btn {
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      left: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     .container {
       max-width: 700px;
@@ -76,6 +76,23 @@
     .submit-btn:hover {
       background-color: #2563eb;
     }
+    .extra-links {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .extra-links a {
+      flex: 1;
+      text-align: center;
+      background-color: #2563eb;
+      padding: 0.7rem;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -93,15 +110,13 @@
 </head>
 <body>
   <header>
+    <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة</a>
     <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     الإعدادات - EchoShop
   </header>
 
-  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
-
   <div class="container">
     <h2>تعديل البيانات الشخصية</h2>
-
     <form>
       <label for="username">اسم المستخدم</label>
       <input type="text" id="username" placeholder="أدخل اسمك">
@@ -118,6 +133,12 @@
 
       <button type="submit" class="submit-btn">💾 حفظ التغييرات</button>
     </form>
+
+    <div class="extra-links">
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="contact-ar.html">اتصل بنا</a>
+      <a href="theme-settings-ar.html">إعدادات المظهر</a>
+    </div>
   </div>
 
   <footer>

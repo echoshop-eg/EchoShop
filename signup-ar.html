@@ -23,6 +23,19 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       width: 100%;
       max-width: 400px;
+      position: relative;
+    }
+    .back-btn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background-color: #22c55e;
+      color: black;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
     h2 {
       text-align: center;
@@ -58,6 +71,18 @@
     button:hover {
       background-color: #1d4ed8;
     }
+    .login-link {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .login-link a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
+    }
     .lang-toggle {
       text-align: center;
       margin-top: 1rem;
@@ -74,6 +99,8 @@
 </head>
 <body>
   <div class="signup-box">
+    <a class="back-btn" href="index-ar.html">🔙 عودة</a>
+
     <h2>إنشاء حساب جديد</h2>
     <form>
       <label for="name">الاسم الكامل</label>
@@ -87,6 +114,10 @@
 
       <button type="submit">إنشاء حساب</button>
     </form>
+
+    <div class="login-link">
+      <a href="login-ar.html">لديك حساب بالفعل؟ سجل الدخول</a>
+    </div>
 
     <div class="lang-toggle">
       <a href="signup.html">English</a>

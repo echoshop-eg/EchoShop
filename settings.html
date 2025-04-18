@@ -1,121 +1,150 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الإعدادات - EchoShop</title>
+  <title>Settings - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
       color: white;
+      margin: 0;
     }
     header {
       background-color: #1e293b;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
+      text-align: center;
       font-size: 1.5rem;
-      font-weight: bold;
       color: #a3e635;
-      text-decoration: none;
+      position: relative;
     }
-    nav a {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
+    .logout-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 6px 14px;
+      font-size: 0.85rem;
       border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
       text-decoration: none;
-      margin-left: 0.5rem;
     }
-    main {
-      max-width: 600px;
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
+    }
+    .container {
+      max-width: 700px;
       margin: 2rem auto;
       background-color: #1e293b;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
     h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
       color: #60a5fa;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
     label {
       display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
+      margin: 1rem 0 0.5rem;
     }
-    input, select {
+    input {
       width: 100%;
       padding: 0.7rem;
-      margin-bottom: 1rem;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 6px;
     }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #2563eb;
-      border: none;
-      border-radius: 8px;
+    .submit-btn {
+      background-color: #3b82f6;
       color: white;
-      font-size: 1rem;
       font-weight: bold;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      margin-top: 2rem;
     }
-    button:hover {
-      background-color: #1d4ed8;
+    .submit-btn:hover {
+      background-color: #2563eb;
+    }
+    .extra-links {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .extra-links a {
+      flex: 1;
+      text-align: center;
+      background-color: #2563eb;
+      padding: 0.7rem;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
     footer {
-      background-color: #0f172a;
       text-align: center;
-      padding: 1rem;
-      color: #94a3b8;
-      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">لوحة التحكم</a>
-      <a href="orders.html">الطلبات</a>
-      <a href="products.html">المنتجات</a>
-    </nav>
+    <a class="back-btn" href="admin-dashboard.html">🔙 Back</a>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    Settings - EchoShop
   </header>
 
-  <main>
-    <h2>إعدادات الحساب</h2>
-    <form>
-      <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" placeholder="you@example.com">
+  <div class="container">
+    <h2>Update Profile Information</h2>
 
-      <label for="password">تغيير كلمة المرور</label>
+    <form>
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter your name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="example@email.com">
+
+      <label for="password">New Password</label>
       <input type="password" id="password" placeholder="********">
 
-      <label for="language">اللغة</label>
-      <select id="language">
-        <option value="ar">العربية</option>
-        <option value="en">الإنجليزية</option>
-      </select>
+      <label for="notifications">
+        <input type="checkbox" id="notifications"> Enable notifications
+      </label>
 
-      <button type="submit">حفظ التغييرات</button>
+      <button type="submit" class="submit-btn">💾 Save Changes</button>
     </form>
-  </main>
+
+    <div class="extra-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="theme-settings.html">Theme Settings</a>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2025 EchoShop - جميع الحقوق محفوظة
+    &copy; 2025 EchoShop. All rights reserved.
   </footer>
-
 </body>
 </html>

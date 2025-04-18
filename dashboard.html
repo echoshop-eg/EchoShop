@@ -1,105 +1,192 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة التحكم - EchoShop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <title>Theme & Banner Settings - Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
+      margin: 0;
+      padding: 0;
     }
     header {
       background-color: #1e293b;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
-    nav a {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-left: 0.5rem;
-    }
-    main {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background-color: #1e293b;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .card h3 {
-      margin-bottom: 1rem;
-      color: #60a5fa;
-    }
-    .card p {
-      font-size: 1rem;
-      color: #cbd5e1;
-    }
-    footer {
-      background-color: #0f172a;
       text-align: center;
       padding: 1rem;
-      color: #64748b;
-      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #a3e635;
+      position: relative;
+      font-weight: bold;
     }
-    @media (max-width: 600px) {
-      nav {
-        justify-content: center;
-        margin-top: 1rem;
-      }
+    .logout-btn, .back-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      left: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      right: 20px;
+      background-color: #22c55e;
+      color: black;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h2 {
+      color: #60a5fa;
+    }
+    .themes, .banners {
+      margin-bottom: 2rem;
+    }
+    .theme-option {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin: 0.5rem;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+    .theme-option:hover {
+      border: 3px solid #a3e635;
+    }
+    .banner-settings {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .banner-settings input {
+      padding: 0.5rem;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+    }
+    .banner-section {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .save-btn {
+      padding: 0.7rem 2rem;
+      background-color: #22c55e;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .nav-links {
+      margin: 1rem 0 2rem;
+    }
+    .nav-links a {
+      display: inline-block;
+      margin: 0.2rem;
+      padding: 0.4rem 0.8rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      background: #1d4ed8;
     }
   </style>
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+    function goBack() {
+      window.history.back();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeOptions = document.querySelectorAll(".theme-option");
+      themeOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          const selectedColor = option.style.background;
+          document.body.style.background = selectedColor;
+          localStorage.setItem("theme", selectedColor);
+        });
+      });
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.style.background = savedTheme;
+      }
+    });
+  </script>
 </head>
 <body>
+
   <header>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="products.html">المنتجات</a>
-      <a href="orders.html">الطلبات</a>
-      <a href="settings.html">الإعدادات</a>
-    </nav>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    Theme & Banner Settings - EchoShop
   </header>
 
-  <main>
-    <div class="card">
-      <h3>عدد الطلبات</h3>
-      <p>34 طلب جديد هذا الأسبوع</p>
-    </div>
-    <div class="card">
-      <h3>عدد المنتجات</h3>
-      <p>تمت إضافة 12 منتج جديد</p>
-    </div>
-    <div class="card">
-      <h3>إجمالي الأرباح</h3>
-      <p>+24,000 ج.م خلال هذا الشهر</p>
-    </div>
-    <div class="card">
-      <h3>الإشعارات</h3>
-      <p>4 رسائل غير مقروءة</p>
-    </div>
-  </main>
+  <div class="container">
 
-  <footer>
-    &copy; 2025 EchoShop - لوحة التحكم
-  </footer>
+    <div class="nav-links">
+      <a href="products.html">Products</a>
+      <a href="orders.html">Orders</a>
+      <a href="settings.html">Settings</a>
+      <a href="add-product.html">Add Product</a>
+      <a href="contact.html">Help</a>
+    </div>
+
+    <section class="themes">
+      <h2>Select Site Theme</h2>
+      <div>
+        <div class="theme-option" style="background: #0f172a" title="Dark"></div>
+        <div class="theme-option" style="background: #ffffff" title="Light"></div>
+        <div class="theme-option" style="background: linear-gradient(to right, #14b8a6, #0ea5e9)" title="Blue-Green"></div>
+        <div class="theme-option" style="background: #facc15" title="Yellow"></div>
+        <div class="theme-option" style="background: #dc2626" title="Red"></div>
+        <div class="theme-option" style="background: #9333ea" title="Purple"></div>
+      </div>
+    </section>
+
+    <section class="banners">
+      <h2>Main Banner Control</h2>
+      <div class="banner-section">
+        <label for="banner1">Banner Image URL:</label>
+        <input type="text" id="banner1" placeholder="https://example.com/banner1.jpg">
+        <label for="banner1-width">Width (px):</label>
+        <input type="number" id="banner1-width" placeholder="100%">
+        <label for="banner1-height">Height (px):</label>
+        <input type="number" id="banner1-height" placeholder="300">
+        <label for="banner1-visible">
+          <input type="checkbox" id="banner1-visible" checked>
+          Show this banner
+        </label>
+      </div>
+    </section>
+
+    <button class="save-btn">💾 Save Settings</button>
+  </div>
 </body>
 </html>

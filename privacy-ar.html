@@ -2,126 +2,95 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سياسة الخصوصية - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
-      color: white;
-    }
-
-    header {
-      background-color: #020617;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    nav a, nav button {
-      background-color: #2563eb;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover, nav button:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 60px auto;
-      background-color: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      text-align: center;
-      color: #3b82f6;
-      margin-bottom: 30px;
-    }
-
-    p {
       line-height: 1.8;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
     }
-
-    ul {
-      padding-right: 20px;
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a3e635;
+      position: relative;
     }
-
-    li {
-      margin-bottom: 10px;
+    .logout-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج.");
+      window.location.href = "index-ar.html";
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <div class="header-container">
-      <a href="index-ar.html" class="logo">EchoShop</a>
-      <nav>
-        <a href="products-ar.html">المنتجات</a>
-        <a href="login-ar.html">تسجيل الدخول</a>
-        <a href="signup-ar.html">إنشاء حساب</a>
-        <button onclick="window.location.href='privacy.html'">English</button>
-      </nav>
-    </div>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    سياسة الخصوصية - EchoShop
   </header>
 
-  <main>
-    <h1>سياسة الخصوصية</h1>
-    <p>في EchoShop، نحترم خصوصيتك وملتزمون بحماية معلوماتك الشخصية. توضح هذه السياسة كيفية جمع البيانات واستخدامها وحمايتها.</p>
-    <ul>
-      <li><strong>ما نجمعه:</strong> الاسم، البريد الإلكتروني، رقم الهاتف، معلومات الدفع.</li>
-      <li><strong>كيف نستخدم المعلومات:</strong> لمعالجة الطلبات، وتحسين تجربة المستخدم، والتواصل معك.</li>
-      <li><strong>الأمان:</strong> نستخدم تقنيات آمنة لحماية بياناتك.</li>
-      <li><strong>عدم المشاركة:</strong> لا نشارك بياناتك مع أطراف خارجية بدون إذنك.</li>
-      <li><strong>حقوقك:</strong> لك الحق في تعديل أو حذف بياناتك في أي وقت.</li>
-    </ul>
-    <p>باستخدامك لموقعنا، فإنك توافق على هذه السياسة.</p>
-  </main>
+  <a class="back-btn" href="admin-dashboard-ar.html">🔙 عودة إلى لوحة التحكم</a>
 
+  <div class="container">
+    <h2>سياسة الخصوصية</h2>
+    <p>نحن في EchoShop نحرص على حماية خصوصية مستخدمينا وبياناتهم الشخصية. من خلال استخدامك لموقعنا، فإنك توافق على سياسة الخصوصية هذه.</p>
+    <p>نقوم بجمع بعض البيانات لتحسين تجربتك مثل الاسم، البريد الإلكتروني، وسجل الطلبات. لا نقوم بمشاركة هذه البيانات مع أي جهة خارجية إلا في حال وجود أمر قانوني.</p>
+    <p>يمكنك تعديل بياناتك أو حذف حسابك في أي وقت من خلال إعدادات الحساب. كما يمكنك التواصل معنا لأي استفسارات تتعلق بالخصوصية.</p>
+    <p>قد نقوم بتحديث هذه السياسة من وقت لآخر. يُرجى مراجعتها بشكل دوري.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
+  </footer>
 </body>
 </html>

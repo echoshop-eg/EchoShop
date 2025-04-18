@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,29 +18,30 @@
       text-align: center;
       font-size: 1.5rem;
       color: #a3e635;
+      font-weight: bold;
       position: relative;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      left: 20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: #ef4444;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .back-btn {
-      display: inline-block;
-      margin: 1rem 2rem;
-      background-color: #facc15;
-      color: #000;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+      padding: 5px 14px;
+      font-size: 0.85rem;
       border-radius: 20px;
       font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      left: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     .container {
       max-width: 700px;
@@ -89,15 +90,17 @@
       alert("You have been logged out.");
       window.location.href = "index.html";
     }
+    function goBack() {
+      window.history.back();
+    }
   </script>
 </head>
 <body>
   <header>
+    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
     <button class="logout-btn" onclick="logout()">Logout</button>
     Contact Us - EchoShop
   </header>
-
-  <a class="back-btn" href="index.html">🔙 Back</a>
 
   <div class="container">
     <h2>Send us a message</h2>
@@ -105,7 +108,7 @@
       <label for="fullname">Full Name</label>
       <input type="text" id="fullname" placeholder="Enter your full name" required>
 
-      <label for="email">Email</label>
+      <label for="email">Email Address</label>
       <input type="email" id="email" placeholder="example@email.com" required>
 
       <label for="message">Message</label>

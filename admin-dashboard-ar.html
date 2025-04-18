@@ -21,31 +21,27 @@
       font-weight: bold;
       position: relative;
     }
-    .logout-btn {
+    .logout-btn, .back-btn {
       position: absolute;
-      right: 20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: #ef4444;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .back-btn {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #22c55e;
-      color: black;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
       font-weight: bold;
       cursor: pointer;
       text-decoration: none;
+      border: none;
+    }
+    .logout-btn {
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+    }
+    .back-btn {
+      left: 20px;
+      background-color: #22c55e;
+      color: black;
     }
     nav {
       background-color: #1e3a8a;
@@ -61,6 +57,7 @@
       color: white;
       text-decoration: none;
       border-radius: 30px;
+      font-size: 0.9rem;
     }
     nav a:hover {
       background-color: #1d4ed8;
@@ -108,7 +105,7 @@
 <body>
 
   <header>
-    <a class="back-btn" href="#" onclick="goBack()">🔙 عودة</a>
+    <a class="back-btn" href="#" onclick="goBack()"> عودة</a>
     <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
     لوحة تحكم الأدمن - EchoShop
   </header>

@@ -1,115 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme & Banner Settings - Admin Panel</title>
+  <title>Admin Dashboard - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
       font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
-      margin: 0;
-      padding: 0;
     }
     header {
       background-color: #1e293b;
+      padding: 1rem 2rem;
       text-align: center;
-      padding: 1rem;
       font-size: 1.5rem;
       color: #a3e635;
+      font-weight: bold;
+      position: relative;
     }
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
+    .logout-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    nav {
+      background-color: #1e3a8a;
       padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    h2 {
+    nav a {
+      background-color: #2563eb;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+    }
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-box {
+      background-color: #1e293b;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .section-box h2 {
+      margin-bottom: 1rem;
       color: #60a5fa;
     }
-    .themes, .banners {
-      margin-bottom: 2rem;
+    .section-box p {
+      color: #cbd5e1;
     }
-    .theme-option {
+    .back-btn {
       display: inline-block;
-      width: 100px;
-      height: 100px;
-      border-radius: 8px;
-      margin: 0.5rem;
-      cursor: pointer;
-      border: 3px solid transparent;
-    }
-    .theme-option:hover {
-      border: 3px solid #a3e635;
-    }
-    .banner-settings {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .banner-settings input {
-      padding: 0.5rem;
-      width: 100%;
-      border-radius: 5px;
-      border: none;
-    }
-    .banner-section {
-      background: #1e293b;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .save-btn {
-      padding: 0.7rem 2rem;
-      background-color: #22c55e;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      color: black;
+      margin: 1rem 2rem;
+      background-color: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 20px;
       font-weight: bold;
-      margin-top: 1rem;
     }
-    label {
-      display: block;
-      margin-top: 0.5rem;
+    .back-btn:hover {
+      background-color: #eab308;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      color: #64748b;
     }
   </style>
+  <script>
+    const pass = prompt("Enter admin password:");
+    if (pass !== "1234") {
+      alert("Access denied");
+      window.location.href = "index.html";
+    }
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
-  <header>Theme & Banner Settings</header>
-  <div class="container">
 
-    <section class="themes">
-      <h2>Choose Site Theme</h2>
-      <div>
-        <div class="theme-option" style="background: #0f172a" title="Dark Mode"></div>
-        <div class="theme-option" style="background: #ffffff" title="Light Mode"></div>
-        <div class="theme-option" style="background: linear-gradient(to right, #14b8a6, #0ea5e9)" title="Blue Green"></div>
-        <div class="theme-option" style="background: #facc15" title="Yellow"></div>
-        <div class="theme-option" style="background: #dc2626" title="Red"></div>
-        <div class="theme-option" style="background: #9333ea" title="Purple"></div>
-      </div>
-    </section>
+  <header>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    EchoShop Admin Panel
+  </header>
 
-    <section class="banners">
-      <h2>Main Banner Controls</h2>
-      <div class="banner-section">
-        <label for="banner1">Banner 1 Image URL:</label>
-        <input type="text" id="banner1" placeholder="https://example.com/banner1.jpg">
-        <label for="banner1-width">Width (px):</label>
-        <input type="number" id="banner1-width" placeholder="100%">
-        <label for="banner1-height">Height (px):</label>
-        <input type="number" id="banner1-height" placeholder="300">
-        <label for="banner1-visible">
-          <input type="checkbox" id="banner1-visible" checked>
-          Show this banner
-        </label>
-      </div>
-      <!-- Add more banner blocks as needed -->
-    </section>
+  <nav>
+    <a href="#">Design Settings</a>
+    <a href="#">Manage Users</a>
+    <a href="#">Manage Sellers</a>
+    <a href="#">Manage Products</a>
+    <a href="#">Ads & Promotions</a>
+    <a href="#">Complaints & Support</a>
+    <a href="#">Reports & Earnings</a>
+    <a href="theme-settings.html">Theme & Banners</a>
+  </nav>
 
-    <button class="save-btn">Save Settings</button>
-  </div>
+  <a class="back-btn" href="index.html">⏪ Back to Site</a>
+
+  <section>
+    <div class="section-box">
+      <h2>🔧 Design Control</h2>
+      <p>Change colors, sections, button styles, and site layout.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🧑‍💼 Seller Management</h2>
+      <p>Approve/reject sellers, adjust commission rates, monitor seller performance.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🛙️ Product Control</h2>
+      <p>Approve products, review categories, set status (active/pending/declined).</p>
+    </div>
+
+    <div class="section-box">
+      <h2>💬 Support & Complaints</h2>
+      <p>View all messages from users and sellers. Respond or assign to support staff.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>📢 Ads & Promotions</h2>
+      <p>Manage advertisement banners, set durations, check payments.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>📊 Reports & Profits</h2>
+      <p>View earnings per seller, total profits, monthly reports, and charts.</p>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 EchoShop Admin Panel</footer>
+
 </body>
 </html>

@@ -18,6 +18,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
     .logo {
       font-size: 1.5rem;
@@ -25,173 +26,18 @@
       color: #a3e635;
       text-decoration: none;
     }
-    nav a {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-left: 0.5rem;
-    }
-    .logout-btn, .back-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 5px 14px;
-      font-size: 0.85rem;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
-    }
-    .logout-btn {
-      left: 20px;
-      background-color: #ef4444;
-      color: white;
-    }
-    .back-btn {
-      right: 20px;
-      background-color: #22c55e;
-      color: black;
-    }
-    main {
-      max-width: 600px;
-      margin: 2rem auto;
-      background-color: #1e293b;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #60a5fa;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #2563eb;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #1d4ed8;
-    }
-    footer {
-      background-color: #0f172a;
-      text-align: center;
-      padding: 1rem;
-      color: #94a3b8;
-      margin-top: 3rem;
-    }
-  </style>
-  <script>
-    function logout() {
-      alert("You have been logged out.");
-      window.location.href = "index.html";
-    }
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-</head>
-<body>
-
-  <header>
-    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="products.html">Products</a>
-      <a href="orders.html">Orders</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Seller Registration</h2>
-    <form>
-      <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Enter your full name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="example@domain.com" required>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="01xxxxxxxxx" required>
-
-      <label for="store">Store / Business Name</label>
-      <input type="text" id="store" placeholder="Your store or business name" required>
-
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="********" required>
-
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="********" required>
-
-      <button type="submit">Register as a Seller</button>
-    </form>
-  </main>
-
-  <footer>
-    &copy; 2025 EchoShop - All rights reserved
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register as Seller - EchoShop</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
-      color: white;
-    }
-    header {
-      background-color: #1e293b;
-      padding: 1rem 2rem;
+    nav {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
     }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
     nav a {
       background-color: #2563eb;
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       text-decoration: none;
-      margin-left: 0.5rem;
+      font-size: 0.9rem;
     }
     .logout-btn, .back-btn {
       position: absolute;
@@ -294,173 +140,13 @@
       <input type="text" id="name" placeholder="Enter your full name" required>
 
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="example@domain.com" required>
+      <input type="email" id="email" placeholder="example@email.com" required>
 
       <label for="phone">Phone Number</label>
       <input type="tel" id="phone" placeholder="01xxxxxxxxx" required>
 
       <label for="store">Store / Business Name</label>
-      <input type="text" id="store" placeholder="Your store or business name" required>
-
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="********" required>
-
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="********" required>
-
-      <button type="submit">Register as a Seller</button>
-    </form>
-  </main>
-
-  <footer>
-    &copy; 2025 EchoShop - All rights reserved
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register as Seller - EchoShop</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
-      color: white;
-    }
-    header {
-      background-color: #1e293b;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #a3e635;
-      text-decoration: none;
-    }
-    nav a {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-left: 0.5rem;
-    }
-    .logout-btn, .back-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 5px 14px;
-      font-size: 0.85rem;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
-    }
-    .logout-btn {
-      left: 20px;
-      background-color: #ef4444;
-      color: white;
-    }
-    .back-btn {
-      right: 20px;
-      background-color: #22c55e;
-      color: black;
-    }
-    main {
-      max-width: 600px;
-      margin: 2rem auto;
-      background-color: #1e293b;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #60a5fa;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #2563eb;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #1d4ed8;
-    }
-    footer {
-      background-color: #0f172a;
-      text-align: center;
-      padding: 1rem;
-      color: #94a3b8;
-      margin-top: 3rem;
-    }
-  </style>
-  <script>
-    function logout() {
-      alert("You have been logged out.");
-      window.location.href = "index.html";
-    }
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-</head>
-<body>
-
-  <header>
-    <a class="back-btn" href="#" onclick="goBack()">🔙 Back</a>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-    <a href="index.html" class="logo">EchoShop</a>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="products.html">Products</a>
-      <a href="orders.html">Orders</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Seller Registration</h2>
-    <form>
-      <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Enter your full name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="example@domain.com" required>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="01xxxxxxxxx" required>
-
-      <label for="store">Store / Business Name</label>
-      <input type="text" id="store" placeholder="Your store or business name" required>
+      <input type="text" id="store" placeholder="Store or business name" required>
 
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="********" required>

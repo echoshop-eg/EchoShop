@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Theme Settings - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -15,164 +15,169 @@
     }
     header {
       background-color: #1e293b;
-      text-align: center;
       padding: 1rem;
+      text-align: center;
       font-size: 1.5rem;
+      font-weight: bold;
       color: #a3e635;
       position: relative;
-      font-weight: bold;
-    }
-    .logout-btn, .back-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 6px 14px;
-      font-size: 0.85rem;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-    }
-    .logout-btn {
-      left: 20px;
-      background-color: #ef4444;
-      color: white;
-    }
-    .back-btn {
-      right: 20px;
-      background-color: #22c55e;
-      color: black;
     }
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem;
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
     }
     h2 {
       color: #60a5fa;
-      margin-top: 2rem;
-    }
-    .section {
-      background-color: #1e293b;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
     label {
       display: block;
       margin: 1rem 0 0.5rem;
+      font-weight: bold;
     }
-    input, select, textarea {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"],
+    select {
       width: 100%;
       padding: 0.6rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-bottom: 1rem;
     }
-    .color-picker {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 10px;
-    }
     input[type="color"] {
-      width: 100%;
-      height: 50px;
-      border-radius: 10px;
+      width: 60px;
+      height: 40px;
       border: none;
+      margin-left: 1rem;
     }
-    .submit-btn {
-      background-color: #3b82f6;
-      color: white;
-      font-weight: bold;
-      border: none;
+    .section {
+      margin-bottom: 2rem;
+    }
+    .btn {
       padding: 0.7rem 1.5rem;
+      border: none;
       border-radius: 30px;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
-    .submit-btn:hover {
-      background-color: #2563eb;
+    .btn-save { background-color: #22c55e; color: black; }
+    .btn-reset { background-color: #ef4444; color: white; }
+    .flex-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
     }
     footer {
       text-align: center;
       padding: 2rem;
       background-color: #0f172a;
       color: #64748b;
-      margin-top: 2rem;
     }
   </style>
+  <script>
+    function togglePasswordVisibility() {
+      const pass1 = document.getElementById("admin-pass");
+      const pass2 = document.getElementById("confirm-pass");
+      if (pass2.value !== "") pass1.type = "password";
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-    <a class="back-btn" href="admin-dashboard.html">Back</a>
-    Admin Theme Settings - EchoShop
-  </header>
+  <header>Admin Theme Settings - EchoShop</header>
 
   <div class="container">
+    <div class="section">
+      <h2>Theme Colors</h2>
+      <label>Main Background</label>
+      <input type="color">
+      <label>Text Color</label>
+      <input type="color">
+      <label>Accent Color</label>
+      <input type="color">
+    </div>
 
-    <section class="section">
-      <h2>🎨 Theme Colors</h2>
-      <div class="color-picker">
-        <label>Main Background</label>
-        <input type="color" value="#0f172a">
-        <label>Primary Accent</label>
-        <input type="color" value="#2563eb">
-        <label>Secondary Accent</label>
-        <input type="color" value="#a3e635">
-        <label>Header Color</label>
-        <input type="color" value="#1e293b">
-      </div>
-    </section>
+    <div class="section">
+      <h2>Typography</h2>
+      <label>Header Font</label>
+      <select>
+        <option>Roboto</option>
+        <option>Arial</option>
+        <option>Open Sans</option>
+        <option>Tajawal</option>
+      </select>
+      <label>Body Font</label>
+      <select>
+        <option>Roboto</option>
+        <option>Arial</option>
+        <option>Open Sans</option>
+        <option>Tajawal</option>
+      </select>
+    </div>
 
-    <section class="section">
-      <h2>🖼️ Banners & Logos</h2>
-      <label>Upload Logo</label>
-      <input type="file">
+    <div class="section">
+      <h2>Homepage Sections</h2>
+      <div class="toggle-row"><label>Hero Section</label><input type="checkbox" checked></div>
+      <div class="toggle-row"><label>Banners Section</label><input type="checkbox" checked></div>
+      <div class="toggle-row"><label>Testimonials Section</label><input type="checkbox" checked></div>
+      <div class="toggle-row"><label>Featured Products</label><input type="checkbox" checked></div>
+    </div>
+
+    <div class="section">
+      <h2>Promo Banners</h2>
       <label>Upload Main Banner</label>
       <input type="file">
-      <label>Upload Promo Banner</label>
+      <label>Upload Additional Promo</label>
       <input type="file">
-    </section>
+      <label>Number of Promo Slots</label>
+      <input type="number" min="1" max="10" value="2">
+    </div>
 
-    <section class="section">
-      <h2>📄 Homepage Sections</h2>
-      <label><input type="checkbox" checked> Show Hero Section</label>
-      <label><input type="checkbox" checked> Show Banners</label>
-      <label><input type="checkbox" checked> Show Testimonials</label>
-      <label><input type="checkbox" checked> Show Featured Products</label>
-    </section>
+    <div class="section">
+      <h2>Logo</h2>
+      <label>Upload Logo</label>
+      <input type="file">
+    </div>
 
-    <section class="section">
-      <h2>🔐 Security Settings</h2>
-      <label>Change Admin Password</label>
-      <input type="password" placeholder="New password">
-      <label>Session Timeout (in minutes)</label>
-      <input type="number" placeholder="5">
-    </section>
+    <div class="section">
+      <h2>Admin Settings</h2>
+      <label for="admin-pass">New Password</label>
+      <input type="text" id="admin-pass" placeholder="Enter new password" onchange="togglePasswordVisibility()">
+      <label for="confirm-pass">Confirm Password</label>
+      <input type="password" id="confirm-pass" placeholder="Confirm password">
+    </div>
 
-    <section class="section">
-      <h2>⚙️ Advanced Options</h2>
-      <label><input type="checkbox"> Enable Maintenance Mode</label>
-      <label><input type="checkbox" checked> Enable Notifications</label>
-      <label>Export Settings</label>
-      <button class="submit-btn">Export</button>
-      <label>Reset to Default</label>
-      <button class="submit-btn" style="background:#ef4444;">Reset</button>
-    </section>
+    <div class="section">
+      <h2>Options</h2>
+      <div class="toggle-row"><label>Enable Notifications</label><input type="checkbox"></div>
+      <div class="toggle-row"><label>Maintenance Mode</label><input type="checkbox"></div>
+      <label>Session Timeout (minutes)</label>
+      <input type="number" min="1" max="60" value="5">
+    </div>
 
-    <button class="submit-btn">💾 Save Changes</button>
+    <div class="section flex-row">
+      <button class="btn btn-save">💾 Save Changes</button>
+      <button class="btn btn-reset">↩️ Reset to Default</button>
+    </div>
   </div>
 
   <footer>
-    &copy; 2025 EchoShop. Admin Panel.
+    &copy; 2025 EchoShop Admin. All rights reserved.
   </footer>
-
-  <script>
-    function logout() {
-      alert("You have been logged out.");
-      window.location.href = "index.html";
-    }
-  </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-<!DOCTYPE html><html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EchoShop - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -11,226 +12,214 @@
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom right, #0f172a, #1e3a8a);
       color: white;
-    }header {
-  background-color: #0f172a;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
+    }
 
-.header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  flex-wrap: wrap;
-}
+    header {
+      background-color: #0f172a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #a3e635;
-  text-decoration: none;
-}
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a3e635;
+      text-decoration: none;
+    }
 
-nav a, nav button {
-  background-color: #2563eb;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-nav a:hover, nav button:hover {
-  background-color: #1d4ed8;
-}
+    nav a {
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
 
-.hero {
-  text-align: left;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  animation: fadeIn 1s ease-in-out;
-}
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      flex-wrap: wrap;
+    }
 
-.hero-text {
-  max-width: 500px;
-}
+    .hero-text {
+      max-width: 550px;
+    }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #cbd5e1;
+    }
 
-.shop-btn {
-  background-color: #a3e635;
-  color: black;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 20px #a3e635;
-}
+    .shop-btn {
+      background-color: #a3e635;
+      color: black;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #a3e635;
+    }
 
-.hero-img {
-  width: 300px;
-  height: 300px;
-  background: url('https://cdn-icons-png.flaticon.com/512/891/891419.png') no-repeat center/contain;
-}
+    .hero-img {
+      width: 320px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
 
-.sections {
-  padding: 2rem;
-}
+    .banners {
+      text-align: center;
+      margin: 2rem 0;
+    }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+    .banners img {
+      max-width: 95%;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-}
+    .sections {
+      padding: 2rem;
+    }
 
-.product-card {
-  background-color: #1e293b;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-}
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-.product-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
 
-.product-card h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
+    .product-card {
+      background-color: #1e293b;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
 
-footer {
-  text-align: center;
-  background-color: #0f172a;
-  padding: 2rem;
-  margin-top: 3rem;
-  color: #94a3b8;
-}
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
 
-.help-section {
-  text-align: center;
-  padding: 2rem;
-}
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
 
-.help-section a {
-  color: #60a5fa;
-  font-weight: bold;
-  text-decoration: underline;
-}
+    .product-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
 
-.banners {
-  text-align: center;
-  margin: 2rem 0;
-}
+    .testimonials {
+      padding: 2rem;
+      background-color: #1e293b;
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 1000px;
+      text-align: center;
+    }
 
-.banners img {
-  max-width: 90%;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+    .testimonial {
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: #cbd5e1;
+    }
 
-.testimonials {
-  padding: 2rem;
-  background-color: #1e293b;
-  border-radius: 10px;
-  margin: 2rem auto;
-  max-width: 1000px;
-  text-align: center;
-}
+    .help-section {
+      text-align: center;
+      padding: 2rem;
+    }
 
-.testimonial {
-  margin-bottom: 1rem;
-  font-style: italic;
-  color: #cbd5e1;
-}
+    .help-section a {
+      color: #60a5fa;
+      font-weight: bold;
+      text-decoration: underline;
+    }
 
-.floating-whatsapp {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #25d366;
-  color: white;
-  padding: 0.6rem 1rem;
-  border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  text-decoration: none;
-  z-index: 999;
-}
+    footer {
+      text-align: center;
+      background-color: #0f172a;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: #94a3b8;
+    }
 
-.toggle-theme {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #facc15;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 999;
-}
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 999;
+    }
 
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-img {
-    margin-top: 2rem;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img {
+        margin-top: 2rem;
+        width: 90%;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
-<body>  <header>
+<body>
+
+  <header>
     <div class="header-container">
       <a href="index.html" class="logo">EchoShop</a>
       <nav>
@@ -240,49 +229,59 @@ footer {
         <a href="index-ar.html">Arabic</a>
       </nav>
     </div>
-  </header>  <section class="hero">
+  </header>
+
+  <section class="hero">
     <div class="hero-text">
-      <h1>Shop the latest</h1>
-      <p>Browse our collection of newest arrivals.</p>
+      <h1>Shop the latest collections</h1>
+      <p>Discover great deals and top quality products for all your needs.</p>
       <button class="shop-btn" onclick="location.href='products.html'">Shop Now</button>
     </div>
-    <div class="hero-img"></div>
-  </section>  <section class="banners">
-    <img src="https://via.placeholder.com/900x250?text=Main+Banner" alt="Main Banner">
-    <img src="https://via.placeholder.com/800x150?text=Secondary+Promo+Banner" alt="Promo Banner">
-  </section>  <section class="sections">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1606813902884-f7e35a1f4763" alt="Shopping Banner">
+  </section>
+
+  <section class="banners">
+    <img src="https://images.unsplash.com/photo-1606813902884-f7e35a1f4763" alt="Main Banner">
+    <img src="https://images.unsplash.com/photo-1602524201160-762f8eabf9c4" alt="Promo Banner">
+  </section>
+
+  <section class="sections">
     <div class="section-title">Top Deals</div>
     <div class="products-grid">
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="Smartphone">
-        <h4>Smartphones</h4>
+        <img src="https://images.unsplash.com/photo-1606813902955-5e895b8eb813" alt="Smartphone">
+        <h4>Smartphone</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2886/2886123.png" alt="Shoes">
-        <h4>Shoes</h4>
+        <img src="https://images.unsplash.com/photo-1600180758890-42003f2c8a58" alt="Shoes">
+        <h4>Running Shoes</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Headphones">
-        <h4>Headphones</h4>
+        <img src="https://images.unsplash.com/photo-1606813902969-9449b09b52de" alt="Headphones">
+        <h4>Wireless Headphones</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="Home Tools">
-        <h4>Home Tools</h4>
+        <img src="https://images.unsplash.com/photo-1578898884018-a9a6cfd382d3" alt="Smartwatch">
+        <h4>Smartwatch</h4>
       </div>
     </div>
-  </section>  <section class="testimonials">
+  </section>
+
+  <section class="testimonials">
     <h3>What our customers say</h3>
     <p class="testimonial">"Great quality and fast delivery! Highly recommended." - Sarah A.</p>
     <p class="testimonial">"Amazing customer service and awesome products." - John M.</p>
-  </section>  <section class="help-section">
-    <p>Need assistance? <a href="contact.html">Contact us here</a>.</p>
-  </section>  <footer>
-    &copy; 2025 EchoShop. All rights reserved.
-  </footer><a href="https://wa.me/201234567890" class="floating-whatsapp" target="_blank">WhatsApp Support</a> <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+  </section>
 
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle("light-theme");
-    }
-  </script></body>
+  <section class="help-section">
+    <p>Need assistance? <a href="contact.html">Contact us here</a>.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 EchoShop. All rights reserved.
+  </footer>
+
+  <a href="https://wa.me/201234567890" class="floating-whatsapp" target="_blank">WhatsApp Support</a>
+
+</body>
 </html>

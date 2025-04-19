@@ -6,178 +6,171 @@
   <title>Admin Theme Settings - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
-      margin: 0;
-      padding: 0;
+      padding: 2rem;
     }
     header {
-      background-color: #1e293b;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #a3e635;
-      position: relative;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      background-color: #1e293b;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-    h2 {
-      color: #60a5fa;
-      margin-bottom: 1rem;
-    }
-    label {
-      display: block;
-      margin: 1rem 0 0.5rem;
-      font-weight: bold;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="file"],
-    select {
-      width: 100%;
-      padding: 0.6rem;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    input[type="color"] {
-      width: 60px;
-      height: 40px;
-      border: none;
-      margin-left: 1rem;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    .btn {
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .btn-save { background-color: #22c55e; color: black; }
-    .btn-reset { background-color: #ef4444; color: white; }
-    .flex-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .toggle-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #0f172a;
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      margin: 0.5rem 0;
+      margin-bottom: 2rem;
     }
-    footer {
-      text-align: center;
+    header h1 {
+      color: #a3e635;
+    }
+    .btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .logout-btn { background: #ef4444; color: white; }
+    .back-btn { background: #22c55e; color: black; }
+    section {
+      background-color: #1e293b;
       padding: 2rem;
-      background-color: #0f172a;
-      color: #64748b;
+      border-radius: 10px;
+      margin-bottom: 2rem;
     }
+    section h2 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+    }
+    input[type="color"], input[type="file"], input[type="number"], input[type="password"], select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .color-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .color-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .submit-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 0.7rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .submit-btn:hover { background: #2563eb; }
   </style>
-  <script>
-    function togglePasswordVisibility() {
-      const pass1 = document.getElementById("admin-pass");
-      const pass2 = document.getElementById("confirm-pass");
-      if (pass2.value !== "") pass1.type = "password";
-    }
-  </script>
 </head>
 <body>
-  <header>Admin Theme Settings - EchoShop</header>
+  <header>
+    <button class="btn logout-btn" onclick="logout()">Logout</button>
+    <h1>Admin Theme Settings - EchoShop</h1>
+    <button class="btn back-btn" onclick="history.back()">Back</button>
+  </header>
 
-  <div class="container">
-    <div class="section">
-      <h2>Theme Colors</h2>
-      <label>Main Background</label>
-      <input type="color">
-      <label>Text Color</label>
-      <input type="color">
-      <label>Accent Color</label>
-      <input type="color">
+  <section>
+    <h2>🎨 Theme Colors</h2>
+    <div class="color-row">
+      <div class="color-box">
+        <label for="mainBg">Main Background</label>
+        <input type="color" id="mainBg">
+      </div>
+      <div class="color-box">
+        <label for="primary">Primary Accent</label>
+        <input type="color" id="primary">
+      </div>
+      <div class="color-box">
+        <label for="secondary">Secondary Accent</label>
+        <input type="color" id="secondary">
+      </div>
+      <div class="color-box">
+        <label for="headerColor">Header Color</label>
+        <input type="color" id="headerColor">
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Typography</h2>
-      <label>Header Font</label>
-      <select>
-        <option>Roboto</option>
-        <option>Arial</option>
-        <option>Open Sans</option>
-        <option>Tajawal</option>
-      </select>
-      <label>Body Font</label>
-      <select>
-        <option>Roboto</option>
-        <option>Arial</option>
-        <option>Open Sans</option>
-        <option>Tajawal</option>
-      </select>
-    </div>
+  <section>
+    <h2>🖼️ Banners & Logos</h2>
+    <label>Upload Logo</label>
+    <input type="file">
+    <label>Upload Main Banner</label>
+    <input type="file">
+    <label>Upload Promo Banner</label>
+    <input type="file">
+    <label>Number of Promo Banners</label>
+    <input type="number" min="1" max="10" value="3">
+  </section>
 
-    <div class="section">
-      <h2>Homepage Sections</h2>
-      <div class="toggle-row"><label>Hero Section</label><input type="checkbox" checked></div>
-      <div class="toggle-row"><label>Banners Section</label><input type="checkbox" checked></div>
-      <div class="toggle-row"><label>Testimonials Section</label><input type="checkbox" checked></div>
-      <div class="toggle-row"><label>Featured Products</label><input type="checkbox" checked></div>
-    </div>
+  <section>
+    <h2>🔤 Fonts</h2>
+    <label>Header Font</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+    </select>
+    <label>Body Font</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+    </select>
+  </section>
 
-    <div class="section">
-      <h2>Promo Banners</h2>
-      <label>Upload Main Banner</label>
-      <input type="file">
-      <label>Upload Additional Promo</label>
-      <input type="file">
-      <label>Number of Promo Slots</label>
-      <input type="number" min="1" max="10" value="2">
-    </div>
+  <section>
+    <h2>🔒 Password Settings</h2>
+    <label>Enter Old Password</label>
+    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
 
-    <div class="section">
-      <h2>Logo</h2>
-      <label>Upload Logo</label>
-      <input type="file">
-    </div>
+    <label>New Password</label>
+    <input type="password" id="newPass" onfocus="hidePass('oldPass')">
 
-    <div class="section">
-      <h2>Admin Settings</h2>
-      <label for="admin-pass">New Password</label>
-      <input type="text" id="admin-pass" placeholder="Enter new password" onchange="togglePasswordVisibility()">
-      <label for="confirm-pass">Confirm Password</label>
-      <input type="password" id="confirm-pass" placeholder="Confirm password">
-    </div>
+    <label>Confirm New Password</label>
+    <input type="password" id="confirmPass">
+  </section>
 
-    <div class="section">
-      <h2>Options</h2>
-      <div class="toggle-row"><label>Enable Notifications</label><input type="checkbox"></div>
-      <div class="toggle-row"><label>Maintenance Mode</label><input type="checkbox"></div>
-      <label>Session Timeout (minutes)</label>
-      <input type="number" min="1" max="60" value="5">
-    </div>
+  <section>
+    <h2>⚙️ General Options</h2>
+    <label><input type="checkbox"> Enable Notifications</label>
+    <label><input type="checkbox"> Maintenance Mode</label>
+    <label>Session Timeout (mins)</label>
+    <input type="number" value="5">
+  </section>
 
-    <div class="section flex-row">
-      <button class="btn btn-save">💾 Save Changes</button>
-      <button class="btn btn-reset">↩️ Reset to Default</button>
-    </div>
-  </div>
+  <section style="text-align:center">
+    <button class="submit-btn">💾 Save Settings</button>
+    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
+  </section>
 
-  <footer>
-    &copy; 2025 EchoShop Admin. All rights reserved.
-  </footer>
+  <script>
+    function logout() {
+      alert("Logged out!");
+      location.href = "index.html";
+    }
+    function revealTemp(id) {
+      document.getElementById(id).type = "text";
+    }
+    function hidePass(id) {
+      document.getElementById(id).type = "password";
+    }
+  </script>
 </body>
 </html>

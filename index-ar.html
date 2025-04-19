@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية - EchoShop</title>
+  <title>EchoShop - الرئيسية</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -74,7 +74,7 @@
     }
 
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
     }
 
@@ -167,22 +167,54 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
+    /* زر واتساب */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    /* زر الوضع الليلي */
+    .toggle-theme {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #facc15;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 999;
+    }
+
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
       }
-
       .hero-img {
         margin-top: 2rem;
       }
-
       nav {
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
       }
     }
   </style>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </head>
 <body>
 
@@ -192,7 +224,7 @@
       <nav>
         <a href="login-ar.html">تسجيل الدخول</a>
         <a href="signup-ar.html">إنشاء حساب</a>
-        <a href="contact.html">مساعدة</a>
+        <a href="contact-ar.html">مساعدة</a>
         <a href="index.html">English</a>
       </nav>
     </div>
@@ -201,23 +233,23 @@
   <section class="hero">
     <div class="hero-text">
       <h1>تسوق أحدث المنتجات</h1>
-      <p>تصفح أحدث العروض والمنتجات الجديدة على EchoShop.</p>
-      <button class="shop-btn" onclick="location.href='products.html'">ابدأ التسوق</button>
+      <p>اكتشف تشكيلتنا الجديدة بأفضل الأسعار.</p>
+      <button class="shop-btn" onclick="location.href='products-ar.html'">تسوق الآن</button>
     </div>
     <div class="hero-img"></div>
   </section>
 
   <section class="banners">
     <img src="https://via.placeholder.com/900x250?text=بانر+رئيسي" alt="بانر رئيسي">
-    <img src="https://via.placeholder.com/800x150?text=عرض+ترويجي" alt="عرض ترويجي">
+    <img src="https://via.placeholder.com/800x150?text=بانر+ترويجي" alt="بانر فرعي">
   </section>
 
   <section class="sections">
-    <div class="section-title">صفقات مميزة</div>
+    <div class="section-title">أفضل العروض</div>
     <div class="products-grid">
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="هاتف ذكي">
-        <h4>هواتف ذكية</h4>
+        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" alt="هاتف">
+        <h4>هواتف</h4>
       </div>
       <div class="product-card">
         <img src="https://cdn-icons-png.flaticon.com/512/2886/2886123.png" alt="أحذية">
@@ -228,18 +260,21 @@
         <h4>سماعات</h4>
       </div>
       <div class="product-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="معدات منزلية">
-        <h4>معدات منزلية</h4>
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972787.png" alt="أدوات منزلية">
+        <h4>أدوات منزلية</h4>
       </div>
     </div>
   </section>
 
   <section class="help-section">
-    <p>هل تحتاج إلى المساعدة؟ <a href="contact.html">تواصل معنا من هنا</a>.</p>
+    <p>هل تحتاج إلى المساعدة؟ <a href="contact-ar.html">تواصل معنا</a>.</p>
   </section>
 
+  <a class="floating-whatsapp" href="https://wa.me/201234567890" target="_blank">تحدث معنا</a>
+  <button class="toggle-theme" onclick="toggleTheme()">الوضع الليلي</button>
+
   <footer>
-    &copy; 2025 EchoShop - جميع الحقوق محفوظة.
+    &copy; 2025 EchoShop. جميع الحقوق محفوظة.
   </footer>
 
 </body>

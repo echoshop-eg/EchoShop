@@ -4,143 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Theme Settings - EchoShop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0f172a;
       color: white;
-      margin: 0;
-      padding: 0;
+      padding: 1rem;
     }
-    header {
-      background-color: #1e293b;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      color: #a3e635;
+    h1 {
       text-align: center;
+      color: #a3e635;
+      margin-bottom: 2rem;
     }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
+    .section {
       background-color: #1e293b;
       padding: 2rem;
       border-radius: 10px;
+      margin-bottom: 2rem;
     }
-    h2 {
+    .section h2 {
       color: #60a5fa;
       margin-bottom: 1rem;
-      text-align: center;
     }
     label {
       display: block;
       margin: 1rem 0 0.5rem;
-      font-weight: bold;
     }
-    input, select {
-      width: 100%;
+    input, select, button {
       padding: 0.7rem;
-      border: none;
       border-radius: 6px;
-      margin-bottom: 1rem;
-    }
-    .submit-btn {
-      background-color: #3b82f6;
-      color: white;
-      font-weight: bold;
       border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    button.save {
+      background-color: #22c55e;
+      font-weight: bold;
       cursor: pointer;
-      display: block;
-      margin: 2rem auto 0;
+      width: auto;
     }
-    .submit-btn:hover {
-      background-color: #2563eb;
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
-    section {
-      margin-bottom: 3rem;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: #94a3b8;
+    .flex-row {
+      display: flex;
+      gap: 1rem;
     }
   </style>
-  <script>
-    const ADMIN_PASSWORD = "1234";
-    function checkAccess() {
-      const pass = prompt("Enter Admin Password:");
-      if (pass !== ADMIN_PASSWORD) {
-        alert("Incorrect password. Access denied.");
-        document.body.innerHTML = "<h1 style='text-align:center; padding-top:5rem;'>Access Denied</h1>";
-      }
-    }
-    window.onload = checkAccess;
-  </script>
 </head>
 <body>
-  <header>Admin Theme Settings - EchoShop</header>
-  <div class="container">
-    <form>
+  <h1>Admin Theme & Settings Panel</h1>
 
-      <section>
-        <h2>Site Branding</h2>
-        <label for="logo-upload">Upload New Logo</label>
-        <input type="file" id="logo-upload">
+  <div class="section">
+    <h2>Website Theme</h2>
+    <label for="theme">Select Theme:</label>
+    <select id="theme">
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+      <option value="modern">Modern</option>
+      <option value="classic">Classic</option>
+    </select>
+    <label>Live Preview:</label>
+    <div style="height:100px; background:#1e293b; border-radius:10px; margin-bottom:1rem;"></div>
+    <button class="save">Save Theme</button>
+  </div>
 
-        <label for="main-banner">Main Banner Image (URL)</label>
-        <input type="url" id="main-banner" placeholder="https://example.com/banner.jpg">
+  <div class="section">
+    <h2>Homepage Sections</h2>
+    <label><input type="checkbox" checked> Show Hero Section</label>
+    <label><input type="checkbox" checked> Show Promo Banners</label>
+    <label><input type="checkbox" checked> Show Top Deals</label>
+    <label><input type="checkbox"> Show Testimonials</label>
+    <label><input type="checkbox" checked> Enable WhatsApp Support Button</label>
+    <button class="save">Save Section Visibility</button>
+  </div>
 
-        <label for="promo-banner">Promo Banner Image (URL)</label>
-        <input type="url" id="promo-banner" placeholder="https://example.com/promo.jpg">
+  <div class="section">
+    <h2>Upload Logo and Banners</h2>
+    <label for="logo">Header Logo:</label>
+    <input type="file" id="logo">
+    <label for="mainBanner">Main Banner:</label>
+    <input type="file" id="mainBanner">
+    <label for="promoBanner">Promo Banner:</label>
+    <input type="file" id="promoBanner">
+    <button class="save">Upload Images</button>
+  </div>
 
-        <label for="shopping-banner">Shopping Banner Image (URL)</label>
-        <input type="url" id="shopping-banner" placeholder="https://example.com/shopping.jpg">
-      </section>
+  <div class="section">
+    <h2>Text Content</h2>
+    <label for="heroText">Hero Title:</label>
+    <input type="text" id="heroText" placeholder="Shop the latest">
+    <label for="heroDesc">Hero Description:</label>
+    <input type="text" id="heroDesc" placeholder="Browse our collection of newest arrivals.">
+    <button class="save">Save Text</button>
+  </div>
 
-      <section>
-        <h2>Theme Colors</h2>
-        <label for="primary-color">Primary Button Color</label>
-        <input type="color" id="primary-color" value="#2563eb">
+  <div class="section">
+    <h2>Default Language & Layout</h2>
+    <label for="language">Default Language:</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="ar">Arabic</option>
+    </select>
+    <label><input type="checkbox" checked> Enable RTL for Arabic</label>
+    <button class="save">Save Language Settings</button>
+  </div>
 
-        <label for="accent-color">Accent Color</label>
-        <input type="color" id="accent-color" value="#a3e635">
+  <div class="section">
+    <h2>Security Settings</h2>
+    <label for="adminPass">Change Admin Password:</label>
+    <input type="password" id="adminPass" placeholder="Enter new password">
+    <button class="save">Update Password</button>
+    <label for="sessionTime">Session Timeout:</label>
+    <select id="sessionTime">
+      <option value="5">5 Minutes</option>
+      <option value="10">10 Minutes</option>
+      <option value="0">Never</option>
+    </select>
+    <button class="save">Save Security Settings</button>
+  </div>
 
-        <label for="bg-color">Background Gradient</label>
-        <select id="bg-color">
-          <option value="default">Blue Dark</option>
-          <option value="purple">Purple Glow</option>
-          <option value="green">Green Forest</option>
-        </select>
-      </section>
+  <div class="section">
+    <h2>Advanced Options</h2>
+    <label><input type="checkbox"> Maintenance Mode</label>
+    <label><input type="checkbox"> Enable Notifications</label>
+    <label><input type="checkbox"> Export Settings to File</label>
+    <button class="save">Apply Advanced Settings</button>
+  </div>
 
-      <section>
-        <h2>Homepage Sections</h2>
-        <label><input type="checkbox" checked> Show Hero Section</label>
-        <label><input type="checkbox" checked> Show Banners</label>
-        <label><input type="checkbox" checked> Show Top Deals</label>
-        <label><input type="checkbox" checked> Show Testimonials</label>
-        <label><input type="checkbox" checked> Show WhatsApp Support</label>
-      </section>
-
-      <section>
-        <h2>Language & Direction</h2>
-        <label for="default-lang">Default Language</label>
-        <select id="default-lang">
-          <option value="en">English</option>
-          <option value="ar">Arabic</option>
-        </select>
-      </section>
-
-      <section>
-        <h2>Admin Password</h2>
-        <label for="new-password">Change Admin Password</label>
-        <input type="password" id="new-password" placeholder="Enter new password">
-        <p class="note">(Not functional in this demo version)</p>
-      </section>
-
-      <button type="submit" class="submit-btn">💾 Save Settings</button>
-    </form>
+  <div class="section">
+    <h2>Reset & Restore</h2>
+    <button class="save" style="background-color:#ef4444;">Reset All Settings to Default</button>
   </div>
 </body>
 </html>

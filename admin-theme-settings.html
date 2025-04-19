@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Theme Settings - EchoShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      color: #a3e635;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .submit-btn {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+      margin: 2rem auto 0;
+    }
+    .submit-btn:hover {
+      background-color: #2563eb;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+  <script>
+    const ADMIN_PASSWORD = "1234";
+    function checkAccess() {
+      const pass = prompt("Enter Admin Password:");
+      if (pass !== ADMIN_PASSWORD) {
+        alert("Incorrect password. Access denied.");
+        document.body.innerHTML = "<h1 style='text-align:center; padding-top:5rem;'>Access Denied</h1>";
+      }
+    }
+    window.onload = checkAccess;
+  </script>
+</head>
+<body>
+  <header>Admin Theme Settings - EchoShop</header>
+  <div class="container">
+    <form>
+
+      <section>
+        <h2>Site Branding</h2>
+        <label for="logo-upload">Upload New Logo</label>
+        <input type="file" id="logo-upload">
+
+        <label for="main-banner">Main Banner Image (URL)</label>
+        <input type="url" id="main-banner" placeholder="https://example.com/banner.jpg">
+
+        <label for="promo-banner">Promo Banner Image (URL)</label>
+        <input type="url" id="promo-banner" placeholder="https://example.com/promo.jpg">
+
+        <label for="shopping-banner">Shopping Banner Image (URL)</label>
+        <input type="url" id="shopping-banner" placeholder="https://example.com/shopping.jpg">
+      </section>
+
+      <section>
+        <h2>Theme Colors</h2>
+        <label for="primary-color">Primary Button Color</label>
+        <input type="color" id="primary-color" value="#2563eb">
+
+        <label for="accent-color">Accent Color</label>
+        <input type="color" id="accent-color" value="#a3e635">
+
+        <label for="bg-color">Background Gradient</label>
+        <select id="bg-color">
+          <option value="default">Blue Dark</option>
+          <option value="purple">Purple Glow</option>
+          <option value="green">Green Forest</option>
+        </select>
+      </section>
+
+      <section>
+        <h2>Homepage Sections</h2>
+        <label><input type="checkbox" checked> Show Hero Section</label>
+        <label><input type="checkbox" checked> Show Banners</label>
+        <label><input type="checkbox" checked> Show Top Deals</label>
+        <label><input type="checkbox" checked> Show Testimonials</label>
+        <label><input type="checkbox" checked> Show WhatsApp Support</label>
+      </section>
+
+      <section>
+        <h2>Language & Direction</h2>
+        <label for="default-lang">Default Language</label>
+        <select id="default-lang">
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+        </select>
+      </section>
+
+      <section>
+        <h2>Admin Password</h2>
+        <label for="new-password">Change Admin Password</label>
+        <input type="password" id="new-password" placeholder="Enter new password">
+        <p class="note">(Not functional in this demo version)</p>
+      </section>
+
+      <button type="submit" class="submit-btn">💾 Save Settings</button>
+    </form>
+  </div>
+</body>
+</html>

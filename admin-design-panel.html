@@ -85,7 +85,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <button class="btn logout-btn" onclick="logout()">Logout</button>
     <h1>Admin Design Panel - EchoShop</h1>
@@ -179,8 +178,9 @@
     <input type="number" value="5">
   </section>
 
-  <section style="text-align:center">
-    <button class="submit-btn">💾 Save Settings</button>
+  <section>
+    <h2>💾 Save to Storage</h2>
+    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
     <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
   </section>
 
@@ -194,6 +194,16 @@
     }
     function hidePass(id) {
       document.getElementById(id).type = "password";
+    }
+    function saveSettings() {
+      const settings = {
+        mainBg: document.getElementById("mainBg").value,
+        primary: document.getElementById("primary").value,
+        secondary: document.getElementById("secondary").value,
+        headerColor: document.getElementById("headerColor").value
+      };
+      localStorage.setItem("echoAdminTheme", JSON.stringify(settings));
+      alert("✅ Settings saved locally! (Firebase integration optional)");
     }
   </script>
 </body>

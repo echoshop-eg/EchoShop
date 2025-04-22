@@ -94,19 +94,19 @@
     <div class="color-row">
       <div class="color-box">
         <label for="mainBg">Main Background</label>
-        <input type="color" id="mainBg" onchange="saveSettings()">
+        <input type="color" id="mainBg">
       </div>
       <div class="color-box">
         <label for="primary">Primary Accent</label>
-        <input type="color" id="primary" onchange="saveSettings()">
+        <input type="color" id="primary">
       </div>
       <div class="color-box">
         <label for="secondary">Secondary Accent</label>
-        <input type="color" id="secondary" onchange="saveSettings()">
+        <input type="color" id="secondary">
       </div>
       <div class="color-box">
         <label for="headerColor">Header Color</label>
-        <input type="color" id="headerColor" onchange="saveSettings()">
+        <input type="color" id="headerColor">
       </div>
     </div>
   </section>
@@ -114,19 +114,19 @@
   <section>
     <h2>🖼️ Banners and Logo</h2>
     <label>Upload Logo</label>
-    <input type="file" onchange="saveSettings()">
+    <input type="file">
     <label>Upload Main Banner</label>
-    <input type="file" onchange="saveSettings()">
+    <input type="file">
     <label>Upload Additional Banners (Multiple)</label>
-    <input type="file" multiple onchange="saveSettings()">
+    <input type="file" multiple>
     <label>Number of Banners Displayed</label>
-    <input type="number" min="1" max="10" value="3" onchange="saveSettings()">
+    <input type="number" min="1" max="10" value="3">
   </section>
 
   <section class="font-section">
     <h2>🔤 Font Settings</h2>
     <label>Title Font</label>
-    <select onchange="saveSettings()">
+    <select>
       <option>Roboto</option>
       <option>Arial</option>
       <option>Tahoma</option>
@@ -134,7 +134,7 @@
       <option>Verdana</option>
     </select>
     <label>Content Font</label>
-    <select onchange="saveSettings()">
+    <select>
       <option>Roboto</option>
       <option>Arial</option>
       <option>Tahoma</option>
@@ -146,30 +146,35 @@
   <section>
     <h2>🔒 Password Settings</h2>
     <label>Enter Current Password</label>
-    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
+    <input type="password" id="oldPass">
 
     <label>New Password</label>
-    <input type="password" id="newPass" onfocus="hidePass('oldPass')" onchange="saveSettings()">
+    <input type="password" id="newPass">
 
     <label>Confirm New Password</label>
-    <input type="password" id="confirmPass" onchange="saveSettings()">
+    <input type="password" id="confirmPass">
   </section>
 
   <section>
     <h2>🧩 Page Components</h2>
-    <label><input type="checkbox" checked onchange="saveSettings()"> Show Featured Offers Section</label>
-    <label><input type="checkbox" checked onchange="saveSettings()"> Show Customer Reviews</label>
-    <label><input type="checkbox" checked onchange="saveSettings()"> Show Discounts Section</label>
-    <label><input type="checkbox" onchange="saveSettings()"> Enable Scrolling Effects</label>
-    <label><input type="checkbox" onchange="saveSettings()"> Show WhatsApp Floating Button</label>
+    <label><input type="checkbox" checked> Show Featured Offers Section</label>
+    <label><input type="checkbox" checked> Show Customer Reviews</label>
+    <label><input type="checkbox" checked> Show Discounts Section</label>
+    <label><input type="checkbox"> Enable Scrolling Effects</label>
+    <label><input type="checkbox"> Show WhatsApp Floating Button</label>
   </section>
 
   <section>
     <h2>⚙️ General Settings</h2>
-    <label><input type="checkbox" onchange="saveSettings()"> Enable Notifications</label>
-    <label><input type="checkbox" onchange="saveSettings()"> Maintenance Mode</label>
+    <label><input type="checkbox"> Enable Notifications</label>
+    <label><input type="checkbox"> Maintenance Mode</label>
     <label>Session Duration (Minutes)</label>
-    <input type="number" value="5" onchange="saveSettings()">
+    <input type="number" value="5">
+  </section>
+
+  <section style="text-align:center; margin-top: 2rem;">
+    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
+    <button class="submit-btn" style="background:#ef4444; margin-left:1rem;" onclick="resetToDefault()">Reset to Default</button>
   </section>
 
   <script type="module">
@@ -177,47 +182,4 @@
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4c",
-      authDomain: "echoshop-de4a2.firebaseapp.com",
-      projectId: "echoshop-de4a2",
-      storageBucket: "echoshop-de4a2.appspot.com",
-      messagingSenderId: "520831479136",
-      appId: "1:520831479136:web:c13b15240347b834e46a05",
-      measurementId: "G-33719HZKKP"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    async function saveSettings() {
-      const settings = {
-        mainBg: document.getElementById("mainBg")?.value,
-        primary: document.getElementById("primary")?.value,
-        secondary: document.getElementById("secondary")?.value,
-        headerColor: document.getElementById("headerColor")?.value,
-      };
-
-      try {
-        await setDoc(doc(db, "admin", "settings"), settings);
-        alert("Settings saved successfully!");
-      } catch (e) {
-        console.error("Error saving settings:", e);
-        alert("Error saving settings to Firebase.");
-      }
-    }
-
-    function logout() {
-      alert("Logged out!");
-      location.href = "index-en.html";
-    }
-
-    function revealTemp(id) {
-      document.getElementById(id).type = "text";
-    }
-
-    function hidePass(id) {
-      document.getElementById(id).type = "password";
-    }
-  </script>
-</body>
-</html>
+      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4

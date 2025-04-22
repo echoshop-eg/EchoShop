@@ -67,7 +67,7 @@
       flex: 1 1 20%;
     }
     .preview-box {
-      height: 100px;
+      height: 120px;
       width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
@@ -119,6 +119,65 @@
     <div id="previewBox" class="preview-box"></div>
   </section>
 
+  <section>
+    <h2>🖼️ Banners & Logos</h2>
+    <label>Upload Logo</label>
+    <input type="file" accept="image/*">
+    <label>Upload Main Banner</label>
+    <input type="file" accept="image/*">
+    <label>Upload Promo Banners (Multiple)</label>
+    <input type="file" multiple accept="image/*">
+    <label>Number of Promo Banners to Show</label>
+    <input type="number" min="1" max="10" value="3">
+  </section>
+
+  <section class="font-section">
+    <h2>🔤 Font Settings</h2>
+    <label>Header Font</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+    <label>Body Font</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+  </section>
+
+  <section>
+    <h2>🔒 Password Settings</h2>
+    <label>Enter Current Password</label>
+    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
+    <label>New Password</label>
+    <input type="password" id="newPass" onfocus="hidePass('oldPass')">
+    <label>Confirm New Password</label>
+    <input type="password" id="confirmPass">
+  </section>
+
+  <section>
+    <h2>🧩 Page Structure</h2>
+    <label><input type="checkbox" checked> Show Featured Section</label>
+    <label><input type="checkbox" checked> Show Testimonials</label>
+    <label><input type="checkbox" checked> Show Offers Section</label>
+    <label><input type="checkbox"> Enable Scroll Animations</label>
+    <label><input type="checkbox"> Show WhatsApp Floating Button</label>
+  </section>
+
+  <section>
+    <h2>⚙️ General Options</h2>
+    <label><input type="checkbox"> Enable Notifications</label>
+    <label><input type="checkbox"> Maintenance Mode</label>
+    <label>Session Timeout (mins)</label>
+    <input type="number" value="5">
+  </section>
+
   <section style="text-align:center">
     <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
     <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
@@ -142,9 +201,8 @@
     const db = getFirestore(app);
 
     function updatePreview() {
-      const bg = document.getElementById("mainBg").value;
       const preview = document.getElementById("previewBox");
-      preview.style.background = bg;
+      preview.style.background = document.getElementById("mainBg").value;
     }
 
     window.saveSettings = async function () {
@@ -178,7 +236,6 @@
       } catch (e) {
         console.error("Error loading settings:", e);
       }
-
       document.getElementById("mainBg").addEventListener("input", updatePreview);
     });
   </script>

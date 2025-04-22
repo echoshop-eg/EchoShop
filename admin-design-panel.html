@@ -1,226 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard - EchoShop</title>
+  <title>لوحة تصميم الأدمن - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #0f172a;
       color: white;
-      margin: 0;
+      padding: 2rem;
     }
     header {
-      background-color: #1e293b;
-      padding: 1rem 2rem;
-      text-align: center;
-      font-size: 1.5rem;
-      color: #a3e635;
-      font-weight: bold;
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
     }
-    .logout-btn, .back-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 5px 14px;
-      font-size: 0.85rem;
+    header h1 {
+      color: #a3e635;
+    }
+    .btn {
+      padding: 0.5rem 1.2rem;
       border-radius: 20px;
       font-weight: bold;
       cursor: pointer;
-      text-decoration: none;
       border: none;
     }
-    .logout-btn {
-      right: 20px;
-      background-color: #ef4444;
-      color: white;
+    .logout-btn { background: #ef4444; color: white; }
+    .back-btn { background: #22c55e; color: black; }
+    section {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
     }
-    .back-btn {
-      left: 20px;
-      background-color: #22c55e;
-      color: black;
+    section h2 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
     }
-    nav {
-      background-color: #1e3a8a;
-      padding: 1rem;
+    label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+    }
+    input[type="color"], input[type="file"], input[type="number"], input[type="password"], select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .color-row {
       display: flex;
-      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      margin-bottom: 1rem;
     }
-    nav a {
-      background-color: #2563eb;
-      padding: 10px 20px;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 0.9rem;
-    }
-    nav a:hover {
-      background-color: #1d4ed8;
-    }
-    .section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section-box {
-      background-color: #1e293b;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .section-box h2 {
-      color: #60a5fa;
-    }
-    .section-box p {
-      color: #cbd5e1;
-    }
-    /* Styles for the Firebase registration form */
-    #registration-section {
-      margin-top: 2rem;
-    }
-    #registration-section form {
+    .color-box {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      align-items: center;
+    }
+    .submit-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 0.7rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
       margin-top: 1rem;
     }
-    #registration-section input, #registration-section button {
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-    }
-    #registration-section button {
-      background-color: #2563eb;
-      color: white;
-      cursor: pointer;
-    }
-    #registration-section button:hover {
-      background-color: #1d4ed8;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #0f172a;
-      color: #64748b;
+    .submit-btn:hover { background: #2563eb; }
+    .font-section select {
+      width: 100%;
+      padding: 0.5rem;
     }
   </style>
-  <script>
-    // Simple admin password check for dashboard access
-    const pass = prompt("Enter admin password:");
-    if (pass !== "1234") {
-      alert("Access denied. Redirecting to homepage.");
-      window.location.href = "index.html";
-    }
-    function logout() {
-      alert("Logged out successfully.");
-      window.location.href = "index.html";
-    }
-    function goBack() {
-      window.history.back();
-    }
-  </script>
 </head>
 <body>
-
   <header>
-    <button class="back-btn" onclick="goBack()">Back</button>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-    EchoShop Admin Dashboard
+    <button class="btn logout-btn" onclick="logout()">تسجيل الخروج</button>
+    <h1>لوحة تصميم الأدمن - EchoShop</h1>
+    <button class="btn back-btn" onclick="history.back()">عودة</button>
   </header>
 
-  <nav>
-    <a href="theme-settings.html">Themes & Banners</a>
-    <a href="products.html">Products</a>
-    <a href="orders.html">Orders</a>
-    <a href="settings.html">Settings</a>
-    <a href="add-product.html">Add Product</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
-
-  <div class="section">
-    <div class="section-box">
-      <h2>🎨 Design Control</h2>
-      <p>Customize colors, buttons, and layout of the site.</p>
+  <section>
+    <h2>🎨 ألوان الثيم</h2>
+    <div class="color-row">
+      <div class="color-box">
+        <label for="mainBg">الخلفية الرئيسية</label>
+        <input type="color" id="mainBg">
+      </div>
+      <div class="color-box">
+        <label for="primary">اللون الأساسي</label>
+        <input type="color" id="primary">
+      </div>
+      <div class="color-box">
+        <label for="secondary">اللون الثانوي</label>
+        <input type="color" id="secondary">
+      </div>
+      <div class="color-box">
+        <label for="headerColor">لون الهيدر</label>
+        <input type="color" id="headerColor">
+      </div>
     </div>
-    <div class="section-box">
-      <h2>🧾 Product Management</h2>
-      <p>Review and activate or reject listed products.</p>
-    </div>
-    <div class="section-box">
-      <h2>🧑‍💼 Seller Management</h2>
-      <p>Review new seller requests, set commission rates, manage seller accounts.</p>
-    </div>
-    <div class="section-box">
-      <h2>💬 Messages & Complaints</h2>
-      <p>Respond to inquiries from customers and sellers through the support inbox.</p>
-    </div>
-    <div class="section-box">
-      <h2>📢 Ad Management</h2>
-      <p>Set banner durations, track payment status, and manage promotions.</p>
-    </div>
-    <div class="section-box">
-      <h2>📊 Reports & Earnings</h2>
-      <p>View seller earnings, total platform profits, and monthly charts.</p>
-    </div>
+  </section>
 
-    <!-- Firebase Registration Section -->
-    <div id="registration-section" class="section-box">
-      <h2>Firebase Registration</h2>
-      <p>Create an account using Firebase Authentication.</p>
-      <form id="signupForm">
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-  </div>
+  <section>
+    <h2>🖼️ البنرات واللوجو</h2>
+    <label>رفع اللوجو</label>
+    <input type="file">
+    <label>رفع البنر الرئيسي</label>
+    <input type="file">
+    <label>رفع بانرات إضافية (أكثر من واحد)</label>
+    <input type="file" multiple>
+    <label>عدد البانرات المعروضة</label>
+    <input type="number" min="1" max="10" value="3">
+  </section>
 
-  <footer>&copy; 2025 EchoShop Admin Dashboard</footer>
+  <section class="font-section">
+    <h2>🔤 إعدادات الخط</h2>
+    <label>خط العناوين</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+    <label>خط المحتوى</label>
+    <select>
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+  </section>
 
-  <!-- Firebase Registration Script -->
-  <script type="module">
-    // Import Firebase functions
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  <section>
+    <h2>🔒 إعدادات كلمة المرور</h2>
+    <label>أدخل كلمة المرور الحالية</label>
+    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
 
-    // Replace the following configuration object with your Firebase project's configuration details.
-    const firebaseConfig = {
-      apiKey: "AIzaSyXXXXXXX",       // Your API key
-      authDomain: "your-app.firebaseapp.com",
-      projectId: "your-app",
-      storageBucket: "your-app.appspot.com",
-      messagingSenderId: "1234567890",
-      appId: "1:1234567890:web:abcdefg"
-    };
+    <label>كلمة المرور الجديدة</label>
+    <input type="password" id="newPass" onfocus="hidePass('oldPass')">
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    <label>تأكيد كلمة المرور الجديدة</label>
+    <input type="password" id="confirmPass">
+  </section>
 
-    // Register a new user when the sign up form is submitted
-    document.getElementById("signupForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+  <section>
+    <h2>🧩 مكونات الصفحة</h2>
+    <label><input type="checkbox" checked> عرض قسم العروض المميزة</label>
+    <label><input type="checkbox" checked> عرض آراء العملاء</label>
+    <label><input type="checkbox" checked> عرض قسم الخصومات</label>
+    <label><input type="checkbox"> تفعيل تأثيرات التمرير</label>
+    <label><input type="checkbox"> عرض زر واتساب العائم</label>
+  </section>
 
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          alert("Registration successful! 🎉");
-          // Redirect or add further actions here if needed
-        })
-        .catch((error) => {
-          alert("Registration failed: " + error.message);
-        });
-    });
+  <section>
+    <h2>⚙️ إعدادات عامة</h2>
+    <label><input type="checkbox"> تفعيل الإشعارات</label>
+    <label><input type="checkbox"> وضع الصيانة</label>
+    <label>مدة الجلسة (بالدقائق)</label>
+    <input type="number" value="5">
+  </section>
+
+  <section style="text-align:center">
+    <button class="submit-btn">💾 حفظ الإعدادات</button>
+    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">إعادة الوضع الافتراضي</button>
+  </section>
+
+  <script>
+    function logout() {
+      alert("تم تسجيل الخروج!");
+      location.href = "index-ar.html";
+    }
+    function revealTemp(id) {
+      document.getElementById(id).type = "text";
+    }
+    function hidePass(id) {
+      document.getElementById(id).type = "password";
+    }
   </script>
-
 </body>
 </html>

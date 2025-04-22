@@ -1,57 +1,65 @@
-<!DOCTYPE html><html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - EchoShop</title>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";const firebaseConfig = {
-  apiKey: "AIzaSyAYRpJuvoCgfpD39Vi8ZCLGjRj3XEuT4c",
-  authDomain: "echoshop-de4a2.firebaseapp.com",
-  projectId: "echoshop-de4a2",
-  storageBucket: "echoshop-de4a2.appspot.com",
-  messagingSenderId: "520831479136",
-  appId: "1:520831479136:web:7dbf6bced8d8b40e46a05",
-  measurementId: "G-67H09N8P0E"
-};
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    const firebaseConfig = {
+      apiKey: "AIzaSyAYRpJuvoCgfpD39Vi8ZCLGjRj3XEuT4c",
+      authDomain: "echoshop-de4a2.firebaseapp.com",
+      projectId: "echoshop-de4a2",
+      storageBucket: "echoshop-de4a2.appspot.com",
+      messagingSenderId: "520831479136",
+      appId: "1:520831479136:web:7dbf6bced8d8b40e46a05",
+      measurementId: "G-67H09N8P0E"
+    };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signupForm");
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("signupForm");
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirm = document.getElementById("confirm").value;
-    const role = document.getElementById("role").value;
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    if (password !== confirm) {
-      alert("Passwords do not match.");
-      return;
-    }
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirm = document.getElementById("confirm").value;
+        const role = document.getElementById("role").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        localStorage.setItem("userRole", role);
-        alert("Account created successfully!");
-
-        if (role === "client") {
-          window.location.href = "index.html";
-        } else if (role === "seller") {
-          window.location.href = "seller-register.html";
+        if (password !== confirm) {
+          alert("Passwords do not match.");
+          return;
         }
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
-  });
-});
 
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+
+          await setDoc(doc(db, "users", user.uid), {
+            email: email,
+            role: role
+          });
+
+          alert("Account created and saved successfully!");
+
+          if (role === "client") {
+            window.location.href = "index.html";
+          } else if (role === "seller") {
+            window.location.href = "seller-register.html";
+          }
+        } catch (error) {
+          alert("Error: " + error.message);
+        }
+      });
+    });
   </script>
   <style>
     body {
@@ -145,33 +153,34 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2>Create a New Account</h2>
     <form id="signupForm">
       <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="John Doe" required><label for="email">Email</label>
-  <input type="email" id="email" placeholder="you@example.com" required>
+      <input type="text" id="name" placeholder="John Doe" required>
 
-  <label for="password">Password</label>
-  <input type="password" id="password" placeholder="********" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
 
-  <label for="confirm">Confirm Password</label>
-  <input type="password" id="confirm" placeholder="********" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="********" required>
 
-  <label for="role">User Type</label>
-  <select id="role" required>
-    <option value="">-- Select --</option>
-    <option value="client">Client</option>
-    <option value="seller">Seller</option>
-  </select>
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="********" required>
 
-  <button type="submit">Sign Up</button>
-</form>
+      <label for="role">User Type</label>
+      <select id="role" required>
+        <option value="">-- Select --</option>
+        <option value="client">Client</option>
+        <option value="seller">Seller</option>
+      </select>
 
-<div class="login-link">
-  <a href="login.html">Already have an account? Log in</a>
-</div>
+      <button type="submit">Sign Up</button>
+    </form>
 
-<div class="lang-toggle">
-  <a href="signup-ar.html">العربية</a>
-</div>
+    <div class="login-link">
+      <a href="login.html">Already have an account? Log in</a>
+    </div>
 
+    <div class="lang-toggle">
+      <a href="signup-ar.html">العربية</a>
+    </div>
   </div>
 </body>
 </html>

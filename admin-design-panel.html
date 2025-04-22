@@ -69,6 +69,12 @@
       flex-direction: column;
       align-items: center;
     }
+    .preview-box {
+      height: 80px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
     .submit-btn {
       background: #3b82f6;
       color: white;
@@ -113,6 +119,7 @@
         <input type="color" id="headerColor">
       </div>
     </div>
+    <div id="previewBox" class="preview-box"></div>
   </section>
 
   <section style="text-align:center">
@@ -136,6 +143,12 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+
+    function updatePreview() {
+      const bg = document.getElementById("mainBg").value;
+      const preview = document.getElementById("previewBox");
+      preview.style.background = bg;
+    }
 
     window.saveSettings = async function () {
       const settings = {
@@ -163,10 +176,13 @@
           if (data.primary) document.getElementById("primary").value = data.primary;
           if (data.secondary) document.getElementById("secondary").value = data.secondary;
           if (data.headerColor) document.getElementById("headerColor").value = data.headerColor;
+          updatePreview();
         }
       } catch (e) {
         console.error("Error loading settings:", e);
       }
+
+      document.getElementById("mainBg").addEventListener("input", updatePreview);
     });
   </script>
 

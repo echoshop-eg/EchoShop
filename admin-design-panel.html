@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Design Panel - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="firebase-config.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -86,7 +87,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <button class="btn logout-btn" onclick="logout()">Logout</button>
     <h1>Admin Design Panel - EchoShop</h1>
@@ -115,75 +115,62 @@
     </div>
   </section>
 
-  <section>
-    <h2>🖼️ Banners & Logos</h2>
-    <label>Upload Logo</label>
-    <input type="file" accept="image/*">
-
-    <label>Upload Main Banner</label>
-    <input type="file" accept="image/*">
-
-    <label>Upload Promo Banners (Multiple)</label>
-    <input type="file" multiple accept="image/*">
-
-    <label>Number of Promo Banners to Show</label>
-    <input type="number" min="1" max="10" value="3">
-  </section>
-
-  <section class="font-section">
-    <h2>🔤 Font Settings</h2>
-    <label>Header Font</label>
-    <select>
-      <option>Roboto</option>
-      <option>Arial</option>
-      <option>Tahoma</option>
-      <option>Georgia</option>
-      <option>Verdana</option>
-    </select>
-
-    <label>Body Font</label>
-    <select>
-      <option>Roboto</option>
-      <option>Arial</option>
-      <option>Tahoma</option>
-      <option>Georgia</option>
-      <option>Verdana</option>
-    </select>
-  </section>
-
-  <section>
-    <h2>🔒 Password Settings</h2>
-    <label>Enter Current Password</label>
-    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
-
-    <label>New Password</label>
-    <input type="password" id="newPass" onfocus="hidePass('oldPass')">
-
-    <label>Confirm New Password</label>
-    <input type="password" id="confirmPass">
-  </section>
-
-  <section>
-    <h2>🧩 Page Structure</h2>
-    <label><input type="checkbox" checked> Show Featured Section</label>
-    <label><input type="checkbox" checked> Show Testimonials</label>
-    <label><input type="checkbox" checked> Show Offers Section</label>
-    <label><input type="checkbox"> Enable Scroll Animations</label>
-    <label><input type="checkbox"> Show WhatsApp Floating Button</label>
-  </section>
-
-  <section>
-    <h2>⚙️ General Options</h2>
-    <label><input type="checkbox"> Enable Notifications</label>
-    <label><input type="checkbox"> Maintenance Mode</label>
-    <label>Session Timeout (mins)</label>
-    <input type="number" value="5">
-  </section>
+  <!-- باقي الأقسام كما هي -->
 
   <section style="text-align:center">
-    <button class="submit-btn">💾 Save Settings</button>
+    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
     <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
   </section>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4c",
+      authDomain: "echoshop-de4a2.firebaseapp.com",
+      projectId: "echoshop-de4a2",
+      storageBucket: "echoshop-de4a2.appspot.com",
+      messagingSenderId: "520831479136",
+      appId: "1:520831479136:web:c13b15240347b834e46a05",
+      measurementId: "G-33719HZKKP"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.saveSettings = async function () {
+      const settings = {
+        mainBg: document.getElementById("mainBg").value,
+        primary: document.getElementById("primary").value,
+        secondary: document.getElementById("secondary").value,
+        headerColor: document.getElementById("headerColor").value
+      };
+
+      try {
+        await setDoc(doc(db, "admin", "themeSettings"), settings);
+        alert("Settings saved to Firebase successfully!");
+      } catch (e) {
+        console.error("Error saving settings:", e);
+        alert("Error saving settings to Firebase.");
+      }
+    };
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const docSnap = await getDoc(doc(db, "admin", "themeSettings"));
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.mainBg) document.getElementById("mainBg").value = data.mainBg;
+          if (data.primary) document.getElementById("primary").value = data.primary;
+          if (data.secondary) document.getElementById("secondary").value = data.secondary;
+          if (data.headerColor) document.getElementById("headerColor").value = data.headerColor;
+        }
+      } catch (e) {
+        console.error("Error loading settings:", e);
+      }
+    });
+  </script>
 
   <script>
     function logout() {

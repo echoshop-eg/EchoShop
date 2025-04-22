@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - EchoShop</title>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAYRpJuvoCgfpD39Vi8ZCLGjRj3XEuT4c",
       authDomain: "echoshop-de4a2.firebaseapp.com",
@@ -19,14 +18,14 @@
       measurementId: "G-67H09N8P0E"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("signupForm");
 
-      form.addEventListener("submit", async (e) => {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const email = document.getElementById("email").value;
@@ -39,25 +38,26 @@
           return;
         }
 
-        try {
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-
-          await setDoc(doc(db, "users", user.uid), {
-            email: email,
-            role: role
+        auth.createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            return db.collection("users").doc(user.uid).set({
+              email: email,
+              role: role
+            });
+          })
+          .then(() => {
+            alert("Account created and saved successfully!");
+            if (role === "client") {
+              window.location.href = "index.html";
+            } else if (role === "seller") {
+              window.location.href = "seller-register.html";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Error: " + error.message);
           });
-
-          alert("Account created and saved successfully!");
-
-          if (role === "client") {
-            window.location.href = "index.html";
-          } else if (role === "seller") {
-            window.location.href = "seller-register.html";
-          }
-        } catch (error) {
-          alert("Error: " + error.message);
-        }
       });
     });
   </script>

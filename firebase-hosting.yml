@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main # فرع المستودع الذي تريد النشر منه
+      - main  # النشر يتم عند الدفع إلى الفرع main
 
 jobs:
   build_and_deploy:

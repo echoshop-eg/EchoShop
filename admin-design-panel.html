@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Design Panel - EchoShop</title>
+  <title>لوحة تصميم الأدمن - EchoShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -64,13 +62,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1 1 20%;
-    }
-    .preview-box {
-      height: 120px;
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
     }
     .submit-btn {
       background: #3b82f6;
@@ -91,49 +82,48 @@
 </head>
 <body>
   <header>
-    <button class="btn logout-btn" onclick="logout()">Logout</button>
-    <h1>Admin Design Panel - EchoShop</h1>
-    <button class="btn back-btn" onclick="history.back()">Back</button>
+    <button class="btn logout-btn" onclick="logout()">تسجيل الخروج</button>
+    <h1>لوحة تصميم الأدمن - EchoShop</h1>
+    <button class="btn back-btn" onclick="history.back()">عودة</button>
   </header>
 
   <section>
-    <h2>🎨 Theme Colors</h2>
+    <h2>🎨 ألوان الثيم</h2>
     <div class="color-row">
       <div class="color-box">
-        <label for="mainBg">Main Background</label>
+        <label for="mainBg">الخلفية الرئيسية</label>
         <input type="color" id="mainBg">
       </div>
       <div class="color-box">
-        <label for="primary">Primary Accent</label>
+        <label for="primary">اللون الأساسي</label>
         <input type="color" id="primary">
       </div>
       <div class="color-box">
-        <label for="secondary">Secondary Accent</label>
+        <label for="secondary">اللون الثانوي</label>
         <input type="color" id="secondary">
       </div>
       <div class="color-box">
-        <label for="headerColor">Header Color</label>
+        <label for="headerColor">لون الهيدر</label>
         <input type="color" id="headerColor">
       </div>
     </div>
-    <div id="previewBox" class="preview-box"></div>
   </section>
 
   <section>
-    <h2>🖼️ Banners & Logos</h2>
-    <label>Upload Logo</label>
-    <input type="file" accept="image/*">
-    <label>Upload Main Banner</label>
-    <input type="file" accept="image/*">
-    <label>Upload Promo Banners (Multiple)</label>
-    <input type="file" multiple accept="image/*">
-    <label>Number of Promo Banners to Show</label>
+    <h2>🖼️ البنرات واللوجو</h2>
+    <label>رفع اللوجو</label>
+    <input type="file">
+    <label>رفع البنر الرئيسي</label>
+    <input type="file">
+    <label>رفع بانرات إضافية (أكثر من واحد)</label>
+    <input type="file" multiple>
+    <label>عدد البانرات المعروضة</label>
     <input type="number" min="1" max="10" value="3">
   </section>
 
   <section class="font-section">
-    <h2>🔤 Font Settings</h2>
-    <label>Header Font</label>
+    <h2>🔤 إعدادات الخط</h2>
+    <label>خط العناوين</label>
     <select>
       <option>Roboto</option>
       <option>Arial</option>
@@ -141,7 +131,7 @@
       <option>Georgia</option>
       <option>Verdana</option>
     </select>
-    <label>Body Font</label>
+    <label>خط المحتوى</label>
     <select>
       <option>Roboto</option>
       <option>Arial</option>
@@ -152,98 +142,43 @@
   </section>
 
   <section>
-    <h2>🔒 Password Settings</h2>
-    <label>Enter Current Password</label>
+    <h2>🔒 إعدادات كلمة المرور</h2>
+    <label>أدخل كلمة المرور الحالية</label>
     <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
-    <label>New Password</label>
+
+    <label>كلمة المرور الجديدة</label>
     <input type="password" id="newPass" onfocus="hidePass('oldPass')">
-    <label>Confirm New Password</label>
+
+    <label>تأكيد كلمة المرور الجديدة</label>
     <input type="password" id="confirmPass">
   </section>
 
   <section>
-    <h2>🧩 Page Structure</h2>
-    <label><input type="checkbox" checked> Show Featured Section</label>
-    <label><input type="checkbox" checked> Show Testimonials</label>
-    <label><input type="checkbox" checked> Show Offers Section</label>
-    <label><input type="checkbox"> Enable Scroll Animations</label>
-    <label><input type="checkbox"> Show WhatsApp Floating Button</label>
+    <h2>🧩 مكونات الصفحة</h2>
+    <label><input type="checkbox" checked> عرض قسم العروض المميزة</label>
+    <label><input type="checkbox" checked> عرض آراء العملاء</label>
+    <label><input type="checkbox" checked> عرض قسم الخصومات</label>
+    <label><input type="checkbox"> تفعيل تأثيرات التمرير</label>
+    <label><input type="checkbox"> عرض زر واتساب العائم</label>
   </section>
 
   <section>
-    <h2>⚙️ General Options</h2>
-    <label><input type="checkbox"> Enable Notifications</label>
-    <label><input type="checkbox"> Maintenance Mode</label>
-    <label>Session Timeout (mins)</label>
+    <h2>⚙️ إعدادات عامة</h2>
+    <label><input type="checkbox"> تفعيل الإشعارات</label>
+    <label><input type="checkbox"> وضع الصيانة</label>
+    <label>مدة الجلسة (بالدقائق)</label>
     <input type="number" value="5">
   </section>
 
   <section style="text-align:center">
-    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
-    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
+    <button class="submit-btn">💾 حفظ الإعدادات</button>
+    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">إعادة الوضع الافتراضي</button>
   </section>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4c",
-      authDomain: "echoshop-de4a2.firebaseapp.com",
-      projectId: "echoshop-de4a2",
-      storageBucket: "echoshop-de4a2.appspot.com",
-      messagingSenderId: "520831479136",
-      appId: "1:520831479136:web:c13b15240347b834e46a05",
-      measurementId: "G-33719HZKKP"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    function updatePreview() {
-      const preview = document.getElementById("previewBox");
-      preview.style.background = document.getElementById("mainBg").value;
-    }
-
-    window.saveSettings = async function () {
-      const settings = {
-        mainBg: document.getElementById("mainBg").value,
-        primary: document.getElementById("primary").value,
-        secondary: document.getElementById("secondary").value,
-        headerColor: document.getElementById("headerColor").value
-      };
-
-      try {
-        await setDoc(doc(db, "admin", "themeSettings"), settings);
-        alert("Settings saved to Firebase successfully!");
-      } catch (e) {
-        console.error("Error saving settings:", e);
-        alert("Error saving settings to Firebase.");
-      }
-    };
-
-    window.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const docSnap = await getDoc(doc(db, "admin", "themeSettings"));
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          if (data.mainBg) document.getElementById("mainBg").value = data.mainBg;
-          if (data.primary) document.getElementById("primary").value = data.primary;
-          if (data.secondary) document.getElementById("secondary").value = data.secondary;
-          if (data.headerColor) document.getElementById("headerColor").value = data.headerColor;
-          updatePreview();
-        }
-      } catch (e) {
-        console.error("Error loading settings:", e);
-      }
-      document.getElementById("mainBg").addEventListener("input", updatePreview);
-    });
-  </script>
 
   <script>
     function logout() {
-      alert("Logged out!");
-      location.href = "index.html";
+      alert("تم تسجيل الخروج!");
+      location.href = "index-ar.html";
     }
     function revealTemp(id) {
       document.getElementById(id).type = "text";

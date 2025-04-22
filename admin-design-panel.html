@@ -64,10 +64,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1;
+      flex: 1 1 20%;
     }
     .preview-box {
-      height: 90px;
+      height: 100px;
       width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
@@ -120,7 +120,7 @@
   </section>
 
   <section style="text-align:center">
-    <button class="submit-btn" onclick="saveSettings()">📂 Save Settings</button>
+    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
     <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
   </section>
 
@@ -178,6 +178,7 @@
       } catch (e) {
         console.error("Error loading settings:", e);
       }
+
       document.getElementById("mainBg").addEventListener("input", updatePreview);
     });
   </script>

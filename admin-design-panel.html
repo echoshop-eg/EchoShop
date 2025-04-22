@@ -124,7 +124,7 @@
 
   <section style="text-align:center">
     <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
-    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
+    <button class="submit-btn" onclick="resetToDefault()" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
   </section>
 
   <script type="module">
@@ -165,6 +165,14 @@
         console.error("Error saving settings:", e);
         alert("Error saving settings to Firebase.");
       }
+    };
+
+    window.resetToDefault = function () {
+      document.getElementById("mainBg").value = "#0f172a";
+      document.getElementById("primary").value = "#3b82f6";
+      document.getElementById("secondary").value = "#22c55e";
+      document.getElementById("headerColor").value = "#a3e635";
+      updatePreview();
     };
 
     window.addEventListener("DOMContentLoaded", async () => {

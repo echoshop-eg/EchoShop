@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,13 +64,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1 1 20%;
-    }
-    .preview-box {
-      height: 100px;
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
     }
     .submit-btn {
       background: #3b82f6;
@@ -101,32 +94,87 @@
     <div class="color-row">
       <div class="color-box">
         <label for="mainBg">Main Background</label>
-        <input type="color" id="mainBg">
+        <input type="color" id="mainBg" onchange="saveSettings()">
       </div>
       <div class="color-box">
         <label for="primary">Primary Accent</label>
-        <input type="color" id="primary">
+        <input type="color" id="primary" onchange="saveSettings()">
       </div>
       <div class="color-box">
         <label for="secondary">Secondary Accent</label>
-        <input type="color" id="secondary">
+        <input type="color" id="secondary" onchange="saveSettings()">
       </div>
       <div class="color-box">
         <label for="headerColor">Header Color</label>
-        <input type="color" id="headerColor">
+        <input type="color" id="headerColor" onchange="saveSettings()">
       </div>
     </div>
-    <div id="previewBox" class="preview-box"></div>
   </section>
 
-  <section style="text-align:center">
-    <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
-    <button class="submit-btn" style="background:#ef4444;margin-left:1rem" onclick="resetToDefault()">Reset to Default</button>
+  <section>
+    <h2>🖼️ Banners and Logo</h2>
+    <label>Upload Logo</label>
+    <input type="file" onchange="saveSettings()">
+    <label>Upload Main Banner</label>
+    <input type="file" onchange="saveSettings()">
+    <label>Upload Additional Banners (Multiple)</label>
+    <input type="file" multiple onchange="saveSettings()">
+    <label>Number of Banners Displayed</label>
+    <input type="number" min="1" max="10" value="3" onchange="saveSettings()">
+  </section>
+
+  <section class="font-section">
+    <h2>🔤 Font Settings</h2>
+    <label>Title Font</label>
+    <select onchange="saveSettings()">
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+    <label>Content Font</label>
+    <select onchange="saveSettings()">
+      <option>Roboto</option>
+      <option>Arial</option>
+      <option>Tahoma</option>
+      <option>Georgia</option>
+      <option>Verdana</option>
+    </select>
+  </section>
+
+  <section>
+    <h2>🔒 Password Settings</h2>
+    <label>Enter Current Password</label>
+    <input type="password" id="oldPass" oninput="revealTemp('oldPass')">
+
+    <label>New Password</label>
+    <input type="password" id="newPass" onfocus="hidePass('oldPass')" onchange="saveSettings()">
+
+    <label>Confirm New Password</label>
+    <input type="password" id="confirmPass" onchange="saveSettings()">
+  </section>
+
+  <section>
+    <h2>🧩 Page Components</h2>
+    <label><input type="checkbox" checked onchange="saveSettings()"> Show Featured Offers Section</label>
+    <label><input type="checkbox" checked onchange="saveSettings()"> Show Customer Reviews</label>
+    <label><input type="checkbox" checked onchange="saveSettings()"> Show Discounts Section</label>
+    <label><input type="checkbox" onchange="saveSettings()"> Enable Scrolling Effects</label>
+    <label><input type="checkbox" onchange="saveSettings()"> Show WhatsApp Floating Button</label>
+  </section>
+
+  <section>
+    <h2>⚙️ General Settings</h2>
+    <label><input type="checkbox" onchange="saveSettings()"> Enable Notifications</label>
+    <label><input type="checkbox" onchange="saveSettings()"> Maintenance Mode</label>
+    <label>Session Duration (Minutes)</label>
+    <input type="number" value="5" onchange="saveSettings()">
   </section>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4c",
@@ -141,60 +189,34 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    function updatePreview() {
-      const bg = document.getElementById("mainBg").value;
-      const preview = document.getElementById("previewBox");
-      preview.style.background = bg;
-    }
-
-    window.saveSettings = async function () {
+    async function saveSettings() {
       const settings = {
-        mainBg: document.getElementById("mainBg").value,
-        primary: document.getElementById("primary").value,
-        secondary: document.getElementById("secondary").value,
-        headerColor: document.getElementById("headerColor").value
+        mainBg: document.getElementById("mainBg")?.value,
+        primary: document.getElementById("primary")?.value,
+        secondary: document.getElementById("secondary")?.value,
+        headerColor: document.getElementById("headerColor")?.value,
       };
 
       try {
-        await setDoc(doc(db, "admin", "themeSettings"), settings);
-        alert("Settings saved to Firebase successfully!");
+        await setDoc(doc(db, "admin", "settings"), settings);
+        alert("Settings saved successfully!");
       } catch (e) {
         console.error("Error saving settings:", e);
         alert("Error saving settings to Firebase.");
       }
-    };
+    }
 
-    window.resetToDefault = function () {
-      document.getElementById("mainBg").value = "#000000";
-      document.getElementById("primary").value = "#ffffff";
-      document.getElementById("secondary").value = "#808080";
-      document.getElementById("headerColor").value = "#a3e635";
-      updatePreview();
-    };
-
-    window.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const docSnap = await getDoc(doc(db, "admin", "themeSettings"));
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          if (data.mainBg) document.getElementById("mainBg").value = data.mainBg;
-          if (data.primary) document.getElementById("primary").value = data.primary;
-          if (data.secondary) document.getElementById("secondary").value = data.secondary;
-          if (data.headerColor) document.getElementById("headerColor").value = data.headerColor;
-          updatePreview();
-        }
-      } catch (e) {
-        console.error("Error loading settings:", e);
-      }
-
-      document.getElementById("mainBg").addEventListener("input", updatePreview);
-    });
-  </script>
-
-  <script>
     function logout() {
       alert("Logged out!");
-      location.href = "index.html";
+      location.href = "index-en.html";
+    }
+
+    function revealTemp(id) {
+      document.getElementById(id).type = "text";
+    }
+
+    function hidePass(id) {
+      document.getElementById(id).type = "password";
     }
   </script>
 </body>

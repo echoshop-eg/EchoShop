@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,6 +64,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1 1 20%;
+    }
+    .preview-box {
+      height: 100px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
     .submit-btn {
       background: #3b82f6;
@@ -109,77 +116,84 @@
         <input type="color" id="headerColor">
       </div>
     </div>
+    <div id="previewBox" class="preview-box"></div>
   </section>
 
-  <section>
-    <h2>🖼️ Banners and Logo</h2>
-    <label>Upload Logo</label>
-    <input type="file">
-    <label>Upload Main Banner</label>
-    <input type="file">
-    <label>Upload Additional Banners (Multiple)</label>
-    <input type="file" multiple>
-    <label>Number of Banners Displayed</label>
-    <input type="number" min="1" max="10" value="3">
-  </section>
-
-  <section class="font-section">
-    <h2>🔤 Font Settings</h2>
-    <label>Title Font</label>
-    <select>
-      <option>Roboto</option>
-      <option>Arial</option>
-      <option>Tahoma</option>
-      <option>Georgia</option>
-      <option>Verdana</option>
-    </select>
-    <label>Content Font</label>
-    <select>
-      <option>Roboto</option>
-      <option>Arial</option>
-      <option>Tahoma</option>
-      <option>Georgia</option>
-      <option>Verdana</option>
-    </select>
-  </section>
-
-  <section>
-    <h2>🔒 Password Settings</h2>
-    <label>Enter Current Password</label>
-    <input type="password" id="oldPass">
-
-    <label>New Password</label>
-    <input type="password" id="newPass">
-
-    <label>Confirm New Password</label>
-    <input type="password" id="confirmPass">
-  </section>
-
-  <section>
-    <h2>🧩 Page Components</h2>
-    <label><input type="checkbox" checked> Show Featured Offers Section</label>
-    <label><input type="checkbox" checked> Show Customer Reviews</label>
-    <label><input type="checkbox" checked> Show Discounts Section</label>
-    <label><input type="checkbox"> Enable Scrolling Effects</label>
-    <label><input type="checkbox"> Show WhatsApp Floating Button</label>
-  </section>
-
-  <section>
-    <h2>⚙️ General Settings</h2>
-    <label><input type="checkbox"> Enable Notifications</label>
-    <label><input type="checkbox"> Maintenance Mode</label>
-    <label>Session Duration (Minutes)</label>
-    <input type="number" value="5">
-  </section>
-
-  <section style="text-align:center; margin-top: 2rem;">
+  <section style="text-align:center">
     <button class="submit-btn" onclick="saveSettings()">💾 Save Settings</button>
-    <button class="submit-btn" style="background:#ef4444; margin-left:1rem;" onclick="resetToDefault()">Reset to Default</button>
+    <button class="submit-btn" style="background:#ef4444;margin-left:1rem">Reset to Default</button>
   </section>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4
+      apiKey: "AIzaSyAYRpJvuoCgfppD39Vi8ZCLGjRj3XEuT4c",
+      authDomain: "echoshop-de4a2.firebaseapp.com",
+      projectId: "echoshop-de4a2",
+      storageBucket: "echoshop-de4a2.appspot.com",
+      messagingSenderId: "520831479136",
+      appId: "1:520831479136:web:c13b15240347b834e46a05",
+      measurementId: "G-33719HZKKP"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function updatePreview() {
+      const bg = document.getElementById("mainBg").value;
+      const preview = document.getElementById("previewBox");
+      preview.style.background = bg;
+    }
+
+    window.saveSettings = async function () {
+      const settings = {
+        mainBg: document.getElementById("mainBg").value,
+        primary: document.getElementById("primary").value,
+        secondary: document.getElementById("secondary").value,
+        headerColor: document.getElementById("headerColor").value
+      };
+
+      try {
+        await setDoc(doc(db, "admin", "themeSettings"), settings);
+        alert("Settings saved to Firebase successfully!");
+      } catch (e) {
+        console.error("Error saving settings:", e);
+        alert("Error saving settings to Firebase.");
+      }
+    };
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const docSnap = await getDoc(doc(db, "admin", "themeSettings"));
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.mainBg) document.getElementById("mainBg").value = data.mainBg;
+          if (data.primary) document.getElementById("primary").value = data.primary;
+          if (data.secondary) document.getElementById("secondary").value = data.secondary;
+          if (data.headerColor) document.getElementById("headerColor").value = data.headerColor;
+          updatePreview();
+        }
+      } catch (e) {
+        console.error("Error loading settings:", e);
+      }
+
+      document.getElementById("mainBg").addEventListener("input", updatePreview);
+    });
+  </script>
+
+  <script>
+    function logout() {
+      alert("Logged out!");
+      location.href = "index.html";
+    }
+    function revealTemp(id) {
+      document.getElementById(id).type = "text";
+    }
+    function hidePass(id) {
+      document.getElementById(id).type = "password";
+    }
+  </script>
+</body>
+</html>

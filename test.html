@@ -20,13 +20,13 @@
   </form>
   <p id="message" style="margin-top: 20px; font-weight: bold;"></p>
 
-  <!-- Supabase CDN v2 -->
+  <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://biehwuhajpwwikdjqrbn.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBlcmJhc2UiLCJpYXQiOjE2OTk3MjAzMDksImV4cCI6MjAxNDY5NjMwOSwicm9sZSI6ImFub24iLCJpZCI6InRlc3QtdXNlciJ9.sVK7VoDKsfYErfOhN7CUIRcgLXRqD6vUvHR2zAdxf9U";
 
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const form = document.getElementById("simpleForm");
     const msg = document.getElementById("message");
@@ -46,7 +46,7 @@
         msg.textContent = "❌ فشل التسجيل: " + error.message;
       } else {
         msg.style.color = "green";
-        msg.textContent = "✅ تم التسجيل بنجاح! برجاء تأكيد الإيميل من صندوق الوارد.";
+        msg.textContent = "✅ تم التسجيل بنجاح! برجاء تأكيد الإيميل.";
         form.reset();
       }
     });

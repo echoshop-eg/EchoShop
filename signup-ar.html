@@ -99,92 +99,4 @@
 <body>
   <div class="signup-box">
     <a class="back-btn" href="index-ar.html">🔙 عودة</a>
-
-    <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="EchoShop Logo" class="logo" />
-
-    <h2>إنشاء حساب جديد</h2>
-    <form id="signupForm">
-      <label for="name">الاسم الكامل</label>
-      <input type="text" id="name" placeholder="محمد أحمد" required>
-
-      <label for="email">البريد الإلكتروني</label>
-      <input type="email" id="email" placeholder="you@example.com" required>
-
-      <label for="password">كلمة المرور</label>
-      <input type="password" id="password" placeholder="********" required>
-
-      <label for="confirm">تأكيد كلمة المرور</label>
-      <input type="password" id="confirm" placeholder="********" required>
-
-      <label for="role">نوع المستخدم</label>
-      <select id="role" required>
-        <option value="">-- اختر --</option>
-        <option value="client">عميل</option>
-        <option value="seller">تاجر</option>
-      </select>
-
-      <button type="submit">إنشاء حساب</button>
-    </form>
-
-    <p class="success-msg" id="successMsg">✅ تم إنشاء الحساب بنجاح!</p>
-
-    <div class="login-link">
-      <a href="login-ar.html">لديك حساب بالفعل؟ سجل الدخول</a>
-    </div>
-
-    <div class="lang-toggle">
-      <a href="signup.html">English</a>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const SUPABASE_URL = "https://biehwuha...supabase.co"; // ← عدل ده بالرابط الكامل بتاعك
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1Ni..."; // ← وهنا كمان حط المفتاح الكامل
-
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("signupForm");
-      const successMsg = document.getElementById("successMsg");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const confirm = document.getElementById("confirm").value;
-        const role = document.getElementById("role").value;
-
-        if (password !== confirm) {
-          alert("كلمات المرور غير متطابقة.");
-          return;
-        }
-
-        const { data, error } = await supabase.auth.signUp({ email, password });
-
-        if (error) {
-          alert("خطأ في التسجيل: " + error.message);
-          return;
-        }
-
-        const { error: insertError } = await supabase
-          .from("user")
-          .insert([{ email, password, role }]);
-
-        if (insertError) {
-          alert("حدث خطأ أثناء حفظ البيانات: " + insertError.message);
-          return;
-        }
-
-        successMsg.style.display = "block";
-        form.reset();
-
-        setTimeout(() => {
-          window.location.href = "index-ar.html";
-        }, 2000);
-      });
-    });
-  </script>
-</body>
-</html>
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="EchoSh

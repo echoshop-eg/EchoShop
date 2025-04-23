@@ -38,12 +38,16 @@
 
       const { data, error } = await supabase.auth.signUp({ email, password });
 
+      // ✅ Logs for debugging
+      console.log("📦 Data:", data);
+      console.log("❌ Error:", error);
+
       if (error) {
         msg.style.color = "red";
         msg.textContent = "❌ فشل التسجيل: " + error.message;
       } else {
         msg.style.color = "green";
-        msg.textContent = "✅ تم التسجيل بنجاح!";
+        msg.textContent = "✅ تم التسجيل بنجاح! برجاء تأكيد الإيميل من صندوق الوارد.";
         form.reset();
       }
     });

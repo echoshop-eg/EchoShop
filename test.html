@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل بسيط - EchoShop</title>
+</head>
+<body style="font-family: sans-serif; background: #f1f5f9; padding: 2rem; text-align: center;">
+  <h2>🔐 تجربة تسجيل حساب على Supabase</h2>
+  <form id="simpleForm" style="background: white; padding: 1.5rem; border-radius: 8px; display: inline-block;">
+    <div>
+      <label>الإيميل</label><br>
+      <input type="email" id="email" placeholder="you@example.com" required style="padding: 8px; width: 250px;"><br><br>
+    </div>
+    <div>
+      <label>كلمة المرور</label><br>
+      <input type="password" id="password" placeholder="********" required style="padding: 8px; width: 250px;"><br><br>
+    </div>
+    <button type="submit" style="padding: 10px 20px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">سجل الآن</button>
+  </form>
+  <p id="message" style="margin-top: 20px; font-weight: bold;"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://biehwuhajpwwikdjqrbn.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBlcmJhc2UiLCJpYXQiOjE2OTk3MjAzMDksImV4cCI6MjAxNDY5NjMwOSwicm9sZSI6ImFub24iLCJpZCI6InRlc3QtdXNlciJ9.sVK7VoDKsfYErfOhN7CUIRcgLXRqD6vUvHR2zAdxf9U";
+
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById("simpleForm");
+    const msg = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { data, error } = await supabase.auth.signUp({ email, password });
+
+      if (error) {
+        msg.style.color = "red";
+        msg.textContent = "❌ فشل التسجيل: " + error.message;
+      } else {
+        msg.style.color = "green";
+        msg.textContent = "✅ تم التسجيل بنجاح!";
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
